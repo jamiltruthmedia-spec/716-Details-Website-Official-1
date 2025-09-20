@@ -13,10 +13,10 @@
     <link rel="canonical" href="https://www.716details.net/">
     
     <!-- Vercel Speed Insights -->
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    <script type="module">
+      import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights@1';
+      injectSpeedInsights();
     </script>
-    <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
