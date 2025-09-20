@@ -1,0 +1,64 @@
+# 716 Details Robots.txt
+# https://www.716details.net
+# Car Detailing Services in Lewiston NY and Niagara County
+
+# Allow all good search engines
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /templates/
+Disallow: /custom*
+Disallow: /*.pdf$
+Disallow: /README.md
+Disallow: /vercel.json
+
+# Googlebot specific - prioritize indexing
+User-agent: Googlebot
+Allow: /
+Allow: /locations/
+Allow: /*.html
+Crawl-delay: 0
+
+# Bingbot specific
+User-agent: Bingbot
+Allow: /
+Allow: /locations/
+Allow: /*.html
+Crawl-delay: 1
+
+# Block aggressive SEO bots that don't provide value
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Sitemap locations
+Sitemap: https://www.716details.net/sitemap.xml
