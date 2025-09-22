@@ -12,6 +12,11 @@
     <!-- Canonical URL - CRITICAL FOR SEO -->
     <link rel="canonical" href="https://www.716details.net/">
     
+    <!-- Vercel Speed Insights -->
+    <script type="module">
+      import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights@1';
+      injectSpeedInsights();
+    </script>
     
     <!-- Vercel Web Analytics -->
     <script>
@@ -57,7 +62,6 @@
     <link rel="stylesheet" href="styles.css">
     
     <!-- Critical Performance Optimizations -->
-    <link rel="preconnect" href="https://esm.sh">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -65,9 +69,6 @@
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="Homepage Services images/full detail.webp" as="image">
-    <link rel="preload" href="Homepage Services images/ceramic coating.webp" as="image">
-    <link rel="preload" href="Homepage Services images/mobiledetail.webp" as="image">
     
     <!-- Preload Critical Fonts -->
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin>
@@ -670,7 +671,13 @@
                 <!-- Full Detail -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="Homepage Services images/full detail.webp" alt="Full car detailing service in Lewiston NY - complete interior and exterior cleaning" loading="lazy">
+                        <img src="Homepage Services images/full detail.webp" 
+                             srcset="Homepage Services images/full detail.webp 608w, Homepage Services images/full detail.webp 1216w" 
+                             sizes="(max-width: 768px) 304px, 350px" 
+                             alt="Full car detailing service in Lewiston NY - complete interior and exterior cleaning" 
+                             loading="lazy" 
+                             width="350" 
+                             height="405">
                     </div>
                     <h3><a href="full-detail.html">Full Detail</a></h3>
                     <ul class="service-features">
@@ -689,7 +696,11 @@
                 <!-- Interior Detail -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="Homepage Services images/interior detail.webp" alt="Interior car detailing service in Niagara County NY - leather cleaning and dashboard restoration" loading="lazy">
+                        <img src="Homepage Services images/interior detail.webp" 
+                             alt="Interior car detailing service in Niagara County NY - leather cleaning and dashboard restoration" 
+                             loading="lazy" 
+                             width="350" 
+                             height="260">
                     </div>
                     <h3><a href="interior-detailing.html">Interior Detail</a></h3>
                     <ul class="service-features">
@@ -728,7 +739,13 @@
                 <div class="service-card featured">
                     <div class="service-badge">Most Popular</div>
                     <div class="service-icon">
-                        <img src="Homepage Services images/ceramic coating.webp" alt="Ceramic coating service in Niagara County NY - paint protection and gloss enhancement" loading="lazy">
+                        <img src="Homepage Services images/ceramic coating.webp" 
+                             srcset="Homepage Services images/ceramic coating.webp 608w, Homepage Services images/ceramic coating.webp 1216w" 
+                             sizes="(max-width: 768px) 304px, 350px" 
+                             alt="Ceramic coating service in Niagara County NY - paint protection and gloss enhancement" 
+                             loading="lazy" 
+                             width="350" 
+                             height="350">
                     </div>
                     <h3><a href="ceramic-coating.html">Ceramic Coating</a></h3>
                     <ul class="service-features">
@@ -747,7 +764,11 @@
                 <!-- Mobile Luxury Service -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="Homepage Services images/mobiledetail.webp" alt="Mobile car detailing service in Lewiston NY - we come to you" loading="lazy">
+                        <img src="Homepage Services images/mobiledetail.webp" 
+                             alt="Mobile car detailing service in Lewiston NY - we come to you" 
+                             loading="lazy" 
+                             width="350" 
+                             height="260">
                     </div>
                     <h3><a href="mobile-car-detailing.html">Mobile Luxury Service</a></h3>
                     <ul class="service-features">
@@ -766,7 +787,11 @@
                 <!-- RV Detail -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="Homepage Services images/rv detail.webp" alt="RV detailing service in Niagara County NY - motorhome and camper cleaning" loading="lazy">
+                        <img src="Homepage Services images/rv detail.webp" 
+                             alt="RV detailing service in Niagara County NY - motorhome and camper cleaning" 
+                             loading="lazy" 
+                             width="350" 
+                             height="260">
                     </div>
                     <h3><a href="rv-detailing.html">RV Detail</a></h3>
                     <ul class="service-features">
@@ -785,7 +810,11 @@
                 <!-- Boat Detail -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="Homepage Services images/Boat Detail.webp" alt="Boat detailing service in Lewiston NY - marine cleaning and gel coat restoration" loading="lazy">
+                        <img src="Homepage Services images/Boat Detail.webp" 
+                             alt="Boat detailing service in Lewiston NY - marine cleaning and gel coat restoration" 
+                             loading="lazy" 
+                             width="350" 
+                             height="260">
                     </div>
                     <h3><a href="boat-detailing.html">Boat Detail</a></h3>
                     <ul class="service-features">
@@ -804,7 +833,11 @@
                 <!-- Window Tinting -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="Homepage Services images/window tint.webp" alt="Professional window tinting service in Lewiston NY - UV protection and privacy" loading="lazy">
+                        <img src="Homepage Services images/window tint.webp" 
+                             alt="Professional window tinting service in Lewiston NY - UV protection and privacy" 
+                             loading="lazy" 
+                             width="350" 
+                             height="260">
                     </div>
                     <h3><a href="window-tinting.html">Window Tinting</a></h3>
                     <ul class="service-features">
@@ -823,7 +856,11 @@
                 <!-- Fleet Detail -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="Homepage Services images/Fleet trailer.webp" alt="Fleet detailing service in Niagara County NY - commercial vehicle cleaning" loading="lazy">
+                        <img src="Homepage Services images/Fleet trailer.webp" 
+                             alt="Fleet detailing service in Niagara County NY - commercial vehicle cleaning" 
+                             loading="lazy" 
+                             width="350" 
+                             height="260">
                     </div>
                     <h3><a href="mobile-car-detailing.html">Fleet Detail</a></h3>
                     <ul class="service-features">
@@ -842,7 +879,11 @@
                 <!-- Dealership Detail -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="Homepage Services images/dealership detail.webp" alt="Dealership detailing service in Lewiston NY - pre-sale vehicle preparation" loading="lazy">
+                        <img src="Homepage Services images/dealership detail.webp" 
+                             alt="Dealership detailing service in Lewiston NY - pre-sale vehicle preparation" 
+                             loading="lazy" 
+                             width="350" 
+                             height="260">
                     </div>
                     <h3><a href="dealership-detailing.html">Dealership Detail</a></h3>
                     <ul class="service-features">
@@ -1484,12 +1525,6 @@
             lastTouchEnd = now;
         }, false);
     });
-    </script>
-    
-    <!-- Vercel Speed Insights - Loaded after critical content -->
-    <script type="module">
-      import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights@1';
-      injectSpeedInsights();
     </script>
 </body>
 </html>
