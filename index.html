@@ -12,11 +12,6 @@
     <!-- Canonical URL - CRITICAL FOR SEO -->
     <link rel="canonical" href="https://www.716details.net/">
     
-    <!-- Vercel Speed Insights -->
-    <script type="module">
-      import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights@1';
-      injectSpeedInsights();
-    </script>
     
     <!-- Vercel Web Analytics -->
     <script>
@@ -62,6 +57,7 @@
     <link rel="stylesheet" href="styles.css">
     
     <!-- Critical Performance Optimizations -->
+    <link rel="preconnect" href="https://esm.sh">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -1488,6 +1484,12 @@
             lastTouchEnd = now;
         }, false);
     });
+    </script>
+    
+    <!-- Vercel Speed Insights - Loaded after critical content -->
+    <script type="module">
+      import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights@1';
+      injectSpeedInsights();
     </script>
 </body>
 </html>
