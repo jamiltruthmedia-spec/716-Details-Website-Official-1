@@ -1,0 +1,22 @@
+{
+    "name": "716 Details - Car Detailing Service",
+    "short_name": "716 Details",
+    "description": "Niagara County's luxury car detailing service specializing in ceramic coating, paint correction, and mobile detailing.",
+    "icons": [
+        {
+            "src": "web-app-manifest-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "web-app-manifest-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#4F7CFF",
+    "background_color": "#000000",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/"
+}
