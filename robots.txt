@@ -1,5 +1,5 @@
 # 716 Details Robots.txt
-# https://www.716details.net
+# https://www.716detailing.com
 # Car Detailing Services in Lewiston NY and Niagara County
 
 # Allow all good search engines
@@ -61,4 +61,4 @@ User-agent: LinkedInBot
 Allow: /
 
 # Sitemap locations
-Sitemap: https://www.716details.net/sitemap.xml
+Sitemap: https://www.716detailing.com/sitemap.xml
