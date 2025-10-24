@@ -5,17 +5,52 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100%;
+    overflow-x: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* Ensure no element can cause horizontal overflow */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: #ffffff;
     background-color: #000000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 /* Accessibility - Screen Reader Only */
@@ -80,11 +115,15 @@ a {
     position: fixed;
     top: 0;
     width: 100%;
+    max-width: 100vw;
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 0;
     border-bottom: 1px solid rgba(255,255,255,0.1);
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
 }
 
 .nav-container {
@@ -94,6 +133,10 @@ a {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .nav-logo a {
@@ -306,6 +349,7 @@ a {
     color: white;
     overflow: hidden;
     background: #000000;
+    max-width: 100vw;
 }
 
 .hero-background {
@@ -348,6 +392,8 @@ a {
     z-index: 2;
     max-width: 900px;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-content h1 {
@@ -650,6 +696,216 @@ a {
 }
 
 /* About Section */
+/* Reviews Widget Section */
+.reviews-widget-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+    margin: 40px 0;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reviews-widget-section::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+    background: linear-gradient(45deg, rgba(79, 124, 255, 0.08) 0%, rgba(79, 124, 255, 0.03) 50%, rgba(79, 124, 255, 0.08) 100%);
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+.reviews-widget-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.lc_reviews_widget {
+    width: 100% !important;
+    height: 300px !important;
+    min-height: 300px !important;
+    max-height: 300px !important;
+    border: none !important;
+    border-radius: 12px;
+    box-shadow: 
+        0 0 20px rgba(79, 124, 255, 0.2),
+        0 0 40px rgba(79, 124, 255, 0.15),
+        0 0 60px rgba(79, 124, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    /* Fix mobile scrolling issues - allow page scrolling through iframe */
+    pointer-events: none;
+    /* Ensure it doesn't cause layout shifts */
+    display: block;
+    margin: 0 auto;
+}
+
+.lc_reviews_widget:hover {
+    box-shadow: 
+        0 0 25px rgba(79, 124, 255, 0.25),
+        0 0 50px rgba(79, 124, 255, 0.2),
+        0 0 75px rgba(79, 124, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Ensure smooth loading */
+.lc_reviews_widget {
+    opacity: 0;
+    animation: fadeInWidget 1.2s ease-in-out forwards;
+    transform: translateY(10px);
+}
+
+@keyframes fadeInWidget {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading placeholder */
+.reviews-widget-section::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(79, 124, 255, 0.3);
+    border-top: 3px solid #4F7CFF;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 1;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Hide loading spinner when widget loads */
+.lc_reviews_widget:not([style*="opacity: 0"]) ~ .reviews-widget-section::after {
+    display: none;
+}
+
+/* Mobile responsiveness for reviews widget */
+@media (max-width: 768px) {
+    /* Prevent zoom and horizontal scroll on mobile */
+    html {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    body {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .reviews-widget-section {
+        padding: 40px 0;
+        margin: 30px 0;
+        overflow-x: hidden;
+        max-width: 100vw;
+        min-height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .reviews-widget-section::before {
+        top: -30px;
+        left: 0;
+        right: 0;
+        bottom: -30px;
+    }
+    
+    .lc_reviews_widget {
+        height: 250px !important;
+        min-height: 250px !important;
+        max-height: 250px !important;
+        border-radius: 8px;
+        /* Allow page scrolling through iframe on mobile */
+        pointer-events: none;
+        max-width: 100%;
+        width: 100% !important;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    /* Fix mobile navigation overflow */
+    .nav-container {
+        padding: 0 15px;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .nav-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-end;
+    }
+    
+    .nav-contact .cta-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        white-space: nowrap;
+    }
+    
+    /* Ensure all containers stay within viewport */
+    .container {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    /* Prevent hero section from causing horizontal scroll */
+    .hero {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+}
+
+/* Additional mobile touch fixes */
+@media (max-width: 768px) {
+    .reviews-widget-section {
+        /* Allow scrolling through the section */
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+    
+    /* Ensure parent containers don't interfere with scrolling */
+    .reviews-widget-section .container {
+        touch-action: pan-y;
+    }
+}
+
 .about {
     padding: 100px 0;
     background: #000000;
