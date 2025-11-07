@@ -98,22 +98,61 @@
         
         /* Form Container */
         .form-container {
-            background: #000000;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             padding: 3rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 8px 30px rgba(255,255,255,0.08);
-            max-width: 900px;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            background-image: 
+                linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%),
+                linear-gradient(135deg, #4F7CFF 0%, #7B9EFF 50%, #4F7CFF 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 
+                0 0 40px rgba(79, 124, 255, 0.15),
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            max-width: 680px;
             margin: 0 auto;
             width: 100%;
             scroll-margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(79, 124, 255, 0.3) 50%, 
+                transparent 100%);
         }
         
         .form-container h2 {
             font-size: 2rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             color: #ffffff;
             text-align: center;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .form-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #4F7CFF 0%, #7B9EFF 100%);
+            border-radius: 2px;
         }
         
         .form-container p {
@@ -128,9 +167,12 @@
             width: 100%;
             min-height: 550px;
             overflow: visible;
-            border-radius: 8px;
-            margin-bottom: 2rem;
+            border-radius: 12px;
+            margin-bottom: 0;
             transition: min-height 0.5s ease;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1rem;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
         }
         
         .iframe-container iframe {
@@ -138,8 +180,9 @@
             height: 100%;
             min-height: 550px;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             transition: min-height 0.5s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         
         /* Emergency CTA */
@@ -200,10 +243,14 @@
             }
             
             .form-container {
-                padding: 1.5rem 1rem;
+                padding: 2rem 1.25rem;
                 max-width: 100%;
-                border-radius: 12px;
+                border-radius: 16px;
                 scroll-margin-top: 90px;
+                box-shadow: 
+                    0 0 30px rgba(79, 124, 255, 0.12),
+                    0 15px 40px rgba(0, 0, 0, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.05);
             }
             
             .form-container h2 {
@@ -213,9 +260,10 @@
             
             .iframe-container {
                 min-height: 720px;
-                margin: 0 -0.5rem 3rem -0.5rem;
-                width: calc(100% + 1rem);
+                margin: 0 -0.25rem 0 -0.25rem;
+                width: calc(100% + 0.5rem);
                 transition: min-height 0.5s ease;
+                padding: 0.75rem;
             }
             
             .iframe-container iframe {
@@ -256,9 +304,13 @@
             }
             
             .form-container {
-                padding: 1.25rem 0.75rem;
-                border-radius: 8px;
+                padding: 1.75rem 1rem;
+                border-radius: 14px;
                 scroll-margin-top: 95px;
+                box-shadow: 
+                    0 0 25px rgba(79, 124, 255, 0.1),
+                    0 10px 30px rgba(0, 0, 0, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.05);
             }
             
             .form-container h2 {
@@ -268,9 +320,10 @@
             
             .iframe-container {
                 min-height: 780px;
-                margin: 0 -0.25rem 3rem -0.25rem;
-                width: calc(100% + 0.5rem);
+                margin: 0;
+                width: 100%;
                 transition: min-height 0.5s ease;
+                padding: 0.5rem;
             }
             
             .iframe-container iframe {
@@ -373,9 +426,9 @@
                 <!-- Go High Level Form Iframe -->
                 <div class="iframe-container">
                     <iframe
-                        src="https://api.leadconnectorhq.com/widget/form/rU3lt5iV9NYWLbx3vvkC"
-                        style="width:100%;height:100%;border:none;border-radius:4px"
-                        id="inline-rU3lt5iV9NYWLbx3vvkC" 
+                        src="https://api.leadconnectorhq.com/widget/form/S1NWRLg2pO7S2NK55yZF"
+                        style="width:100%;height:100%;border:none;border-radius:10px"
+                        id="inline-S1NWRLg2pO7S2NK55yZF" 
                         data-layout="{'id':'INLINE'}"
                         data-trigger-type="alwaysShow"
                         data-trigger-value=""
@@ -383,11 +436,11 @@
                         data-activation-value=""
                         data-deactivation-type="neverDeactivate"
                         data-deactivation-value=""
-                        data-form-name="Contact Us Page"
+                        data-form-name="Form 1 - Copy"
                         data-height="492"
-                        data-layout-iframe-id="inline-rU3lt5iV9NYWLbx3vvkC"
-                        data-form-id="rU3lt5iV9NYWLbx3vvkC"
-                        title="Contact Us Page">
+                        data-layout-iframe-id="inline-S1NWRLg2pO7S2NK55yZF"
+                        data-form-id="S1NWRLg2pO7S2NK55yZF"
+                        title="Form 1 - Copy">
                     </iframe>
                     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
                 </div>
@@ -399,7 +452,7 @@
     <script>
         // Detect form submission and shrink iframe to show success message centered
         (function() {
-            const iframe = document.getElementById('inline-rU3lt5iV9NYWLbx3vvkC');
+            const iframe = document.getElementById('inline-S1NWRLg2pO7S2NK55yZF');
             const formContainer = document.querySelector('.form-container');
             const iframeContainer = document.querySelector('.iframe-container');
             
@@ -481,13 +534,19 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>716 Details</h3>
-                    <p>Niagara County's luxury car detailing service. Licensed, insured, and dedicated to excellence in automotive care since 2023.</p>
+                    <p>Niagara County's luxury car detailing service. Licensed, insured, and dedicated to excellence in automotive care since 2021.</p>
                     <div class="footer-contact">
                         <p>📍 4689 Model City Rd, Lewiston, NY 14092</p>
                         <p>📞 <a href="tel:7164059988">(716) 405-9988</a></p>
                         <p>📧 <a href="mailto:info@716detailing.com">info@716detailing.com</a></p>
                         <p>🕒 Service Hours: (By Appointment)</p>
-                        <p>Monday - Sunday: 8AM-9PM</p>
+                        <p>Monday: 8AM-9PM</p>
+                        <p>Tuesday: 8AM-9PM</p>
+                        <p>Wednesday: 8AM-9PM</p>
+                        <p>Thursday: 8AM-9PM</p>
+                        <p>Friday: 8AM-9PM</p>
+                        <p>Saturday: 8AM-9PM</p>
+                        <p>Sunday: 8AM-9PM</p>
                     </div>
                 </div>
                 <div class="footer-section">
