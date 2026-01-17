@@ -1,0 +1,101 @@
+==============================================
+INSTRUCTIONS: UPDATE YOUR .DOCX FILES
+==============================================
+
+Open each .docx file in Microsoft Word and make these changes:
+
+==============================================
+FILE 1: Brand-Voice-Conversation-AI-v2.docx
+==============================================
+
+FIND THIS TEXT (around line 483-490):
+---
+STEP 3: Offer Available Times
+"I have these times available:
+- Tuesday 11/19 at 10am
+- Wednesday 11/20 at 2pm
+- Thursday 11/21 at 9am
+
+Which works best for you?"
+---
+
+REPLACE WITH THIS:
+---
+STEP 3: Offer Available Times
+"I have these times available:
+
+- Tuesday, November 19th, 2025 at 10:00 AM
+
+- Wednesday, November 20th, 2025 at 2:00 PM
+
+- Thursday, November 21st, 2025 at 9:00 AM
+
+Which works best for you?"
+
+IMPORTANT: Always format with bullet points (-), full date format, and blank lines between each option for easy reading.
+---
+
+==============================================
+FILE 2: Booking-Process-and-Requirements.docx
+==============================================
+
+FIND THIS TEXT (around line 72-76):
+---
+OFFERING AVAILABLE TIMES:
+
+After they tell you their preferred days/times, check the calendar and offer 2-3 closest matches.
+
+Say: "I have [day] at [time], [day] at [time], and [day] at [time] available. Which works best?"
+---
+
+REPLACE WITH THIS:
+---
+OFFERING AVAILABLE TIMES:
+
+After they tell you their preferred days/times, check the calendar and offer 2-3 closest matches.
+
+Always format time slots with bullet points, full date format, and blank lines between each option:
+
+"I have these times available:
+
+- Tuesday, November 19th, 2025 at 10:00 AM
+
+- Wednesday, November 20th, 2025 at 2:00 PM
+
+- Thursday, November 21st, 2025 at 9:00 AM
+
+Which works best for you?"
+
+This format makes it easy for customers to read and choose.
+---
+
+==============================================
+FILE 3: FAQs-for-AI-Understanding-v2.docx
+==============================================
+
+FIND THIS TEXT (around line 73-76):
+---
+Question: Can you do same day service?
+
+Answer: Yes. We offer same day emergency service depending on availability. For same-day requests, please call us directly at 716-405-9988 and we will do our best to accommodate urgent situations like spills, important meetings, or last minute events.
+---
+
+REPLACE WITH THIS:
+---
+Question: Can you do same day service?
+
+Answer: For same-day or emergency service, please call us directly at (716) 405-9988 and we'll do our best to fit you in. We cannot book same-day appointments through this conversation, but our team can help you immediately by phone for urgent situations like spills, important meetings, or last minute events.
+---
+
+==============================================
+DONE!
+==============================================
+
+After making these changes:
+1. Save each .docx file
+2. Delete the old versions from GHL Knowledge Base
+3. Re-upload the updated .docx files
+
+This will fix:
+✅ Time slot formatting (easier to read with blank lines)
+✅ Same-day service conflict (matches your prompt)

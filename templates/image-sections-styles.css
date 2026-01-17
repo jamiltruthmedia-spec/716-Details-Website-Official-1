@@ -1,0 +1,521 @@
+/* ========================================
+IMAGE SECTIONS CSS TEMPLATE FOR SERVICE PAGES
+======================================== */
+
+/* 1. SHOWCASE CONTENT STYLES */
+.showcase-content {
+    text-align: center;
+}
+
+.showcase-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 2. TRANSFORMATION GALLERY STYLES */
+.transformation-gallery {
+    margin: 3rem 0;
+}
+
+.gallery-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #000000;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 8px 30px rgba(255,255,255,0.08);
+    transition: all 0.3s ease;
+    min-height: 500px; /* Adjusted for full image visibility */
+}
+
+.gallery-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(79,124,255,0.2);
+    border-color: #4F7CFF;
+}
+
+.gallery-slider {
+    position: relative;
+    width: 100%;
+    min-height: 600px; /* Adjusted for desktop height */
+    overflow: visible;
+    background: transparent;
+}
+
+.gallery-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: block;
+    background: transparent;
+}
+
+.gallery-slide.active {
+    opacity: 1;
+}
+
+.gallery-main-image {
+    width: 100%;
+    height: 450px; /* Adjusted for desktop height */
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px 12px 0 0; /* Smooth top corners */
+    transition: transform 0.3s ease;
+    background: #000000;
+    display: block;
+}
+
+.gallery-slide:hover .gallery-main-image {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(79,124,255,0.3);
+}
+
+.gallery-caption {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #000000 0%, #111111 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0;
+    border-radius: 0 0 12px 12px; /* Smooth bottom corners */
+}
+
+.gallery-caption h3 {
+    color: #4F7CFF;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.gallery-caption p {
+    color: #cccccc;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.gallery-navigation {
+    position: absolute;
+    top: 35%; /* Adjusted for better arrow positioning */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 20;
+}
+
+.gallery-btn {
+    background: rgba(79,124,255,0.8);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: all;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 25;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.gallery-btn:hover {
+    background: rgba(79,124,255,1);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(79,124,255,0.4);
+}
+
+.gallery-btn:active {
+    transform: scale(0.95);
+}
+
+.gallery-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.gallery-indicators {
+    position: absolute;
+    bottom: 0.75rem; /* Positioned at bottom of caption */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    pointer-events: all;
+    z-index: 10;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #4F7CFF;
+    transform: scale(1.3);
+}
+
+.indicator:hover {
+    background: rgba(79,124,255,0.6);
+    transform: scale(1.15);
+}
+
+/* 3. GENERAL IMAGE STYLES */
+.showcase-main-image,
+.gallery-image,
+.result-image,
+.equipment-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    object-fit: cover;
+}
+
+.showcase-main-image {
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.result-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.equipment-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Gallery hover effects */
+.gallery-image:hover,
+.result-image:hover,
+.equipment-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(79,124,255,0.3);
+}
+
+/* Ensure images maintain aspect ratio */
+.gallery-item img,
+.result-item img,
+.equipment-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+/* 4. GRID LAYOUTS */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    align-items: start;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    align-items: start;
+}
+
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+/* 5. ITEM STYLING */
+.gallery-item,
+.result-item,
+.equipment-item {
+    position: relative;
+    background: #000000;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 8px 30px rgba(255,255,255,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.gallery-item:hover,
+.result-item:hover,
+.equipment-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(79,124,255,0.2);
+    border-color: #4F7CFF;
+}
+
+/* 6. CAPTION STYLES */
+.gallery-caption,
+.result-overlay,
+.equipment-content {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #000000 0%, #111111 100%);
+    text-align: center;
+}
+
+.gallery-caption h3,
+.result-overlay h3,
+.equipment-content h3 {
+    color: #4F7CFF;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.gallery-caption p,
+.result-overlay p,
+.equipment-content p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 7. RESULT OVERLAY POSITIONING */
+.result-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.result-item:hover .result-overlay {
+    transform: translateY(0);
+}
+
+/* 8. RESPONSIVE STYLES */
+@media (max-width: 768px) {
+    .gallery-container {
+        margin: 0 1rem;
+        min-height: 420px; /* Adjusted for tablet height */
+    }
+    
+    .gallery-slider {
+        min-height: 420px; /* Adjusted for tablet height */
+    }
+    
+    .gallery-main-image {
+        height: 300px; /* Adjusted for tablet height */
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .gallery-caption {
+        padding: 1.25rem 1rem;
+    }
+    
+    .gallery-caption h3 {
+        font-size: 1.1rem;
+    }
+    
+    .gallery-caption p {
+        font-size: 0.85rem;
+    }
+    
+    .gallery-btn {
+        width: 45px;
+        height: 45px;
+        z-index: 30;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        background: rgba(79,124,255,0.85);
+    }
+    
+    .gallery-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .gallery-navigation {
+        padding: 0 0.75rem;
+        z-index: 25;
+    }
+    
+    .gallery-indicators {
+        bottom: 0.5rem;
+        z-index: 10;
+    }
+    
+    .gallery-grid,
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .equipment-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-image,
+    .result-image,
+    .equipment-image {
+        height: 220px;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .showcase-main-image {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        margin: 0 0.5rem;
+        min-height: 380px; /* Adjusted for mobile height */
+    }
+    
+    .gallery-slider {
+        min-height: 380px; /* Adjusted for mobile height */
+    }
+    
+    .gallery-main-image {
+        height: 260px; /* Adjusted for mobile height */
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .gallery-caption {
+        padding: 1rem 0.75rem;
+    }
+    
+    .gallery-caption h3 {
+        font-size: 1rem;
+    }
+    
+    .gallery-caption p {
+        font-size: 0.8rem;
+    }
+    
+    .gallery-btn {
+        width: 40px;
+        height: 40px;
+        z-index: 30;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        background: rgba(79,124,255,0.85);
+    }
+    
+    .gallery-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .gallery-navigation {
+        padding: 0 0.5rem;
+        z-index: 25;
+    }
+    
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .gallery-indicators {
+        bottom: 0.5rem;
+        z-index: 10;
+    }
+    
+    .gallery-image,
+    .result-image,
+    .equipment-image {
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .gallery-caption,
+    .result-overlay,
+    .equipment-content {
+        padding: 1rem;
+    }
+}
+
+/* ========================================
+CUSTOMIZATION NOTES:
+========================================
+
+1. All colors use the brand color scheme:
+   - Primary: #4F7CFF (blue)
+   - Background: #000000 (black)
+   - Secondary background: #111111 (dark gray)
+   - Text: #ffffff (white)
+   - Muted text: #cccccc (light gray)
+
+2. Border radius values:
+   - Main containers: 12px
+   - Images: 8px
+   - Buttons: 50% (circular)
+
+3. Box shadows:
+   - Default: rgba(255,255,255,0.08)
+   - Hover: rgba(79,124,255,0.2)
+   - Images: rgba(0,0,0,0.3)
+
+4. Transitions:
+   - All elements: 0.3s ease
+   - Gallery slides: 0.5s ease-in-out
+
+5. Responsive breakpoints:
+   - Tablet: 768px
+   - Mobile: 480px
+
+6. Z-index hierarchy:
+   - Gallery navigation: 20
+   - Gallery buttons: 25
+   - Gallery indicators: 10
+   - Mobile buttons: 30
+
+======================================== */

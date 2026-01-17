@@ -1,0 +1,31 @@
+🚨 CRITICAL RULES FOR THIS CSV:,Service,Package,Price,Time,Location,Vehicle Type,What It Includes
+1. FULL DETAIL = Inside AND Outside in ONE package. DO NOT try to combine Interior Detailing + Exterior Detailing as two separate services.,Full Detail,Sedan or Compact Car,$290,3-4 hours,Mobile or Shop,Sedan or Compact,Complete inside and outside detailing - THIS IS ONE PACKAGE NOT TWO
+2. If customer says they want FULL DETAIL then they get the Full Detail package at the Full Detail price. DO NOT offer Interior + Exterior separately.,Full Detail,SUV 5-Seater or Extended Cab,$320,3-4 hours,Mobile or Shop,SUV 5-Seater,Complete inside and outside detailing - THIS IS ONE PACKAGE NOT TWO
+3. Only offer Interior Detailing OR Exterior Detailing if customer specifically asks for ONLY inside OR ONLY outside.,Full Detail,SUV 7-Seater or XL Van,$350,3-4 hours,Mobile or Shop,SUV 7-Seater or XL Van,Complete inside and outside detailing - THIS IS ONE PACKAGE NOT TWO
+4. Once customer chooses Full Detail DO NOT re-ask about Interior or Exterior packages.,Interior Detailing,Sedan or Compact Car,$220,2-3 hours,Mobile or Shop,Sedan or Compact,INSIDE ONLY - Deep clean inside with leather care (Only offer if customer wants INSIDE ONLY)
+NA,Interior Detailing,SUV 5-Seater or Extended Cab,$250,2-3 hours,Mobile or Shop,SUV 5-Seater,INSIDE ONLY - Deep clean inside with leather care (Only offer if customer wants INSIDE ONLY)
+NA,Interior Detailing,SUV 7-Seater or XL Van,$280,2-3 hours,Mobile or Shop,SUV 7-Seater or XL Van,INSIDE ONLY - Deep clean inside with leather care (Only offer if customer wants INSIDE ONLY)
+NA,Exterior Detailing,Express Hand Wash,$85,1-2 hours,Mobile or Shop,Any Vehicle,OUTSIDE ONLY - Quick outside wash wheels and tires (Only offer if customer wants OUTSIDE ONLY)
+NA,Exterior Detailing,Full Decontamination Wash,$200,2-3 hours,Mobile or Shop,Any Vehicle,OUTSIDE ONLY - Deep outside wash with clay bar and wax (Only offer if customer wants OUTSIDE ONLY)
+NA,Mobile Detailing,Mobile Express Package,$89,1-2 hours,Mobile Only,Any Vehicle,Quick wash and clean at your location
+NA,Mobile Detailing,Mobile Premium Package,$149,2-3 hours,Mobile Only,Any Vehicle,Enhanced cleaning at your location
+NA,Mobile Detailing,Mobile Luxury Package,$229,3-4 hours,Mobile Only,Luxury Cars,Premium cleaning at your location
+NA,Ceramic Coating,Standard Protection 3-5 Years,$705,1-2 days,Shop Only,Any Vehicle,Entry level paint protection coating
+NA,Ceramic Coating,Premium Protection 5-8 Years,$905,1-2 days,Shop Only,Any Vehicle,Premium paint protection coating
+NA,Ceramic Coating,Ultimate Combo with Paint Correction,$1255,1-2 days,Shop Only,Any Vehicle,Paint correction plus ceramic coating
+NA,Paint Correction,Classic 1-Step Polish,$650,4-6 hours,Shop Only,Any Vehicle,Single stage polish removes light scratches
+NA,Paint Correction,Premium 2-Step Polish,$1300,6-8 hours,Shop Only,Any Vehicle,Two stage polish removes heavy scratches
+NA,Window Tinting,Carbon Film All Windows,$300,2-3 hours,Shop Only,Any Vehicle,Carbon tint on all side windows and rear window
+NA,Window Tinting,Carbon Film Windshield Strip,$100,1-2 hours,Shop Only,Any Vehicle,Carbon tint strip on top of windshield
+NA,Window Tinting,Carbon Film Small Strip Only,$50,1 hour,Shop Only,Any Vehicle,Small 6-inch carbon strip on windshield only
+NA,Window Tinting,Ceramic Film All Windows,$400,2-3 hours,Shop Only,Any Vehicle,Premium ceramic tint on all side windows and rear window
+NA,Window Tinting,Ceramic Film Full Windshield,$185,1-2 hours,Shop Only,Any Vehicle,Premium ceramic tint on entire windshield
+NA,Window Tinting,Ceramic Film Small Strip Only,$85,1 hour,Shop Only,Any Vehicle,Small 6-inch ceramic strip on windshield only
+NA,RV Detailing,Compact RV 10 to 15 Feet,$585,4-6 hours,Mobile or Shop,Small RV or Camper,Complete inside and outside for small RV
+NA,RV Detailing,Standard RV 20 to 30 Feet,$785,5-7 hours,Mobile or Shop,Medium RV,Complete inside and outside for medium RV
+NA,RV Detailing,Large RV 35 to 45 Feet,$985,6-8 hours,Mobile or Shop,Large Motorhome,Complete inside and outside for large RV
+NA,Boat Detailing,Compact Boat 10 to 15 Feet,$485,3-4 hours,At Marina or Dock,Small Boat,Hull deck and cabin cleaning for small boat
+NA,Boat Detailing,Standard Boat 20 to 30 Feet,$635,4-5 hours,At Marina or Dock,Medium Boat,Complete boat cleaning for medium boat
+NA,Boat Detailing,Large Boat 35 to 45 Feet,$785,5-6 hours,At Marina or Dock,Large Boat or Yacht,Complete boat cleaning for large vessel
+NA,Fleet Detailing,Per Vehicle Rate,$89,2-3 hours,On-Site or Shop,Any Vehicle,Bulk discount for multiple vehicles
+NA,Dealership Detailing,Per Vehicle Rate,$75,2-3 hours,On-Site or Shop,Any Vehicle,Pre-sale prep with bulk discounts
