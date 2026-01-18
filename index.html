@@ -12,19 +12,6 @@
     <!-- Canonical URL - CRITICAL FOR SEO -->
     <link rel="canonical" href="https://www.716detailing.com/">
     
-    <!-- Vercel Speed Insights -->
-    <script type="module">
-      import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights@1';
-      injectSpeedInsights();
-    </script>
-    
-    <!-- Vercel Web Analytics -->
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-      console.log('Vercel Analytics: Script initialized');
-    </script>
-    <script defer src="https://va.vercel-scripts.com/v1/script.js" onload="console.log('Vercel Analytics: Script loaded')" onerror="console.error('Vercel Analytics: Script failed to load')"></script>
-    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.716detailing.com/">
@@ -67,16 +54,20 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     
+    <!-- Third-party widget resource hints -->
+    <link rel="dns-prefetch" href="//reputationhub.site">
+    <link rel="dns-prefetch" href="//widgets.leadconnectorhq.com">
+    <link rel="dns-prefetch" href="//services.leadconnectorhq.com">
+    <link rel="dns-prefetch" href="//appcdn.leadconnectorhq.com">
+    <link rel="preconnect" href="https://reputationhub.site" crossorigin>
+    <link rel="preconnect" href="https://widgets.leadconnectorhq.com" crossorigin>
+    
     <!-- Preload Critical Resources -->
     <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="hero-video-720p.mp4" as="video" type="video/mp4">
-    <link rel="preload" href="hero-poster.jpg" as="image">
+    <link rel="preload" href="images/hero/hero-gmc-denali-shop-1.webp" as="image" fetchpriority="high">
     <link rel="preload" href="Homepage Services images/full detail.webp" as="image">
     <link rel="preload" href="Homepage Services images/ceramic coating.webp" as="image">
     <link rel="preload" href="Homepage Services images/mobiledetail.webp" as="image">
-    
-    <!-- Preload Critical Fonts -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- ENHANCED LocalBusiness + AutoRepair Schema -->
     <script type="application/ld+json">
@@ -677,8 +668,8 @@
     <section class="reviews-widget-section">
         <div class="container">
             <div class="reviews-widget-wrapper gradient-border">
-                <script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script>
-                <iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/PGlYHaagbepUC7Fhmriz' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%;'></iframe>
+                <script type='text/javascript' defer src='https://reputationhub.site/reputation/assets/review-widget.js'></script>
+                <iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/PGlYHaagbepUC7Fhmriz' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%;' loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -1700,11 +1691,24 @@
     });
     </script>
 
-    <!-- Go High Level Chat Widget -->
+    <!-- Go High Level Chat Widget - Deferred -->
     <script 
+      defer
       src="https://widgets.leadconnectorhq.com/loader.js"  
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
       data-widget-id="691760a633e99280e65eb5b1">
     </script>
+
+    <!-- Vercel Speed Insights - Deferred -->
+    <script type="module" defer>
+      import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights@1';
+      injectSpeedInsights();
+    </script>
+    
+    <!-- Vercel Web Analytics - Deferred -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
 </body>
 </html>
