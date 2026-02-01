@@ -1,0 +1,24 @@
+{
+  "name": "716-details",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamiltruthmedia-spec/716-Details-Website-Official-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/jamiltruthmedia-spec/716-Details-Website-Official-1/issues"
+  },
+  "homepage": "https://github.com/jamiltruthmedia-spec/716-Details-Website-Official-1#readme",
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}
