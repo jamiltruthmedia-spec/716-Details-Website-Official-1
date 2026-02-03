@@ -535,11 +535,10 @@
     </script>
 </head>
 <body class="has-announcement">
-    <!-- Winter Announcement Bar -->
+    <!-- Winter Announcement Bar (Persistent - No Close Button) -->
     <div class="announcement-bar" id="announcement-bar">
         <span class="snow-icon">❄️</span>
         <span class="text">Winter Season: In-Shop Appointments Only at Our Lewiston Location</span>
-        <button class="announcement-bar-close" onclick="closeAnnouncementBar()" aria-label="Close announcement">&times;</button>
     </div>
 
     <!-- Winter Popup Modal -->
@@ -1752,20 +1751,7 @@
         localStorage.setItem('winterPopup2025', 'true');
     }
 
-    // Announcement bar close
-    function closeAnnouncementBar() {
-        document.getElementById('announcement-bar').classList.add('hidden');
-        document.body.classList.remove('has-announcement');
-        sessionStorage.setItem('announcementClosed', 'true');
-    }
-
-    // Check if announcement was closed this session
-    function checkAnnouncementBar() {
-        if (sessionStorage.getItem('announcementClosed')) {
-            document.getElementById('announcement-bar').classList.add('hidden');
-            document.body.classList.remove('has-announcement');
-        }
-    }
+    // Announcement bar is persistent (no close functionality needed)
 
     // Close popup on overlay click
     document.getElementById('winter-popup').addEventListener('click', function(e) {
@@ -1783,7 +1769,6 @@
 
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
-        checkAnnouncementBar();
         showWinterPopup();
     });
     </script>
