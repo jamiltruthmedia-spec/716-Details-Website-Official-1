@@ -534,7 +534,29 @@
     }
     </script>
 </head>
-<body>
+<body class="has-announcement">
+    <!-- Winter Announcement Bar -->
+    <div class="announcement-bar" id="announcement-bar">
+        <span class="snow-icon">❄️</span>
+        <span class="text">Winter Season: In-Shop Appointments Only at Our Lewiston Location</span>
+        <button class="announcement-bar-close" onclick="closeAnnouncementBar()" aria-label="Close announcement">&times;</button>
+    </div>
+
+    <!-- Winter Popup Modal -->
+    <div class="winter-popup-overlay" id="winter-popup">
+        <div class="winter-popup">
+            <button class="winter-popup-close" onclick="closeWinterPopup()" aria-label="Close popup">&times;</button>
+            <span class="winter-popup-icon">❄️🚗</span>
+            <h2>Winter Detailing Season</h2>
+            <p>During the winter months (November - March), all detailing services are performed at our heated indoor shop for the best results.</p>
+            <div class="winter-popup-highlight">
+                <p>📍 In-Shop Appointments Only</p>
+                <span class="winter-popup-address">4689 Model City Rd, Lewiston, NY 14092</span>
+            </div>
+            <button class="winter-popup-btn" onclick="closeWinterPopup()">Got It!</button>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -1710,5 +1732,60 @@
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
+
+    <!-- Winter Announcement & Popup Script -->
+    <script>
+    // Check if winter popup was already shown
+    function showWinterPopup() {
+        const popupShown = localStorage.getItem('winterPopup2025');
+        if (!popupShown) {
+            setTimeout(function() {
+                document.getElementById('winter-popup').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }, 1000); // Show after 1 second
+        }
+    }
+
+    function closeWinterPopup() {
+        document.getElementById('winter-popup').classList.remove('active');
+        document.body.style.overflow = '';
+        localStorage.setItem('winterPopup2025', 'true');
+    }
+
+    // Announcement bar close
+    function closeAnnouncementBar() {
+        document.getElementById('announcement-bar').classList.add('hidden');
+        document.body.classList.remove('has-announcement');
+        sessionStorage.setItem('announcementClosed', 'true');
+    }
+
+    // Check if announcement was closed this session
+    function checkAnnouncementBar() {
+        if (sessionStorage.getItem('announcementClosed')) {
+            document.getElementById('announcement-bar').classList.add('hidden');
+            document.body.classList.remove('has-announcement');
+        }
+    }
+
+    // Close popup on overlay click
+    document.getElementById('winter-popup').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeWinterPopup();
+        }
+    });
+
+    // Close popup on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeWinterPopup();
+        }
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        checkAnnouncementBar();
+        showWinterPopup();
+    });
+    </script>
 </body>
 </html>
