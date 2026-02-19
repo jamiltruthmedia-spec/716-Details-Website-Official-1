@@ -1782,19 +1782,30 @@
     </script>
 
     <!-- GHL Quote Popup Form -->
-    <iframe src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="display:none;width:100%;height:100%;border:none;border-radius:50px" id="popup-3yILzyxZjNq2sxiqQYbf" data-layout="{'id':'POPUP'}" data-trigger-type="never" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Get Quote Pop Up Form" data-height="340" data-layout-iframe-id="popup-3yILzyxZjNq2sxiqQYbf" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Pop Up Form" ></iframe>
+    <iframe src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="display:none;width:100%;height:100%;border:none;border-radius:50px" id="popup-3yILzyxZjNq2sxiqQYbf" data-layout="{'id':'POPUP'}" data-trigger-type="never" data-trigger-value="" data-activation-type="customTrigger" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Get Quote Pop Up Form" data-height="340" data-layout-iframe-id="popup-3yILzyxZjNq2sxiqQYbf" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Pop Up Form" ></iframe>
     <script src="https://booking.716detailing.com/js/form_embed.js"></script>
 
     <script>
-    // Trigger GHL popup form
+    // Trigger GHL popup form via LeadConnector API
     function openQuotePopup() {
+      // Method 1: Try LC form embed API
+      if (window.leadConnector && window.leadConnector.openPopup) {
+        window.leadConnector.openPopup('3yILzyxZjNq2sxiqQYbf');
+        return;
+      }
+      // Method 2: Dispatch custom event for form_embed.js
+      var evt = new CustomEvent('openPopup', { detail: { formId: '3yILzyxZjNq2sxiqQYbf' } });
+      document.dispatchEvent(evt);
+      // Method 3: Direct iframe manipulation as fallback
       var iframe = document.getElementById('popup-3yILzyxZjNq2sxiqQYbf');
       if (iframe) {
+        iframe.setAttribute('data-trigger-type', 'alwaysShow');
+        iframe.setAttribute('data-activation-type', 'alwaysActivated');
         iframe.style.display = 'block';
-        // GHL form_embed.js handles the popup display
-        // Trigger the popup by dispatching a click event or showing the iframe
-        var event = new Event('click');
-        iframe.dispatchEvent(event);
+        // Re-initialize the form embed
+        var script = document.createElement('script');
+        script.src = 'https://booking.716detailing.com/js/form_embed.js';
+        document.body.appendChild(script);
       }
     }
     </script>
