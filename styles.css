@@ -4810,3 +4810,128 @@ body.has-announcement section:first-of-type {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================================
+   Customer Reviews Section
+   ============================================ */
+.customer-reviews {
+    background: #0a0a0a;
+    padding: 80px 0;
+}
+
+.customer-reviews h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.customer-reviews .section-subtitle {
+    text-align: center;
+    color: #aaa;
+    font-size: 1.05rem;
+    margin-bottom: 48px;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.review-card {
+    background: #111;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #4F7CFF;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.review-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.review-name {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.review-stars {
+    color: #FFD700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.review-text {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.review-toggle {
+    color: #4F7CFF;
+    font-size: 0.88rem;
+    margin-left: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.review-toggle:hover {
+    text-decoration: underline;
+}
+
+.reviews-cta {
+    display: block;
+    text-align: center;
+    color: #4F7CFF;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 14px 32px;
+    border: 2px solid #4F7CFF;
+    border-radius: 6px;
+    width: fit-content;
+    margin: 0 auto;
+    transition: background 0.2s, color 0.2s;
+}
+
+.reviews-cta:hover {
+    background: #4F7CFF;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .customer-reviews h2 {
+        font-size: 1.7rem;
+    }
+}
