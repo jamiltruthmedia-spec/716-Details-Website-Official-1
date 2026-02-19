@@ -1775,9 +1775,26 @@
         }
     });
 
-    // Initialize on page load
+    // Initialize on page load - delay popup by 10 seconds of scroll engagement
     document.addEventListener('DOMContentLoaded', function() {
-        showWinterPopup();
+        var scrollTimer = null;
+        var popupTriggered = false;
+        window.addEventListener('scroll', function() {
+            if (popupTriggered) return;
+            if (!scrollTimer) {
+                scrollTimer = setTimeout(function() {
+                    popupTriggered = true;
+                    showWinterPopup();
+                }, 10000);
+            }
+        });
+        // Fallback: show after 30 seconds even without scroll
+        setTimeout(function() {
+            if (!popupTriggered) {
+                popupTriggered = true;
+                showWinterPopup();
+            }
+        }, 30000);
     });
     </script>
 
