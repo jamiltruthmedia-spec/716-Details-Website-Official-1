@@ -653,7 +653,7 @@
             <h1>Luxury Car Detailing in Lewiston, NY and Niagara County</h1>
             <p class="hero-subtitle">Professional <a href="mobile-car-detailing.html">mobile detailing</a> and <a href="ceramic-coating.html">ceramic coating</a> for tasteful vehicle owners. We bring luxury car care directly to you in Lewiston, Clarence, East Amherst, and the surrounding areas.</p>
             <div class="hero-cta">
-                <a href="https://booking.716detailing.com/widget/service-menu/6916562e8d2159e52ad49b60" class="cta-btn primary">Schedule Service</a>
+                <a href="javascript:void(0)" onclick="openQuotePopup()" class="cta-btn primary">Get Free Quote</a>
                 <a href="tel:7164059988" class="cta-btn secondary">Call (716) 405-9988</a>
             </div>
             <div class="hero-features">
@@ -798,7 +798,7 @@
                         <div class="feature">✓ Same-Day Emergency Service</div>
                         <div class="feature">✓ 100% Satisfaction Guarantee</div>
                     </div>
-                    <a href="contact-us.html" class="cta-btn">Get Your Free Quote</a>
+                    <a href="javascript:void(0)" onclick="openQuotePopup()" class="cta-btn">Get Your Free Quote</a>
                 </div>
             </div>
         </div>
@@ -1107,7 +1107,7 @@
                 </div>
             </div>
             <div class="contact-cta-buttons">
-                <a href="https://booking.716detailing.com/widget/service-menu/6916562e8d2159e52ad49b60" class="cta-btn primary">Request Free Quote</a>
+                <a href="javascript:void(0)" onclick="openQuotePopup()" class="cta-btn primary">Request Free Quote</a>
                 <a href="tel:7164059988" class="cta-btn secondary">Call (716) 405-9988</a>
             </div>
         </div>
@@ -1778,6 +1778,37 @@
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
         showWinterPopup();
+    });
+    </script>
+
+    <!-- GHL Quote Popup Form -->
+    <iframe src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="display:none;width:100%;height:100%;border:none;border-radius:50px" id="popup-3yILzyxZjNq2sxiqQYbf" data-layout="{'id':'POPUP'}" data-trigger-type="never" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Get Quote Pop Up Form" data-height="340" data-layout-iframe-id="popup-3yILzyxZjNq2sxiqQYbf" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Pop Up Form" ></iframe>
+    <script src="https://booking.716detailing.com/js/form_embed.js"></script>
+
+    <script>
+    // Trigger GHL popup form
+    function openQuotePopup() {
+      var iframe = document.getElementById('popup-3yILzyxZjNq2sxiqQYbf');
+      if (iframe) {
+        iframe.style.display = 'block';
+        // GHL form_embed.js handles the popup display
+        // Trigger the popup by dispatching a click event or showing the iframe
+        var event = new Event('click');
+        iframe.dispatchEvent(event);
+      }
+    }
+    </script>
+
+    <script>
+    // Listen for GHL form submission and redirect to thank-you page
+    window.addEventListener('message', function(event) {
+      if (event.data && event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmitted') {
+        window.location.href = '/thank-you.html';
+      }
+      // Also check for LeadConnector/GHL form submit events
+      if (event.data && (event.data === 'formSubmitted' || (typeof event.data === 'string' && event.data.includes('formSubmit')))) {
+        window.location.href = '/thank-you.html';
+      }
     });
     </script>
 </body>
