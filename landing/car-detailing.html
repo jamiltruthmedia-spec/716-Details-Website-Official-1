@@ -354,15 +354,7 @@
     .gallery-arrow-bottom:hover { background: #fff; }
     .gallery-arrow-bottom.left { left: 6px; }
     .gallery-arrow-bottom.right { right: 6px; }
-    @keyframes peekHint {
-      0% { transform: translateX(0); }
-      30% { transform: translateX(-60px); }
-      50% { transform: translateX(-60px); }
-      100% { transform: translateX(0); }
-    }
-    .gallery-scroll.peek-animate {
-      animation: peekHint 1.8s ease-in-out 2s 1;
-    }
+    /* peek hint handled via JS scrollLeft */
 
     .steps-grid {
       display: grid;
@@ -656,7 +648,7 @@
   <section class="gallery">
     <div class="container">
       <h2>Our Recent Work</h2>
-      <div class="gallery-scroll peek-animate">
+      <div class="gallery-scroll" id="recent-work-gallery">
         <img src="../images/gallery/exterior-detailing/exterior-jaguar-fpace-front-1.webp" alt="Exterior detail Jaguar F-Pace">
         <img src="../images/gallery/interior-detailing/interior-gmc-denali-luxury-1.webp" alt="Interior detail GMC Denali">
         <img src="../images/gallery/exterior-detailing/exterior-gmc-denali-front-1.webp" alt="Exterior detail GMC Denali">
@@ -746,6 +738,28 @@
         });
       }
     });
+
+    // Peek hint for bottom gallery: scroll right then back, loop until user touches it
+    (function(){
+      var g = document.getElementById('recent-work-gallery');
+      if (!g) return;
+      var userScrolled = false;
+      g.addEventListener('scroll', function() { userScrolled = true; }, { once: true });
+      g.addEventListener('touchstart', function() { userScrolled = true; }, { once: true });
+
+      function peekLoop() {
+        if (userScrolled) return;
+        g.scrollTo({ left: 60, behavior: 'smooth' });
+        setTimeout(function() {
+          if (userScrolled) return;
+          g.scrollTo({ left: 0, behavior: 'smooth' });
+          setTimeout(function() {
+            if (!userScrolled) peekLoop();
+          }, 2000);
+        }, 800);
+      }
+      setTimeout(peekLoop, 2000);
+    })();
   </script>
 </body>
 </html>
