@@ -239,6 +239,39 @@
       flex: 0 0 auto;
     }
 
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .step {
+      text-align: center;
+      padding: 16px 8px;
+    }
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #1a56db;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+    }
+    .step h3 {
+      font-size: 15px;
+      margin: 0 0 4px;
+      color: #1a1a1a;
+    }
+    .step p {
+      font-size: 13px;
+      color: #555;
+      margin: 0;
+    }
+
     .faq-list { border-top: 1px solid #e5e7eb; }
     .faq-item { border-bottom: 1px solid #e5e7eb; }
     .faq-question {
@@ -320,6 +353,8 @@
       .services-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
       .services-grid .service-card:first-child { grid-column: auto; }
       .backup-reviews { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .steps-grid { grid-template-columns: repeat(4, 1fr); }
+
       .gallery-scroll { overflow: visible; }
       .gallery-scroll img { width: calc((100% - 32px) / 5); flex: 1 1 auto; }
       .mobile-sticky { display: none; }
@@ -337,7 +372,7 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <h1 style="font-size:28px;font-weight:800;color:#1a1a1a;margin:0 0 4px;">Car Detailing in Lewiston, NY</h1>
+        <h1 style="font-size:28px;font-weight:800;color:#1a1a1a;margin:0 0 4px;">Car Detailing in Lewiston, NY &mdash; Your Car Looking New in 3 Hours</h1>
         <p style="font-size:18px;color:#1a56db;font-weight:600;margin:0 0 8px;">Lewiston's Trusted Detailers</p>
         <p style="font-size:15px;color:#555;margin:0 0 16px;">Drop off your car. Pick it up looking brand new. Professional detailing from $149.</p>
 
@@ -350,7 +385,7 @@
           <span class="badge"><span style="color:#16a34a;">🛡️</span> Licensed &amp; Insured</span>
           <span class="badge">
             <svg width="16" height="16" viewBox="0 0 48 48" style="vertical-align:middle;margin-right:4px;"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-            4.9 ★ 127 Reviews
+            4.9 ★ 127 Google Reviews
           </span>
           <span class="badge"><span style="color:#16a34a;">✓</span> Satisfaction Guaranteed</span>
         </div>
@@ -385,18 +420,49 @@
         <a href="#quote-form" class="service-card" onclick="scrollToQuote(event,'service_full_detail_click')">
           <h3>Full Detail</h3>
           <p class="price">Starting at $149</p>
+          <p style="font-size:12px;color:#888;margin:0 0 4px;">3-4 hours</p>
           <p>Complete interior and exterior clean. Your car like new.</p>
         </a>
         <a href="#quote-form" class="service-card" onclick="scrollToQuote(event,'service_interior_click')">
           <h3>Interior Detail</h3>
           <p class="price" style="color:#1a56db;">Price varies</p>
+          <p style="font-size:12px;color:#888;margin:0 0 4px;">2-3 hours</p>
           <p>Deep clean seats, carpets, dash. Remove stains and odors.</p>
         </a>
         <a href="#quote-form" class="service-card" onclick="scrollToQuote(event,'service_exterior_click')">
           <h3>Exterior Detail</h3>
           <p class="price" style="color:#1a56db;">Price varies</p>
+          <p style="font-size:12px;color:#888;margin:0 0 4px;">2-3 hours</p>
           <p>Hand wash, clay bar, polish, and wax. Glass-like shine.</p>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;padding:24px 16px;">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Get Your Free Quote</h3>
+          <p>Fill out the form or call us. We'll give you an honest price in minutes.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Drop Off Your Car</h3>
+          <p>Bring it to our heated Lewiston shop. Easy in, easy out.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>We Detail It Right</h3>
+          <p>Our team works 3-4 hours to make every surface spotless.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Pick Up Like New</h3>
+          <p>Drive away in a car that looks and smells brand new.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -412,30 +478,6 @@
       <div class="backup-reviews">
         <article class="review-card">
           <div class="review-top">
-            <div class="avatar">V</div>
-            <div>
-              <div class="name">Vanessa Clark</div>
-              <div class="source"><svg width="16" height="16" viewBox="0 0 48 48" style="vertical-align:middle;margin-right:4px;"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>Google Review</div>
-            </div>
-          </div>
-          <div class="stars">★★★★★</div>
-          <p>"My Jeep was a hot mess when the guys came and picked it up. When it came back it looked like it was straight off the lot. My Jeep looked brand new. I am more than happy using this detail shop."</p>
-        </article>
-
-        <article class="review-card">
-          <div class="review-top">
-            <div class="avatar">M</div>
-            <div>
-              <div class="name">Michael Fedeson</div>
-              <div class="source"><svg width="16" height="16" viewBox="0 0 48 48" style="vertical-align:middle;margin-right:4px;"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>Google Review</div>
-            </div>
-          </div>
-          <div class="stars">★★★★★</div>
-          <p>"I had 716 Details come out to my house for a full interior and exterior detail of my truck, and when they were done, it looked better than brand new. Every surface was spotless, the paint had a brilliant, mirror-like shine."</p>
-        </article>
-
-        <article class="review-card">
-          <div class="review-top">
             <div class="avatar">R</div>
             <div>
               <div class="name">Rylie</div>
@@ -444,6 +486,30 @@
           </div>
           <div class="stars">★★★★★</div>
           <p>"5 stars all day. Great customer service, made things super easy. Clean work completely changed my vehicle. Definitely takes pride in their work and I will be returning."</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top">
+            <div class="avatar">M</div>
+            <div>
+              <div class="name">Mike S.</div>
+              <div class="source"><svg width="16" height="16" viewBox="0 0 48 48" style="vertical-align:middle;margin-right:4px;"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>Google Review</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>"Went to Nathan and Ethan and they did a phenomenal job. Exactly what I asked for. Was very easy to work with. If anyone is looking to get interior detailing done, they will hook you up."</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top">
+            <div class="avatar">P</div>
+            <div>
+              <div class="name">Phoebe Dembs</div>
+              <div class="source"><svg width="16" height="16" viewBox="0 0 48 48" style="vertical-align:middle;margin-right:4px;"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>Google Review</div>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>"Nathan did a great job and is a great communicator! Made the process easy. Will make a return visit and would recommend to anyone."</p>
         </article>
       </div>
     </div>
@@ -480,7 +546,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-question" type="button"><span>Do you serve my area?</span><span class="plus">+</span></button>
-          <div class="faq-answer">We're at 4689 Model City Rd in Lewiston. We serve Lewiston, Niagara Falls, Clarence, East Amherst, Williamsville, Youngstown, Wheatfield, Kenmore, North Tonawanda, and surrounding areas. Call (716) 405-9988 if you're not sure.</div>
+          <div class="faq-answer">We're at 4689 Model City Rd in Lewiston. We serve Lewiston, Niagara Falls, Clarence, East Amherst, Williamsville, Youngstown, Wheatfield, Kenmore, North Tonawanda, and surrounding areas. Drop off your car and we'll have it ready in 3-4 hours. Call (716) 405-9988 if you're not sure.</div>
         </div>
       </div>
     </div>
