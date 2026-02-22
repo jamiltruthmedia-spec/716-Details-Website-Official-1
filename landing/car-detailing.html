@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Detailing in Lewiston, NY - We Come to You | 716 Details</title>
+  <meta name="description" content="Professional mobile detailing that brings showroom results to your driveway. No trip required." />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16886615838"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-16886615838');
+
+    function trackConversion() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {'send_to': 'AW-16886615838/LANDING_DETAIL'});
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --accent: #4F7CFF;
+      --card: #0f0f0f;
+      --border: #252525;
+      --muted: #cfcfcf;
+      --star: #FFD700;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      padding-bottom: 64px;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: #000;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      gap: 12px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+    }
+
+    .header-phone {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .trust-bar {
+      text-align: center;
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .trust-bar .star { color: var(--star); }
+
+    .hero {
+      padding: 28px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      line-height: 1.2;
+    }
+
+    .subheadline {
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 55ch;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .cta-btn.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .cta-btn.secondary {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: transparent;
+    }
+
+    .form-wrap,
+    .card,
+    .step,
+    .review,
+    .faq-item,
+    .final-cta {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    section {
+      padding: 18px 0;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.4rem, 3.8vw, 2rem);
+    }
+
+    .services-grid,
+    .reviews-grid,
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .service-price {
+      color: var(--accent);
+      font-weight: 700;
+      margin: 4px 0 8px;
+    }
+
+    .card p,
+    .step p,
+    .review p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      transition: transform 0.2s ease;
+    }
+
+    .why-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .why-list li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .why-list li::before {
+      content: "✓ ";
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .review strong { color: #fff; }
+
+    .faq-item {
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      color: #fff;
+      border: 0;
+      padding: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faq-answer {
+      margin-top: 8px;
+      color: var(--muted);
+      display: none;
+    }
+
+    .faq-item.active .faq-answer { display: block; }
+    .faq-item.active .faq-toggle { transform: rotate(45deg); }
+    .faq-toggle { transition: transform 0.2s ease; }
+
+    .final-cta {
+      margin-top: 4px;
+    }
+
+    .final-cta h2,
+    .final-cta p {
+      text-align: center;
+    }
+
+    .final-cta .cta-row {
+      justify-content: center;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+      padding: 18px 0 90px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .mobile-sticky {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #000;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 8px;
+      z-index: 30;
+    }
+
+    .mobile-sticky .cta-btn {
+      text-align: center;
+      padding: 12px 10px;
+    }
+
+    @media (min-width: 768px) {
+      body { padding-bottom: 0; }
+      .hero-grid { grid-template-columns: 1.1fr 0.9fr; }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .reviews-grid,
+      .steps-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .mobile-sticky { display: none; }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="716 Details">716 Details</a>
+      <a class="header-phone call-link" href="tel:+17164059988">Call (716) 405-9988</a>
+    </div>
+    <div class="trust-bar">
+      <span class="star">★</span> 4.9 Rating · 100+ Reviews · Licensed &amp; Insured · Satisfaction Guaranteed
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Car Detailing in Lewiston, NY - We Come to You</h1>
+          <p class="subheadline">Professional mobile detailing that brings showroom results to your driveway. No trip required.</p>
+          <div class="cta-row">
+            <a href="#quote-form" class="cta-btn primary quote-link">Get My Free Quote</a>
+            <a href="tel:+17164059988" class="cta-btn secondary call-link">Call (716) 405-9988</a>
+          </div>
+        </div>
+        <div class="form-wrap" id="quote-form">
+          <iframe src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="width:100%;height:340px;border:none;" data-layout="{'id':'INLINE'}" data-form-name="Get Quote Form" data-height="340" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Form"></iframe>
+          <script src="https://booking.716detailing.com/js/form_embed.js"></script>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Service Options</h2>
+        <div class="services-grid">
+          <article class="card">
+            <h3>Express Detail</h3>
+            <p class="service-price">Starting at $89</p>
+            <p>Quick wash, vacuum, and wipe-down. Perfect for regular maintenance.</p>
+            <a href="#quote-form" class="cta-btn secondary quote-link">Get Quote</a>
+          </article>
+          <article class="card">
+            <h3>Full Detail</h3>
+            <p class="service-price">Starting at $149</p>
+            <p>Deep clean inside and out. Shampoo, polish, protect. Your car like new.</p>
+            <a href="#quote-form" class="cta-btn secondary quote-link">Get Quote</a>
+          </article>
+          <article class="card">
+            <h3>Interior Only</h3>
+            <p class="service-price">Price varies</p>
+            <p>Deep clean seats, carpets, dash, and console. Remove stains and odors.</p>
+            <a href="#quote-form" class="cta-btn secondary quote-link">Get Quote</a>
+          </article>
+          <article class="card">
+            <h3>Exterior Only</h3>
+            <p class="service-price">Price varies</p>
+            <p>Hand wash, clay bar, polish, and wax. Paint that shines like glass.</p>
+            <a href="#quote-form" class="cta-btn secondary quote-link">Get Quote</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>How It Works</h2>
+        <div class="steps-grid">
+          <article class="step">
+            <h3>Step 1: Request Your Quote</h3>
+            <p>Tell us what your car needs. We'll send you a fair price in minutes.</p>
+          </article>
+          <article class="step">
+            <h3>Step 2: Pick Your Time</h3>
+            <p>Choose a time that works for you. We come to your home or office.</p>
+          </article>
+          <article class="step">
+            <h3>Step 3: Drive a Clean Car</h3>
+            <p>We show up, detail your car, and you drive off looking sharp.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Why 716 Details</h2>
+        <ul class="why-list">
+          <li>We Come to You: Mobile service means we work at your home, office, or anywhere in Niagara County.</li>
+          <li>Licensed &amp; Insured: Fully licensed and insured so you never have to worry about your vehicle.</li>
+          <li>Professional-Grade Products: We use the same products dealers use, not the cheap stuff from the gas station.</li>
+          <li>Satisfaction Guarantee: If you're not happy with the job, we'll make it right. No questions asked.</li>
+          <li>Local Guys, Local Knowledge: We live here. We detail cars in Lewiston, Niagara Falls, and the surrounding area every day.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Reviews</h2>
+        <div class="reviews-grid">
+          <article class="review">
+            <p><strong>Mike T. - ★★★★★:</strong> Got the full detail for my F-150. They came to my work in Lewiston and had it done before lunch. Interior looked better than when I bought it. Definitely using them again.</p>
+          </article>
+          <article class="review">
+            <p><strong>Sarah K. - ★★★★★:</strong> I have two kids and a golden retriever. My SUV was a disaster. They got every stain out of the seats and it actually smells good now. Worth every penny.</p>
+          </article>
+          <article class="review">
+            <p><strong>Tom R. - ★★★★★:</strong> Needed my car detailed before selling it. They buffed out scratches I thought were permanent and the paint looked brand new. Helped me get $1,200 more than I expected.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>FAQ</h2>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">Q: How much does car detailing cost? <span class="faq-toggle">+</span></button>
+          <div class="faq-answer">A: Our express detail starts at $89. A full detail starts at $149. Final price depends on your vehicle size and condition. Bigger vehicles or heavily soiled interiors cost more. Request a quote and we'll give you an exact price based on your car.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">Q: How long does a full detail take? <span class="faq-toggle">+</span></button>
+          <div class="faq-answer">A: A full detail takes 3-4 hours depending on the vehicle. We don't rush. You can leave your car with us or wait if you're home. Express details take about 90 minutes. We'll give you a time estimate when you book.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">Q: Do you come to my location? <span class="faq-toggle">+</span></button>
+          <div class="faq-answer">A: Yes. We're a mobile detailing service. We come to your house, apartment, office, or anywhere in our service area. You don't have to drive anywhere or wait at a shop. We bring everything we need.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">Q: What's included in a full detail? <span class="faq-toggle">+</span></button>
+          <div class="faq-answer">A: Full detail includes exterior hand wash, clay bar, polish, and wax. Inside we vacuum, shampoo carpets and seats, clean and condition leather, wipe down all surfaces, and clean windows inside and out. Your car gets the works.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">Q: Do you serve my area? <span class="faq-toggle">+</span></button>
+          <div class="faq-answer">A: We cover Lewiston, Niagara Falls, Clarence, East Amherst, Williamsville, Youngstown, Wheatfield, Kenmore, North Tonawanda, Sanborn, Wilson, and Ransomville. If you're nearby and not sure, give us a call at (716) 405-9988. We'll let you know.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container final-cta" id="bottom-quote">
+        <h2>Ready for a Cleaner Car? Get Your Free Quote Today</h2>
+        <p>Join 100+ local drivers who trust us to keep their vehicles looking sharp.</p>
+        <div class="cta-row">
+          <a href="#quote-form" class="cta-btn primary quote-link">Get My Free Quote</a>
+          <a href="tel:+17164059988" class="cta-btn secondary call-link">(716) 405-9988</a>
+        </div>
+        <div class="form-wrap">
+          <iframe src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="width:100%;height:340px;border:none;" data-layout="{'id':'INLINE'}" data-form-name="Get Quote Form" data-height="340" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Form"></iframe>
+          <script src="https://booking.716detailing.com/js/form_embed.js"></script>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div><strong>716 Details</strong></div>
+      <div>Phone: <a class="call-link" href="tel:+17164059988">(716) 405-9988</a></div>
+      <div>Address: 4689 Model City Rd, Lewiston, NY 14092</div>
+      <div>Hours: Mon-Sat 8:00 AM - 6:00 PM</div>
+      <!-- Add real before/after photo -->
+      <!-- Add optimized .webp images for faster load -->
+    </div>
+  </footer>
+
+  <div class="mobile-sticky" aria-label="Mobile Sticky Actions">
+    <a class="cta-btn secondary call-link" href="tel:+17164059988">Call (716) 405-9988</a>
+    <a class="cta-btn primary quote-link" href="#quote-form">Get Free Quote</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        btn.parentElement.classList.toggle('active');
+      });
+    });
+
+    document.querySelectorAll('.call-link, .quote-link').forEach((el) => {
+      el.addEventListener('click', () => {
+        trackConversion();
+      });
+    });
+
+    window.addEventListener('message', function (event) {
+      const data = event && event.data;
+      if (!data) return;
+      const payload = typeof data === 'string' ? data.toLowerCase() : JSON.stringify(data).toLowerCase();
+      if (payload.includes('form') && (payload.includes('submit') || payload.includes('submitted') || payload.includes('success'))) {
+        trackConversion();
+      }
+    });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "716 Details",
+    "telephone": "+17164059988",
+    "priceRange": "$$-$$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4689 Model City Rd",
+      "addressLocality": "Lewiston",
+      "addressRegion": "NY",
+      "postalCode": "14092",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      "Lewiston",
+      "Niagara Falls",
+      "Clarence",
+      "East Amherst",
+      "Williamsville",
+      "Youngstown"
+    ],
+    "makesOffer": {
+      "@type": "Service",
+      "name": "Car Detailing",
+      "areaServed": [
+        "Lewiston",
+        "Niagara Falls",
+        "Clarence",
+        "East Amherst",
+        "Williamsville",
+        "Youngstown"
+      ]
+    }
+  }
+  </script>
+</body>
+</html>
