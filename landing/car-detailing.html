@@ -356,11 +356,12 @@
     .gallery-arrow-bottom.right { right: 6px; }
     @keyframes peekHint {
       0% { transform: translateX(0); }
-      40% { transform: translateX(-30px); }
+      30% { transform: translateX(-60px); }
+      50% { transform: translateX(-60px); }
       100% { transform: translateX(0); }
     }
     .gallery-scroll.peek-animate {
-      animation: peekHint 1.2s ease-in-out 1.5s 1;
+      animation: peekHint 1.8s ease-in-out 2s 1;
     }
 
     .steps-grid {
@@ -655,16 +656,12 @@
   <section class="gallery">
     <div class="container">
       <h2>Our Recent Work</h2>
-      <div class="gallery-scroll-wrap">
-        <button class="gallery-arrow-bottom left" onclick="document.querySelector('.gallery-scroll').scrollBy({left:-290,behavior:'smooth'})" aria-label="Previous">❮</button>
-        <div class="gallery-scroll peek-animate">
-          <img src="../images/gallery/exterior-detailing/exterior-jaguar-fpace-front-1.webp" alt="Exterior detail Jaguar F-Pace">
-          <img src="../images/gallery/interior-detailing/interior-gmc-denali-luxury-1.webp" alt="Interior detail GMC Denali">
-          <img src="../images/gallery/exterior-detailing/exterior-gmc-denali-front-1.webp" alt="Exterior detail GMC Denali">
-          <img src="../images/gallery/interior-detailing/interior-cadillac-xt5-modern-1.webp" alt="Interior detail Cadillac XT5">
-          <img src="../images/gallery/exterior-detailing/exterior-audi-a5-front-1.webp" alt="Exterior detail Audi A5">
-        </div>
-        <button class="gallery-arrow-bottom right" onclick="document.querySelector('.gallery-scroll').scrollBy({left:290,behavior:'smooth'})" aria-label="Next">❯</button>
+      <div class="gallery-scroll peek-animate">
+        <img src="../images/gallery/exterior-detailing/exterior-jaguar-fpace-front-1.webp" alt="Exterior detail Jaguar F-Pace">
+        <img src="../images/gallery/interior-detailing/interior-gmc-denali-luxury-1.webp" alt="Interior detail GMC Denali">
+        <img src="../images/gallery/exterior-detailing/exterior-gmc-denali-front-1.webp" alt="Exterior detail GMC Denali">
+        <img src="../images/gallery/interior-detailing/interior-cadillac-xt5-modern-1.webp" alt="Interior detail Cadillac XT5">
+        <img src="../images/gallery/exterior-detailing/exterior-audi-a5-front-1.webp" alt="Exterior detail Audi A5">
       </div>
     </div>
   </section>
