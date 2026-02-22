@@ -229,6 +229,30 @@
       margin-bottom: 8px;
     }
     .hero-gallery::-webkit-scrollbar { display: none; }
+    .hero-image-wrap { position: relative; }
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      transition: background .2s;
+    }
+    .gallery-arrow:hover { background: #fff; }
+    .gallery-arrow.left { left: 6px; }
+    .gallery-arrow.right { right: 6px; }
     .hero-gallery img {
       width: 300px;
       height: 280px;
@@ -299,6 +323,7 @@
     .stars { color: #FFD700; margin: 6px 0; letter-spacing: 1px; }
     .review-card p { margin: 0; color: #333; font-size: 14px; }
 
+    .gallery-scroll-wrap { position: relative; }
     .gallery-scroll {
       display: flex;
       gap: 10px;
@@ -306,15 +331,37 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
       padding-bottom: 8px;
+      scroll-behavior: smooth;
     }
     .gallery-scroll::-webkit-scrollbar { display: none; }
     .gallery-scroll img {
-      width: 300px;
+      width: 280px;
       height: 280px;
       object-fit: cover;
       border-radius: 8px;
       flex: 0 0 auto;
     }
+    .gallery-arrow-bottom {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+    .gallery-arrow-bottom:hover { background: #fff; }
+    .gallery-arrow-bottom.left { left: 6px; }
+    .gallery-arrow-bottom.right { right: 6px; }
 
     .steps-grid {
       display: grid;
@@ -434,10 +481,10 @@
       .backup-reviews { grid-template-columns: repeat(3, minmax(0,1fr)); }
       .steps-grid { grid-template-columns: repeat(5, 1fr); }
 
-      .hero-gallery { overflow: visible; flex-wrap: wrap; }
-      .hero-gallery img { width: calc((100% - 8px) / 2); height: 160px; flex: 0 0 auto; }
-      .gallery-scroll { overflow: visible; }
-      .gallery-scroll img { width: calc((100% - 32px) / 5); flex: 1 1 auto; }
+      .hero-gallery { overflow-x: auto; flex-wrap: nowrap; }
+      .hero-gallery img { width: 320px; height: 280px; flex: 0 0 auto; }
+      .gallery-scroll { overflow-x: auto; }
+      .gallery-scroll img { width: 300px; height: 260px; flex: 0 0 auto; }
       .mobile-sticky { display: none; }
     }
   </style>
@@ -473,6 +520,7 @@
         </div>
 
         <div class="hero-image-wrap">
+          <button class="gallery-arrow left" onclick="document.querySelector('.hero-gallery').scrollBy({left:-310,behavior:'smooth'})" aria-label="Previous image">❮</button>
           <div class="hero-gallery">
             <img src="../images/gallery/silverado-interior.webp" alt="Chevy Silverado interior detail at 716 Details">
             <img src="../images/gallery/amg-foam-wash.webp" alt="Mercedes AMG foam wash inside 716 Details shop">
@@ -480,6 +528,7 @@
             <img src="../images/gallery/ram-exterior.webp" alt="Black RAM 3500 after full exterior detail">
             <img src="../images/gallery/interior-cabin.webp" alt="Pristine light interior after full detail">
           </div>
+          <button class="gallery-arrow right" onclick="document.querySelector('.hero-gallery').scrollBy({left:310,behavior:'smooth'})" aria-label="Next image">❯</button>
         </div>
       </div>
 
@@ -612,12 +661,16 @@
   <section class="gallery">
     <div class="container">
       <h2>Our Recent Work</h2>
-      <div class="gallery-scroll">
-        <img src="../images/gallery/exterior-detailing/exterior-jaguar-fpace-front-1.webp" alt="Exterior detail Jaguar F-Pace">
-        <img src="../images/gallery/interior-detailing/interior-gmc-denali-luxury-1.webp" alt="Interior detail GMC Denali">
-        <img src="../images/gallery/exterior-detailing/exterior-gmc-denali-front-1.webp" alt="Exterior detail GMC Denali">
-        <img src="../images/gallery/interior-detailing/interior-cadillac-xt5-modern-1.webp" alt="Interior detail Cadillac XT5">
-        <img src="../images/gallery/exterior-detailing/exterior-audi-a5-front-1.webp" alt="Exterior detail Audi A5">
+      <div class="gallery-scroll-wrap">
+        <button class="gallery-arrow-bottom left" onclick="document.getElementById('recent-work-gallery').scrollBy({left:-290,behavior:'smooth'})" aria-label="Previous">❮</button>
+        <div class="gallery-scroll" id="recent-work-gallery">
+          <img src="../images/gallery/exterior-detailing/exterior-jaguar-fpace-front-1.webp" alt="Exterior detail Jaguar F-Pace">
+          <img src="../images/gallery/interior-detailing/interior-gmc-denali-luxury-1.webp" alt="Interior detail GMC Denali">
+          <img src="../images/gallery/exterior-detailing/exterior-gmc-denali-front-1.webp" alt="Exterior detail GMC Denali">
+          <img src="../images/gallery/interior-detailing/interior-cadillac-xt5-modern-1.webp" alt="Interior detail Cadillac XT5">
+          <img src="../images/gallery/exterior-detailing/exterior-audi-a5-front-1.webp" alt="Exterior detail Audi A5">
+        </div>
+        <button class="gallery-arrow-bottom right" onclick="document.getElementById('recent-work-gallery').scrollBy({left:290,behavior:'smooth'})" aria-label="Next">❯</button>
       </div>
     </div>
   </section>
