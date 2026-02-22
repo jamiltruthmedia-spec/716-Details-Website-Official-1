@@ -739,26 +739,42 @@
       }
     });
 
-    // Peek hint for bottom gallery: scroll right then back, loop until user touches it
+    // Peek hint: nudge gallery when it enters viewport, loop until user interacts
     (function(){
       var g = document.getElementById('recent-work-gallery');
       if (!g) return;
-      var userScrolled = false;
-      g.addEventListener('scroll', function() { userScrolled = true; }, { once: true });
-      g.addEventListener('touchstart', function() { userScrolled = true; }, { once: true });
+      var stopped = false;
+      var nudging = false;
 
-      function peekLoop() {
-        if (userScrolled) return;
-        g.scrollTo({ left: 60, behavior: 'smooth' });
+      g.addEventListener('touchstart', function() { stopped = true; }, { once: true });
+      g.addEventListener('mousedown', function() { stopped = true; }, { once: true });
+      g.addEventListener('wheel', function() { stopped = true; }, { once: true });
+
+      function nudge() {
+        if (stopped || nudging) return;
+        nudging = true;
+        g.scrollTo({ left: 50, behavior: 'smooth' });
         setTimeout(function() {
-          if (userScrolled) return;
           g.scrollTo({ left: 0, behavior: 'smooth' });
-          setTimeout(function() {
-            if (!userScrolled) peekLoop();
-          }, 2000);
-        }, 800);
+          nudging = false;
+        }, 600);
       }
-      setTimeout(peekLoop, 2000);
+
+      var interval;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !stopped) {
+            nudge();
+            interval = setInterval(function() {
+              if (stopped) { clearInterval(interval); return; }
+              nudge();
+            }, 3000);
+          } else {
+            clearInterval(interval);
+          }
+        });
+      }, { threshold: 0.3 });
+      observer.observe(g);
     })();
   </script>
 </body>
