@@ -161,6 +161,23 @@
       border-radius: 8px;
       margin-top: 16px;
     }
+    .hero-gallery {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+      margin-top: 16px;
+    }
+    .hero-gallery::-webkit-scrollbar { display: none; }
+    .hero-gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex: 0 0 auto;
+    }
 
     .form-section, .reviews, .faq { background: #fff; padding: 24px 16px; }
     .services, .gallery { background: #f8f9fa; padding: 24px 16px; }
@@ -359,6 +376,8 @@
       .backup-reviews { grid-template-columns: repeat(3, minmax(0,1fr)); }
       .steps-grid { grid-template-columns: repeat(4, 1fr); }
 
+      .hero-gallery { overflow: visible; flex-wrap: wrap; }
+      .hero-gallery img { width: calc((100% - 8px) / 2); height: 160px; flex: 0 0 auto; }
       .gallery-scroll { overflow: visible; }
       .gallery-scroll img { width: calc((100% - 32px) / 5); flex: 1 1 auto; }
       .mobile-sticky { display: none; }
@@ -396,7 +415,12 @@
         </div>
 
         <div class="hero-image-wrap">
-          <img src="../images/hero/shop-hero.webp" alt="716 Details heated indoor detailing shop in Lewiston NY" style="width:100%;max-height:220px;object-fit:cover;border-radius:8px;margin-top:16px;">
+          <div class="hero-gallery">
+            <img src="../images/gallery/foam-wash.webp" alt="Foam cannon wash on Jeep at 716 Details">
+            <img src="../images/gallery/ram-exterior.webp" alt="Black RAM 3500 after full exterior detail">
+            <img src="../images/gallery/interior-cabin.webp" alt="Pristine light interior after full detail">
+            <img src="../images/gallery/interior-console.webp" alt="Detailed center console and climate controls">
+          </div>
         </div>
       </div>
 
@@ -524,10 +548,11 @@
     <div class="container">
       <h2>Our Recent Work</h2>
       <div class="gallery-scroll">
-        <img src="../images/gallery/foam-wash.webp" alt="Foam cannon wash on Jeep at 716 Details shop" loading="lazy">
-        <img src="../images/gallery/ram-exterior.webp" alt="Black RAM 3500 after full exterior detail" loading="lazy">
-        <img src="../images/gallery/interior-cabin.webp" alt="Pristine light interior after full detail" loading="lazy">
-        <img src="../images/gallery/interior-console.webp" alt="Detailed center console and climate controls" loading="lazy">
+        <img src="../images/gallery/exterior-detailing/exterior-jaguar-fpace-front-1.webp" alt="Exterior detail Jaguar F-Pace">
+        <img src="../images/gallery/interior-detailing/interior-gmc-denali-luxury-1.webp" alt="Interior detail GMC Denali">
+        <img src="../images/gallery/exterior-detailing/exterior-gmc-denali-front-1.webp" alt="Exterior detail GMC Denali">
+        <img src="../images/gallery/interior-detailing/interior-cadillac-xt5-modern-1.webp" alt="Interior detail Cadillac XT5">
+        <img src="../images/gallery/exterior-detailing/exterior-audi-a5-front-1.webp" alt="Exterior detail Audi A5">
       </div>
     </div>
   </section>
