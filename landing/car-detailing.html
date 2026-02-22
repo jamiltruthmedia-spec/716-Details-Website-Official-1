@@ -426,8 +426,8 @@
       .backup-reviews { grid-template-columns: repeat(3, minmax(0,1fr)); }
       .steps-grid { grid-template-columns: repeat(4, 1fr); }
 
-      .hero-gallery { overflow: visible; flex-wrap: wrap; }
-      .hero-gallery img { width: calc((100% - 8px) / 2); height: 160px; flex: 0 0 auto; }
+      .hero-gallery { overflow-x: auto; flex-wrap: nowrap; }
+      .hero-gallery img { width: 260px; height: 200px; flex: 0 0 auto; }
       .gallery-scroll { overflow: visible; }
       .gallery-scroll img { width: calc((100% - 32px) / 5); flex: 1 1 auto; }
       .mobile-sticky { display: none; }
