@@ -1,666 +1,957 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Car Detailing in Lewiston, NY | 716 Details</title>
-  <meta name="description" content="Professional in-shop car detailing in Lewiston, NY. Drop off your car and pick it up looking brand new. Get your free quote from 716 Details today." />
-  <link rel="canonical" href="https://www.716detailing.com/landing/car-detailing.html" />
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16886615838"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-16886615838');
-
-    function trackConversion(label) {
-      gtag('event', 'conversion', {
-        'send_to': 'AW-16886615838/' + label
-      });
-    }
-  </script>
-
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --card: #111;
-      --border: #222;
-      --text: #fff;
-      --muted: #aaa;
-      --accent: #4F7CFF;
-      --gold: #FFD700;
-    }
-
-    * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    }
-
-    body { padding-bottom: 70px; }
-
-    a { color: inherit; text-decoration: none; }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 99;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      padding: 10px 16px;
-    }
-
-    .header-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .logo {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--text);
-      white-space: nowrap;
-    }
-
-    .header-phone {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--accent);
-      white-space: nowrap;
-    }
-
-    .trust-bar {
-      background: var(--card);
-      font-size: 13px;
-      text-align: center;
-      color: var(--muted);
-      padding: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .star { color: var(--gold); }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    .hero {
-      padding: 20px 16px;
-    }
-
-    h1 {
-      margin: 0 0 6px;
-      font-size: 28px;
-      line-height: 1.15;
-      font-weight: 800;
-      color: var(--text);
-    }
-
-    .subtitle {
-      margin: 0 0 8px;
-      font-size: 20px;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .hero-subtext {
-      margin: 0 0 16px;
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
-    .btn-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 14px 24px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 15px;
-      text-align: center;
-      cursor: pointer;
-      border: 2px solid transparent;
-      flex: 1 1 170px;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    section { padding: 18px 16px; }
-
-    .form-section {
-      background: #111;
-      border-radius: 12px;
-      padding: 20px 16px;
-      margin: 0 16px;
-      border: 1px solid var(--border);
-    }
-
-    h2 {
-      margin: 0 0 8px;
-      font-size: 20px;
-      line-height: 1.25;
-    }
-
-    .section-subtext {
-      margin: 0 0 14px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .form-wrap {
-      background: #111;
-      border-radius: 10px;
-      padding: 8px;
-    }
-
-    .form-wrap iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      overflow: hidden;
-      display: block;
-      background: #111;
-      color-scheme: dark;
-      border-radius: 8px;
-    }
-
-    .form-trust {
-      margin: 12px 0 0;
-      font-size: 12px;
-      color: var(--muted);
-      text-align: center;
-      line-height: 1.4;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
-    .service-card {
-      display: block;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px;
-      min-height: 108px;
-      max-height: 120px;
-      overflow: hidden;
-    }
-
-    .service-title {
-      margin: 0 0 6px;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .service-price {
-      margin: 0 0 6px;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .service-desc {
-      margin: 0;
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.35;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 10px;
-      align-items: start;
-    }
-
-    .step-num {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 700;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 2px;
-    }
-
-    .step-title {
-      margin: 0;
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .step-desc {
-      margin: 2px 0 0;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .why-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .why-item { color: var(--text); }
-
-    .why-item strong { font-size: 15px; }
-
-    .why-item p {
-      margin: 3px 0 0 20px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.35;
-    }
-
-    .reviews {
-      display: grid;
-      gap: 10px;
-    }
-
-    .review-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px;
-    }
-
-    .review-head {
-      margin: 0 0 6px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .review-stars {
-      color: var(--gold);
-      letter-spacing: 1px;
-    }
-
-    .review-text {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 12px 0;
-    }
-
-    .faq-question {
-      width: 100%;
-      background: transparent;
-      border: none;
-      color: var(--text);
-      font-size: 15px;
-      font-weight: 700;
-      text-align: left;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      padding: 0;
-      cursor: pointer;
-    }
-
-    .faq-answer {
-      display: none;
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .faq-item.open .faq-answer { display: block; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-
-    .faq-icon {
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1;
-      transition: transform .2s ease;
-      flex-shrink: 0;
-    }
-
-    .final-cta {
-      text-align: center;
-      padding-top: 4px;
-      padding-bottom: 20px;
-    }
-
-    .final-cta h2 { margin-bottom: 4px; }
-
-    .limited {
-      margin: 0 0 14px;
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 16px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .sticky-bar {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 100;
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      padding: 8px;
-    }
-
-    .sticky-btn {
-      min-height: 48px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    @media (min-width: 768px) {
-      body { padding-bottom: 0; }
-      h1 { font-size: 44px; }
-      .services-grid { grid-template-columns: repeat(4, 1fr); }
-      .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-      .step { grid-template-columns: 28px 1fr; }
-      .sticky-bar { display: none; }
-      .form-section { margin-left: 16px; margin-right: 16px; }
-    }
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Detailing in Lewiston, NY - 716 Details | From $149</title>
+    <meta name="description" content="Professional car detailing in Lewiston, NY. Full detail from $149. 127 five-star reviews. Licensed & insured. Drop off service. Call (716) 405-9988.">
+    <link rel="canonical" href="https://www.716detailing.com/landing/car-detailing.html">
+    
+    <!-- Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16886615838"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-16886615838');
+        
+        // Track CTA clicks
+        function trackConversion(action) {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16886615838/conversion',
+                'event_category': 'CTA',
+                'event_label': action
+            });
+        }
+        
+        // Smooth scroll to form
+        function scrollToForm(e) {
+            e.preventDefault();
+            document.getElementById('quote-form').scrollIntoView({ behavior: 'smooth' });
+            trackConversion('quote_button_click');
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            padding-bottom: 70px;
+        }
+        
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 12px 16px;
+        }
+        
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1a56db;
+        }
+        
+        .header-phone {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: #f8f9fa;
+            padding: 24px 16px;
+        }
+        
+        .hero-content {
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a56db;
+            margin-bottom: 8px;
+        }
+        
+        .hero-subtext {
+            font-size: 16px;
+            color: #555555;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #1a56db;
+            color: #ffffff;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+        
+        .btn-primary:hover {
+            background: #1545b5;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #1a56db;
+            border: 2px solid #1a56db;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .btn-outline:hover {
+            background: #1a56db;
+            color: #ffffff;
+        }
+        
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 16px;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #555555;
+        }
+        
+        .badge-icon {
+            font-size: 14px;
+        }
+        
+        .badge .star {
+            color: #FFD700;
+        }
+        
+        .badge .check {
+            color: #16a34a;
+        }
+        
+        /* Hero Image */
+        .hero-image {
+            margin-top: 24px;
+            width: 100%;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Sections */
+        section {
+            padding: 24px 16px;
+        }
+        
+        .bg-white {
+            background: #ffffff;
+        }
+        
+        .bg-gray {
+            background: #f8f9fa;
+        }
+        
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #555555;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+        
+        /* Form Section */
+        #quote-form {
+            scroll-margin-top: 80px;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-trust {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #555555;
+        }
+        
+        .form-trust span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .form-trust .check {
+            color: #16a34a;
+        }
+        
+        /* Service Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        
+        .service-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a56db;
+            margin-bottom: 8px;
+        }
+        
+        .service-desc {
+            font-size: 14px;
+            color: #555555;
+            line-height: 1.5;
+        }
+        
+        /* Reviews */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .review-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 16px;
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1a56db;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .review-info {
+            flex: 1;
+        }
+        
+        .review-name {
+            font-weight: 700;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+        
+        .review-source {
+            font-size: 12px;
+            color: #555555;
+        }
+        
+        .review-stars {
+            color: #FFD700;
+            font-size: 16px;
+        }
+        
+        .review-text {
+            font-size: 14px;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        
+        /* Gallery */
+        .gallery-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        
+        .gallery-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .gallery-scroll img {
+            height: 200px;
+            width: auto;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+        
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+        }
+        
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+        
+        .faq-toggle {
+            font-size: 20px;
+            color: #1a56db;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 16px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer-content {
+            padding-bottom: 16px;
+            color: #555555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: #1a56db;
+            color: #ffffff;
+            text-align: center;
+            padding: 32px 16px;
+        }
+        
+        .final-cta h2 {
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .final-cta p {
+            color: #ffffff;
+            margin-bottom: 24px;
+            font-size: 16px;
+        }
+        
+        .btn-white {
+            background: #ffffff;
+            color: #1a56db;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+        
+        .btn-white:hover {
+            background: #f8f9fa;
+        }
+        
+        .btn-white-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            width: 100%;
+        }
+        
+        .btn-white-outline:hover {
+            background: #ffffff;
+            color: #1a56db;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            padding: 24px 16px;
+        }
+        
+        footer p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ffffff;
+        }
+        
+        /* Mobile Sticky Bar */
+        .mobile-sticky {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+            padding: 10px 16px;
+            display: flex;
+            gap: 8px;
+            z-index: 99;
+        }
+        
+        .mobile-sticky .btn {
+            flex: 1;
+            padding: 12px;
+            margin: 0;
+            min-height: 48px;
+        }
+        
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
+            
+            section {
+                padding: 48px 20px;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            h2 {
+                font-size: 28px;
+                margin-bottom: 24px;
+            }
+            
+            .hero {
+                padding: 48px 20px;
+            }
+            
+            .hero-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                text-align: left;
+                align-items: start;
+            }
+            
+            .hero-text {
+                padding-top: 20px;
+            }
+            
+            .hero-form {
+                background: #ffffff;
+                padding: 24px;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            
+            .hero-form h2 {
+                font-size: 22px;
+                margin-bottom: 12px;
+            }
+            
+            .hero-image {
+                margin-top: 0;
+                grid-column: 1 / -1;
+            }
+            
+            .btn-primary, .btn-outline {
+                width: auto;
+                min-width: 200px;
+                margin-right: 12px;
+            }
+            
+            .trust-badges {
+                justify-content: flex-start;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            
+            .gallery-scroll {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .gallery-scroll img {
+                height: 250px;
+            }
+            
+            .mobile-sticky {
+                display: none;
+            }
+            
+            .final-cta .btn-white,
+            .final-cta .btn-white-outline {
+                width: auto;
+                min-width: 250px;
+                margin: 0 6px;
+            }
+        }
+    </style>
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "716 Details",
-        "telephone": "+1-716-405-9988",
+        "image": "https://www.716detailing.com/images/hero/shop-hero.webp",
+        "@id": "https://www.716detailing.com",
+        "url": "https://www.716detailing.com",
+        "telephone": "+17164059988",
+        "priceRange": "$$",
         "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "4689 Model City Rd",
-          "addressLocality": "Lewiston",
-          "addressRegion": "NY",
-          "postalCode": "14092",
-          "addressCountry": "US"
+            "@type": "PostalAddress",
+            "streetAddress": "4689 Model City Rd",
+            "addressLocality": "Lewiston",
+            "addressRegion": "NY",
+            "postalCode": "14092",
+            "addressCountry": "US"
         },
-        "openingHours": "Mo-Su 08:00-21:00",
-        "url": "https://www.716detailing.com/landing/car-detailing.html"
-      },
-      {
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 43.1728,
+            "longitude": -78.9972
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
+            "opens": "08:00",
+            "closes": "21:00"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Car Detailing in Lewiston, NY",
+        "serviceType": "Car Detailing",
         "provider": {
-          "@type": "LocalBusiness",
-          "name": "716 Details"
+            "@type": "LocalBusiness",
+            "name": "716 Details"
         },
-        "areaServed": "Lewiston, NY",
-        "serviceType": "In-Shop Car Detailing"
-      }
-    ]
-  }
-  </script>
+        "areaServed": [
+            "Lewiston NY",
+            "Niagara Falls NY",
+            "Clarence NY",
+            "East Amherst NY",
+            "Williamsville NY",
+            "Youngstown NY",
+            "Wheatfield NY",
+            "Kenmore NY",
+            "North Tonawanda NY"
+        ],
+        "offers": {
+            "@type": "Offer",
+            "price": "149",
+            "priceCurrency": "USD",
+            "description": "Full car detailing service"
+        }
+    }
+    </script>
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <div class="logo">716 Details</div>
-      <a class="header-phone cta-track" href="tel:+17164059988" data-label="call_header">Call (716) 405-9988</a>
+
+<!-- Header -->
+<header>
+    <div class="header-content">
+        <div class="logo">716 Details</div>
+        <a href="tel:+17164059988" class="header-phone" onclick="trackConversion('header_phone_click')">📞 (716) 405-9988</a>
     </div>
-  </header>
+</header>
 
-  <div class="trust-bar"><span class="star">★</span> 4.9 Rating · 100+ Reviews · Licensed &amp; Insured · Satisfaction Guaranteed</div>
-
-  <main class="container">
-    <section class="hero">
-      <h1>Car Detailing in Lewiston, NY</h1>
-      <p class="subtitle">Lewiston's Trusted Detailers</p>
-      <p class="hero-subtext">Drop off your car and pick it up looking brand new. Professional detailing from $89.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary cta-track" href="#quote-form" data-label="quote_hero">Get My Free Quote</a>
-        <a class="btn btn-secondary cta-track" href="tel:+17164059988" data-label="call_hero">Call (716) 405-9988</a>
-      </div>
-    </section>
-
-    <section id="quote-form" class="form-section">
-      <h2>Get Your Free Quote</h2>
-      <p class="section-subtext">Tell us what you need. We'll call back with a price.</p>
-      <div class="form-wrap">
-        <iframe src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="width:100%;height:500px;border:none;overflow:hidden;background:#111;color-scheme:dark;" scrolling="no" data-layout="{'id':'INLINE'}" data-form-name="Get Quote Form" data-height="500" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Form"></iframe>
-      </div>
-      <p class="form-trust">✓ No spam · ✓ Free estimate · ✓ We call back in 15 min</p>
-    </section>
-
-    <section>
-      <div class="services-grid">
-        <a class="service-card cta-track" href="#quote-form" data-label="service_express">
-          <p class="service-title">Express Detail</p>
-          <p class="service-price">$89</p>
-          <p class="service-desc">Fast refresh for lightly used vehicles that need a clean reset.</p>
-        </a>
-        <a class="service-card cta-track" href="#quote-form" data-label="service_full">
-          <p class="service-title">Full Detail</p>
-          <p class="service-price">$149</p>
-          <p class="service-desc">Inside and out detail designed to restore shine and comfort.</p>
-        </a>
-        <a class="service-card cta-track" href="#quote-form" data-label="service_interior">
-          <p class="service-title">Interior Only</p>
-          <p class="service-price">varies</p>
-          <p class="service-desc">Deep interior cleaning for stains, odors, crumbs, and buildup.</p>
-        </a>
-        <a class="service-card cta-track" href="#quote-form" data-label="service_exterior">
-          <p class="service-title">Exterior Only</p>
-          <p class="service-price">varies</p>
-          <p class="service-desc">Exterior-focused wash and finish for gloss and protection.</p>
-        </a>
-      </div>
-    </section>
-
-    <section>
-      <h2>How It Works</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div>
-            <p class="step-title">Request Quote</p>
-            <p class="step-desc">Tell us about your vehicle and service needs.</p>
-          </div>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Car Detailing in Lewiston, NY</h1>
+                <div class="hero-subtitle">Lewiston's Trusted Detailers</div>
+                <p class="hero-subtext">Drop off your car. Pick it up looking brand new. Professional detailing from $149.</p>
+                
+                <a href="#quote-form" class="btn btn-primary" onclick="scrollToForm(event)">Get My Free Quote</a>
+                <a href="tel:+17164059988" class="btn btn-outline" onclick="trackConversion('hero_phone_click')">Call (716) 405-9988</a>
+                
+                <div class="trust-badges">
+                    <div class="badge">
+                        <span class="badge-icon check">🛡️</span>
+                        <span>Licensed & Insured</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon star">⭐</span>
+                        <span>4.9 · 127 Reviews</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon check">✓</span>
+                        <span>Satisfaction Guaranteed</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-form" id="quote-form">
+                <h2>Get Your Free Quote</h2>
+                <p class="section-subtitle">Tell us what you need. We'll call back in 15 minutes.</p>
+                
+                <iframe src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="width:100%;height:500px;border:none;overflow:hidden;" scrolling="no" data-layout="{'id':'INLINE'}" data-form-name="Get Quote Form" data-height="500" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Form"></iframe>
+                
+                <div class="form-trust">
+                    <span><span class="check">✓</span> No spam</span>
+                    <span><span class="check">✓</span> Free estimate</span>
+                    <span><span class="check">✓</span> We call back in 15 min</span>
+                </div>
+            </div>
         </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div>
-            <p class="step-title">Pick a Time</p>
-            <p class="step-desc">Drop off at our heated Lewiston shop or schedule a time.</p>
-          </div>
+        
+        <div class="hero-image">
+            <img src="../images/hero/shop-hero.webp" alt="716 Details heated indoor detailing shop in Lewiston NY">
         </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div>
-            <p class="step-title">Clean Car</p>
-            <p class="step-desc">Pick up your car looking sharp. That's it.</p>
-          </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="bg-gray">
+    <div class="container">
+        <h2>Our Services</h2>
+        
+        <div class="services-grid">
+            <a href="#quote-form" class="service-card" onclick="scrollToForm(event)">
+                <h3>Full Detail</h3>
+                <div class="service-price">Starting at $149</div>
+                <p class="service-desc">Complete interior and exterior clean. Your car like new.</p>
+            </a>
+            
+            <a href="#quote-form" class="service-card" onclick="scrollToForm(event)">
+                <h3>Interior Detail</h3>
+                <div class="service-price">Price varies</div>
+                <p class="service-desc">Deep clean seats, carpets, dash. Remove stains and odors.</p>
+            </a>
+            
+            <a href="#quote-form" class="service-card" onclick="scrollToForm(event)">
+                <h3>Exterior Detail</h3>
+                <div class="service-price">Price varies</div>
+                <p class="service-desc">Hand wash, clay bar, polish, and wax. Glass-like shine.</p>
+            </a>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <section>
-      <h2>Why 716 Details</h2>
-      <ul class="why-list">
-        <li class="why-item">✓ <strong>Heated Indoor Shop</strong><p>Year-round detailing in our climate-controlled Lewiston facility. Rain or shine, your car gets done.</p></li>
-        <li class="why-item">✓ <strong>Licensed &amp; Insured</strong><p>Professional protection and peace of mind on every appointment.</p></li>
-        <li class="why-item">✓ <strong>Professional-Grade Products</strong><p>High-quality products used for safe, lasting, polished results.</p></li>
-        <li class="why-item">✓ <strong>Satisfaction Guarantee</strong><p>We stand behind the service and make it right if needed.</p></li>
-        <li class="why-item">✓ <strong>Local Guys, Local Knowledge</strong><p>We know Lewiston conditions and what local vehicles go through.</p></li>
-      </ul>
-    </section>
+<!-- Reviews Section -->
+<section class="bg-white">
+    <div class="container">
+        <h2>What Our Customers Say</h2>
+        <p class="section-subtitle">127 Five-Star Reviews on Google</p>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">V</div>
+                    <div class="review-info">
+                        <div class="review-name">Vanessa Clark</div>
+                        <div class="review-source">Google Review</div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-text">My Jeep was a hot mess when the guys came and picked it up. When it came back it looked like it was straight off the lot. My Jeep looked brand new. I am more than happy using this detail shop.</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">M</div>
+                    <div class="review-info">
+                        <div class="review-name">Michael Fedeson</div>
+                        <div class="review-source">Google Review</div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-text">I had 716 Details come out to my house for a full interior and exterior detail of my truck, and when they were done, it looked better than brand new. Every surface was spotless, the paint had a brilliant, mirror-like shine.</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">R</div>
+                    <div class="review-info">
+                        <div class="review-name">Rylie</div>
+                        <div class="review-source">Google Review</div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-text">5 stars all day. Great customer service, made things super easy. Clean work completely changed my vehicle. Definitely takes pride in their work and I will be returning.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section>
-      <h2>Reviews</h2>
-      <div class="reviews">
-        <article class="review-card">
-          <p class="review-head"><span>Mike T.</span><span class="review-stars">★★★★★</span></p>
-          <p class="review-text">"Got the full detail for my F-150 and it looked better than when I bought it."</p>
-        </article>
-        <article class="review-card">
-          <p class="review-head"><span>Sarah K.</span><span class="review-stars">★★★★★</span></p>
-          <p class="review-text">"I have two kids and a golden retriever, and they made my interior look new again."</p>
-        </article>
-        <article class="review-card">
-          <p class="review-head"><span>Tom R.</span><span class="review-stars">★★★★★</span></p>
-          <p class="review-text">"Needed my car detailed before selling it, and the result helped me get a better price."</p>
-        </article>
-      </div>
-    </section>
+<!-- Gallery Section -->
+<section class="bg-gray">
+    <div class="container">
+        <h2>Our Recent Work</h2>
+        
+        <div class="gallery-scroll">
+            <img src="../images/gallery/exterior-detailing/exterior-jaguar-fpace-front-1.webp" alt="Detailed Jaguar F-Pace exterior">
+            <img src="../images/gallery/interior-detailing/interior-gmc-denali-luxury-1.webp" alt="GMC Denali luxury interior detailing">
+            <img src="../images/gallery/exterior-detailing/exterior-gmc-denali-front-1.webp" alt="GMC Denali exterior detail">
+            <img src="../images/gallery/interior-detailing/interior-cadillac-xt5-modern-1.webp" alt="Cadillac XT5 modern interior detail">
+            <img src="../images/gallery/exterior-detailing/exterior-audi-a5-front-1.webp" alt="Audi A5 exterior detailing">
+        </div>
+    </div>
+</section>
 
-    <section>
-      <h2>FAQ</h2>
-      <div class="faq-item">
-        <button class="faq-question" type="button">How much does detailing cost?<span class="faq-icon">+</span></button>
-        <p class="faq-answer">Pricing depends on vehicle size and service level. Most jobs fall under the packages shown above, and custom requests are quoted directly.</p>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" type="button">How long does a detail take?<span class="faq-icon">+</span></button>
-        <p class="faq-answer">Most appointments take between 1.5 and 3 hours depending on condition, package, and any add-ons requested.</p>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" type="button">Do you come to my location?<span class="faq-icon">+</span></button>
-        <p class="faq-answer">Right now all services are at our heated indoor shop at 4689 Model City Rd, Lewiston. Drop-off and pick-up is easy. Mobile detailing will be available when weather permits. Call (716) 405-9988 for details.</p>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" type="button">What is included in a detail?<span class="faq-icon">+</span></button>
-        <p class="faq-answer">Services typically include interior cleaning, exterior wash, and finish work. Exact scope depends on the package selected.</p>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" type="button">What areas do you service?<span class="faq-icon">+</span></button>
-        <p class="faq-answer">We primarily serve Lewiston, NY and nearby areas. Submit the quote form and we will confirm service availability.</p>
-      </div>
-    </section>
+<!-- FAQ Section -->
+<section class="bg-white">
+    <div class="container">
+        <h2>Common Questions</h2>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How much does detailing cost?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        A full detail starts at $149. Final price depends on your vehicle size and condition. Request a quote and we'll give you an exact price for your car.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How long does a full detail take?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        3-4 hours depending on the vehicle. We don't rush. Express options take about 90 minutes. We'll give you a time estimate when you book.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What's included in a full detail?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Exterior hand wash, clay bar, polish, and wax. Inside: vacuum, shampoo carpets and seats, clean and condition leather, wipe down all surfaces, clean windows inside and out.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do you serve my area?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        We're at 4689 Model City Rd in Lewiston. We serve Lewiston, Niagara Falls, Clarence, East Amherst, Williamsville, Youngstown, Wheatfield, Kenmore, North Tonawanda, and surrounding areas. Call (716) 405-9988 if you're not sure.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section class="final-cta">
-      <h2>Ready for a Cleaner Car?</h2>
-      <p class="limited">Limited spots available this week</p>
-      <div class="btn-row">
-        <a class="btn btn-primary cta-track" href="#quote-form" data-label="quote_final">Get My Free Quote</a>
-        <a class="btn btn-secondary cta-track" href="tel:+17164059988" data-label="call_final">Call (716) 405-9988</a>
-      </div>
-    </section>
-  </main>
+<!-- Final CTA -->
+<section class="final-cta">
+    <div class="container">
+        <h2>Your Car Deserves Better</h2>
+        <p>Only a few spots left this week. Book now before they fill up.</p>
+        
+        <a href="#quote-form" class="btn btn-white" onclick="scrollToForm(event)">Get My Free Quote</a>
+        <a href="tel:+17164059988" class="btn btn-white-outline" onclick="trackConversion('final_cta_phone_click')">Call (716) 405-9988</a>
+    </div>
+</section>
 
-  <footer>
-    716 Details · (716) 405-9988 · 4689 Model City Rd, Lewiston, NY 14092 · Mon-Sun 8AM-9PM
-  </footer>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p><strong>716 Details</strong> · (716) 405-9988</p>
+        <p>4689 Model City Rd, Lewiston, NY 14092</p>
+        <p>Mon-Sun 8AM-9PM</p>
+    </div>
+</footer>
 
-  <div class="sticky-bar">
-    <a class="sticky-btn btn-secondary cta-track" href="tel:+17164059988" data-label="call_sticky">Call Now</a>
-    <a class="sticky-btn btn-primary cta-track" href="#quote-form" data-label="quote_sticky">Get My Free Quote</a>
-  </div>
+<!-- Mobile Sticky Bar -->
+<div class="mobile-sticky">
+    <a href="tel:+17164059988" class="btn btn-primary" onclick="trackConversion('sticky_phone_click')">Call Now</a>
+    <a href="#quote-form" class="btn btn-outline" onclick="scrollToForm(event)">Get Free Quote</a>
+</div>
 
-  <script src="https://booking.716detailing.com/js/form_embed.js"></script>
-  <script>
-    document.querySelectorAll('.cta-track').forEach(function(el) {
-      el.addEventListener('click', function() {
-        var label = el.getAttribute('data-label') || 'cta_click';
-        trackConversion(label);
-      });
-    });
+<!-- Scripts -->
+<script src="https://booking.716detailing.com/js/form_embed.js"></script>
 
-    var formFrame = document.querySelector('iframe[data-form-id="3yILzyxZjNq2sxiqQYbf"]');
-    if (formFrame) {
-      formFrame.addEventListener('load', function() {
-        trackConversion('form_loaded');
-      });
+<script>
+    // FAQ Toggle
+    function toggleFaq(element) {
+        const faqItem = element.parentElement;
+        const wasActive = faqItem.classList.contains('active');
+        
+        // Close all FAQs
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Open clicked FAQ if it wasn't active
+        if (!wasActive) {
+            faqItem.classList.add('active');
+        }
     }
-
+    
+    // Track form submission
     window.addEventListener('message', function(event) {
-      try {
-        var data = event.data;
-        if (typeof data === 'string' && data.toLowerCase().includes('form')) {
-          if (data.toLowerCase().includes('submit') || data.toLowerCase().includes('success')) {
-            trackConversion('form_submit');
-          }
+        if (event.data && event.data.type === 'form_submitted') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16886615838/conversion',
+                'event_category': 'Form',
+                'event_label': 'quote_form_submit'
+            });
         }
-        if (data && typeof data === 'object') {
-          var str = JSON.stringify(data).toLowerCase();
-          if (str.includes('submit') || str.includes('success')) {
-            trackConversion('form_submit');
-          }
-        }
-      } catch (e) {}
     });
+</script>
 
-    document.querySelectorAll('.faq-question').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var item = btn.closest('.faq-item');
-        var isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(f) { f.classList.remove('open'); });
-        if (!isOpen) item.classList.add('open');
-      });
-    });
-  </script>
 </body>
 </html>
