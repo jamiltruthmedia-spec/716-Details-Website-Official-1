@@ -221,6 +221,30 @@
       margin-bottom: 8px;
     }
     .hero-gallery::-webkit-scrollbar { display: none; }
+    .hero-image-wrap { position: relative; }
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      transition: background .2s;
+    }
+    .gallery-arrow:hover { background: #fff; }
+    .gallery-arrow.left { left: 6px; }
+    .gallery-arrow.right { right: 6px; }
     .hero-gallery img {
       width: 300px;
       height: 280px;
@@ -465,6 +489,7 @@
         </div>
 
         <div class="hero-image-wrap">
+          <button class="gallery-arrow left" onclick="document.querySelector('.hero-gallery').scrollBy({left:-310,behavior:'smooth'})" aria-label="Previous image">❮</button>
           <div class="hero-gallery">
             <img src="../images/gallery/silverado-interior.webp" alt="Chevy Silverado interior detail at 716 Details">
             <img src="../images/gallery/amg-foam-wash.webp" alt="Mercedes AMG foam wash inside 716 Details shop">
@@ -472,6 +497,7 @@
             <img src="../images/gallery/ram-exterior.webp" alt="Black RAM 3500 after full exterior detail">
             <img src="../images/gallery/interior-cabin.webp" alt="Pristine light interior after full detail">
           </div>
+          <button class="gallery-arrow right" onclick="document.querySelector('.hero-gallery').scrollBy({left:310,behavior:'smooth'})" aria-label="Next image">❯</button>
         </div>
       </div>
 
