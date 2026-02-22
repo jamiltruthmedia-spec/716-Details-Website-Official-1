@@ -315,7 +315,7 @@
     .stars { color: #FFD700; margin: 6px 0; letter-spacing: 1px; }
     .review-card p { margin: 0; color: #333; font-size: 14px; }
 
-    .gallery-scroll-wrap { position: relative; overflow: hidden; }
+    .gallery-scroll-wrap { position: relative; }
     .gallery-scroll {
       display: flex;
       gap: 10px;
@@ -354,7 +354,7 @@
     .gallery-arrow-bottom:hover { background: #fff; }
     .gallery-arrow-bottom.left { left: 6px; }
     .gallery-arrow-bottom.right { right: 6px; }
-    /* peek hint handled via JS scrollLeft */
+    /* gallery arrows reused for bottom gallery */
 
     .steps-grid {
       display: grid;
@@ -648,12 +648,16 @@
   <section class="gallery">
     <div class="container">
       <h2>Our Recent Work</h2>
-      <div class="gallery-scroll" id="recent-work-gallery">
+      <div class="gallery-scroll-wrap">
+        <button class="gallery-arrow-bottom left" onclick="document.getElementById('recent-work-gallery').scrollBy({left:-290,behavior:'smooth'})" aria-label="Previous">❮</button>
+        <div class="gallery-scroll" id="recent-work-gallery">
         <img src="../images/gallery/exterior-detailing/exterior-jaguar-fpace-front-1.webp" alt="Exterior detail Jaguar F-Pace">
         <img src="../images/gallery/interior-detailing/interior-gmc-denali-luxury-1.webp" alt="Interior detail GMC Denali">
         <img src="../images/gallery/exterior-detailing/exterior-gmc-denali-front-1.webp" alt="Exterior detail GMC Denali">
         <img src="../images/gallery/interior-detailing/interior-cadillac-xt5-modern-1.webp" alt="Interior detail Cadillac XT5">
         <img src="../images/gallery/exterior-detailing/exterior-audi-a5-front-1.webp" alt="Exterior detail Audi A5">
+        </div>
+        <button class="gallery-arrow-bottom right" onclick="document.getElementById('recent-work-gallery').scrollBy({left:290,behavior:'smooth'})" aria-label="Next">❯</button>
       </div>
     </div>
   </section>
@@ -739,43 +743,7 @@
       }
     });
 
-    // Peek hint: nudge gallery when it enters viewport, loop until user interacts
-    (function(){
-      var g = document.getElementById('recent-work-gallery');
-      if (!g) return;
-      var stopped = false;
-      var nudging = false;
-
-      g.addEventListener('touchstart', function() { stopped = true; }, { once: true });
-      g.addEventListener('mousedown', function() { stopped = true; }, { once: true });
-      g.addEventListener('wheel', function() { stopped = true; }, { once: true });
-
-      function nudge() {
-        if (stopped || nudging) return;
-        nudging = true;
-        g.scrollTo({ left: 50, behavior: 'smooth' });
-        setTimeout(function() {
-          g.scrollTo({ left: 0, behavior: 'smooth' });
-          nudging = false;
-        }, 600);
-      }
-
-      var interval;
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting && !stopped) {
-            nudge();
-            interval = setInterval(function() {
-              if (stopped) { clearInterval(interval); return; }
-              nudge();
-            }, 3000);
-          } else {
-            clearInterval(interval);
-          }
-        });
-      }, { threshold: 0.3 });
-      observer.observe(g);
-    })();
+    // no peek animation - arrows only
   </script>
 </body>
 </html>
