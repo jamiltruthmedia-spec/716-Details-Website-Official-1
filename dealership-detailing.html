@@ -204,7 +204,7 @@
             </ul>
             <div class="nav-contact">
                 <a href="tel:7164059988" class="phone-btn">(716) 405-9988</a>
-                <a href="contact-us.html" class="cta-btn">Book Now</a>
+                <a onclick="openQuotePopup()" href="javascript:void(0)" class="cta-btn">Book Now</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -557,7 +557,7 @@
             </div>
             <div class="cta-buttons">
                 <a href="tel:7164059988" class="cta-button primary large">Call (716) 405-9988</a>
-                <a href="contact-us.html" class="cta-button secondary large">Get Free Quote</a>
+                <a onclick="openQuotePopup()" href="javascript:void(0)" class="cta-button secondary large">Get Free Quote</a>
             </div>
             <div style="margin-top: 1.5rem; text-align: center;">
                 <p>Competitive wholesale pricing • Automotive dealer detailing specialists</p>
@@ -627,9 +627,9 @@
                         <li><a href="index.html#about">About 716 Details</a></li>
                         <li><a href="index.html#services">Our Services</a></li>
                         <li><a href="index.html#areas">Service Areas</a></li>
-                        <li><a href="contact-us.html">Get Free Quote</a></li>
+                        <li><a onclick="openQuotePopup()" href="javascript:void(0)">Get Free Quote</a></li>
                         <li><a href="tel:7164059988">Emergency Service</a></li>
-                        <li><a href="contact-us.html">Schedule Online</a></li>
+                        <li><a onclick="openQuotePopup()" href="javascript:void(0)">Schedule Online</a></li>
                     </ul>
                 </div>
             </div>
@@ -1046,5 +1046,33 @@
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
       data-widget-id="691760a633e99280e65eb5b1">
     </script>
+<!-- Custom Quote Modal Overlay -->
+<div id="quoteModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:10000;align-items:center;justify-content:center;">
+    <div style="position:relative;width:95%;max-width:500px;background:#fff;border-radius:12px;padding:20px;max-height:90vh;overflow-y:auto;">
+        <button onclick="closeQuotePopup()" style="position:absolute;top:10px;right:15px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;z-index:10001;">&times;</button>
+        <h2 style="text-align:center;margin-bottom:10px;color:#1a1a2e;font-size:1.3rem;">Get Your Free Quote</h2>
+        <p style="text-align:center;color:#666;margin-bottom:15px;font-size:0.9rem;">Tell us what you need. We'll call back in 15 minutes.</p>
+        <iframe src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="width:100%;height:340px;border:none;" id="quoteFormFrame" data-layout="{'id':'INLINE'}" data-form-name="Get Quote Pop Up Form" data-height="340" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Pop Up Form"></iframe>
+    </div>
+</div>
+<script>
+function openQuotePopup() {
+  var modal = document.getElementById('quoteModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeQuotePopup() {
+  var modal = document.getElementById('quoteModal');
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('quoteModal').addEventListener('click', function(e) {
+  if (e.target === this) closeQuotePopup();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeQuotePopup();
+});
+</script>
+
 </body>
 </html>
