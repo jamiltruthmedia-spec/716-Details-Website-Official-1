@@ -234,8 +234,8 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: rgba(255,255,255,0.9);
       border: 1px solid #ddd;
@@ -272,10 +272,9 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 10px;
     }
-    .services-grid .service-card:first-child { grid-column: 1 / -1; }
     .service-card {
       background: #fff;
       border: 1px solid #e5e7eb;
@@ -345,8 +344,8 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: rgba(255,255,255,0.9);
       border: 1px solid #ddd;
@@ -462,7 +461,7 @@
     @media (min-width: 768px) {
       body { padding-bottom: 0; }
       h2 { font-size: 28px; }
-      .hero, .form-section, .services, .reviews, .gallery, .faq { padding: 48px 20px; }
+      .hero, .form-section, .services, .reviews, .gallery, .faq { padding: 36px 20px; }
       .hero-grid {
         display: grid;
         grid-template-columns: 60% 40%;
@@ -477,7 +476,6 @@
       .hero .form-block-desktop { display: block !important; }
       .form-section.mobile-only { display: none; }
       .services-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
-      .services-grid .service-card:first-child { grid-column: auto; }
       .backup-reviews { grid-template-columns: repeat(3, minmax(0,1fr)); }
       .steps-grid { grid-template-columns: repeat(5, 1fr); }
 
@@ -492,7 +490,7 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <img src="../images/logo/716-details-logo.webp" alt="716 Details" style="height:36px;">
+      <img src="../images/logo/716-details-logo.webp" alt="716 Details" style="height:36px;" loading="lazy">
       <a href="tel:+17164059988" class="track-cta" data-label="header_phone_click" style="color:#1a56db;font-weight:700;font-size:15px;text-decoration:none;">📞 (716) 405-9988</a>
     </div>
   </header>
@@ -523,10 +521,10 @@
           <button class="gallery-arrow left" onclick="document.querySelector('.hero-gallery').scrollBy({left:-310,behavior:'smooth'})" aria-label="Previous image">❮</button>
           <div class="hero-gallery">
             <img src="../images/gallery/silverado-interior.webp" alt="Chevy Silverado interior detail at 716 Details">
-            <img src="../images/gallery/amg-foam-wash.webp" alt="Mercedes AMG foam wash inside 716 Details shop">
-            <img src="../images/gallery/interior-console.webp" alt="Detailed center console and climate controls">
-            <img src="../images/gallery/ram-exterior.webp" alt="Black RAM 3500 after full exterior detail">
-            <img src="../images/gallery/interior-cabin.webp" alt="Pristine light interior after full detail">
+            <img src="../images/gallery/amg-foam-wash.webp" alt="Mercedes AMG foam wash inside 716 Details shop" loading="lazy">
+            <img src="../images/gallery/interior-console.webp" alt="Detailed center console and climate controls" loading="lazy">
+            <img src="../images/gallery/ram-exterior.webp" alt="Black RAM 3500 after full exterior detail" loading="lazy">
+            <img src="../images/gallery/interior-cabin.webp" alt="Pristine light interior after full detail" loading="lazy">
           </div>
           <button class="gallery-arrow right" onclick="document.querySelector('.hero-gallery').scrollBy({left:310,behavior:'smooth'})" aria-label="Next image">❯</button>
         </div>
@@ -664,11 +662,11 @@
       <div class="gallery-scroll-wrap">
         <button class="gallery-arrow-bottom left" onclick="document.getElementById('recent-work-gallery').scrollBy({left:-290,behavior:'smooth'})" aria-label="Previous">❮</button>
         <div class="gallery-scroll" id="recent-work-gallery">
-          <img src="../images/gallery/exterior-detailing/exterior-jaguar-fpace-front-1.webp" alt="Exterior detail Jaguar F-Pace">
-          <img src="../images/gallery/interior-detailing/interior-gmc-denali-luxury-1.webp" alt="Interior detail GMC Denali">
-          <img src="../images/gallery/exterior-detailing/exterior-gmc-denali-front-1.webp" alt="Exterior detail GMC Denali">
-          <img src="../images/gallery/interior-detailing/interior-cadillac-xt5-modern-1.webp" alt="Interior detail Cadillac XT5">
-          <img src="../images/gallery/exterior-detailing/exterior-audi-a5-front-1.webp" alt="Exterior detail Audi A5">
+          <img src="../images/gallery/exterior-detailing/exterior-jaguar-fpace-front-1.webp" alt="Exterior detail Jaguar F-Pace" loading="lazy">
+          <img src="../images/gallery/interior-detailing/interior-gmc-denali-luxury-1.webp" alt="Interior detail GMC Denali" loading="lazy">
+          <img src="../images/gallery/exterior-detailing/exterior-gmc-denali-front-1.webp" alt="Exterior detail GMC Denali" loading="lazy">
+          <img src="../images/gallery/interior-detailing/interior-cadillac-xt5-modern-1.webp" alt="Interior detail Cadillac XT5" loading="lazy">
+          <img src="../images/gallery/exterior-detailing/exterior-audi-a5-front-1.webp" alt="Exterior detail Audi A5" loading="lazy">
         </div>
         <button class="gallery-arrow-bottom right" onclick="document.getElementById('recent-work-gallery').scrollBy({left:290,behavior:'smooth'})" aria-label="Next">❯</button>
       </div>
