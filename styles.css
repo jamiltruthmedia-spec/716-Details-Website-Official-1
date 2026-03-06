@@ -4935,3 +4935,22 @@ body.has-announcement section:first-of-type {
         font-size: 1.7rem;
     }
 }
+
+/* Social Links in Header */
+.nav-social-links { display: flex; gap: 8px; align-items: center; }
+.social-icon-link { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); transition: background 0.2s; }
+.social-icon-link:hover { background: rgba(255,255,255,0.2); }
+.social-icon-link svg { width: 18px; height: 18px; fill: white; }
+
+/* Floating WhatsApp Button */
+.whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999; transition: transform 0.2s, box-shadow 0.2s; }
+.whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+.whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+
+@media (max-width: 768px) {
+  .nav-social-links { gap: 4px; }
+  .social-icon-link { width: 28px; height: 28px; }
+  .social-icon-link svg { width: 16px; height: 16px; }
+  .whatsapp-float { width: 48px; height: 48px; bottom: 16px; right: 16px; }
+  .whatsapp-float svg { width: 26px; height: 26px; }
+}
