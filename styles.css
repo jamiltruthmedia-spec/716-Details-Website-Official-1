@@ -270,8 +270,27 @@ a {
     align-items: center;
 }
 
+/* Hide nav contact buttons on narrow desktop (show mobile book button instead) */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .nav-contact {
+        display: none !important;
+    }
+    
+    .nav-mobile-book {
+        display: block !important;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .nav-menu a {
+        font-size: 0.9rem;
+    }
+}
+
 /* Desktop navigation Book Now button - black theme */
-@media (min-width: 769px) {
+@media (min-width: 1101px) {
     .nav-contact .cta-btn,
     .nav-contact .phone-btn {
         background: #000000;
