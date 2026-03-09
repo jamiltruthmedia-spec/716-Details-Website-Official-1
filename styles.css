@@ -153,6 +153,11 @@ a {
     color: #4F7CFF;
 }
 
+/* Dropdown Toggle - keep text and arrow on same line */
+.dropdown-toggle {
+    white-space: nowrap;
+}
+
 /* Dropdown Arrow */
 .dropdown-arrow {
     font-size: 0.8rem;
