@@ -5354,3 +5354,72 @@ body.has-announcement section:first-of-type {
     .qa-grid { grid-template-columns: 1fr; }
 }
 
+/* Mobile accessibility hardening: tap targets + readable text + FAQ visibility */
+@media (max-width: 768px) {
+    /* Carousel arrows - increase tap target */
+    .carousel-arrow,
+    .slider-arrow,
+    .gallery-arrow,
+    .work-carousel-nav {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Read more links - increase tap area */
+    .read-more,
+    a.read-more,
+    .review-toggle {
+        padding: 12px 8px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Close buttons */
+    .close-popup,
+    .popup-close,
+    [class*="close"] {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Footer links */
+    footer a {
+        padding: 8px 4px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    /* Ensure no text is smaller than 14px on mobile */
+    p,
+    li,
+    a,
+    span,
+    td,
+    th,
+    label,
+    input,
+    select,
+    textarea {
+        font-size: max(14px, 1em);
+    }
+
+    /* Specific small text areas */
+    .service-card p,
+    .service-card li {
+        font-size: 14px;
+    }
+
+    /* FAQ fallback: keep answers visible if no accordion JS is present */
+    .faq-item p {
+        display: block;
+        max-height: none;
+        opacity: 1;
+    }
+}
+
