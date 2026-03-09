@@ -3590,6 +3590,7 @@ input:focus, select:focus, textarea:focus {
     }
 
     .nav-menu {
+        display: none;
         position: fixed;
         left: -100%;
         top: 70px;
@@ -3655,6 +3656,7 @@ input:focus, select:focus, textarea:focus {
     }
 
     .nav-menu.active {
+        display: flex;
         left: 0;
     }
 
