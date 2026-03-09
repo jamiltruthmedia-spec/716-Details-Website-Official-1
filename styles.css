@@ -226,14 +226,14 @@ a {
 
 .dropdown-menu .has-submenu > a .dropdown-arrow {
     margin-left: 0.75rem;
-    font-size: 0.9rem;
-    color: #4F7CFF;
+    font-size: 0.8rem;
+    color: #ffffff;
     transition: transform 0.3s ease;
-    transform: rotate(-90deg);
+    transform: rotate(0deg);
 }
 
 .dropdown-menu .has-submenu.open > a .dropdown-arrow {
-    transform: rotate(0deg);
+    transform: rotate(180deg);
 }
 
 .dropdown-menu .submenu {
@@ -3631,7 +3631,7 @@ input:focus, select:focus, textarea:focus {
         .dropdown-arrow {
             font-size: 0.9rem;
             margin-left: 0.8rem;
-            color: #4F7CFF;
+            color: #ffffff;
             font-weight: bold;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-block;
@@ -3640,7 +3640,7 @@ input:focus, select:focus, textarea:focus {
         
         .dropdown-toggle.active .dropdown-arrow {
             transform: rotate(180deg);
-            color: #4F7CFF;
+            color: #ffffff;
         }
     }
 
