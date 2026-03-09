@@ -1693,10 +1693,15 @@
             }
         }
         
-        // Close menu when clicking on regular links (not dropdown toggles)
+        // Close menu when clicking on actual page links (not dropdown/submenu toggles)
         const navLinks = document.querySelectorAll('.nav-menu a:not(.dropdown-toggle)');
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
+                // Submenu toggles use .has-submenu > a with href="#" - keep menu open
+                if (this.parentElement && this.parentElement.classList.contains('has-submenu')) {
+                    return;
+                }
+
                 // Don't prevent default - let the link work
                 if (window.innerWidth <= 768) {
                     setTimeout(closeMenu, 100);
@@ -1704,11 +1709,16 @@
             });
         });
         
-        // Prevent dropdown menu clicks from closing the menu
+        // Close menu for actual dropdown page links (not submenu toggles)
         const dropdownMenuLinks = document.querySelectorAll('.dropdown-menu a');
         dropdownMenuLinks.forEach(link => {
             link.addEventListener('click', function(e) {
-                // Allow the link to work but close menu after navigation
+                // Submenu toggles should only expand/collapse nested menus
+                if (this.parentElement && this.parentElement.classList.contains('has-submenu')) {
+                    return;
+                }
+
+                // Allow real links to navigate, then close menu on mobile
                 if (window.innerWidth <= 768) {
                     setTimeout(closeMenu, 100);
                 }
