@@ -5272,9 +5272,10 @@ body.has-announcement section:first-of-type {
 
 /* Commercial cards - center the grid */
 #detailing-services-commercial {
-    display: flex;
-    justify-content: center;
+    display: flex !important;
+    justify-content: center !important;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 #detailing-services-commercial .service-card {
