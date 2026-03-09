@@ -148,9 +148,10 @@ a {
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.3s ease;
-    white-space: nowrap;
     display: inline-flex;
     align-items: center;
+    gap: 0.25rem;
+    white-space: nowrap;
 }
 
 .nav-menu a:hover {
@@ -158,11 +159,12 @@ a {
 }
 
 /* Dropdown Arrow */
-.dropdown-arrow {
+.nav-menu .dropdown-arrow {
     font-size: 0.8rem;
-    margin-left: 0.5rem;
+    margin-left: 0;
     transition: transform 0.3s ease;
-    display: inline-block;
+    display: inline;
+    flex-shrink: 0;
 }
 
 .dropdown-toggle.active .dropdown-arrow {
