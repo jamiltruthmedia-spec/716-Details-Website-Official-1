@@ -5041,10 +5041,9 @@ body.has-announcement section:first-of-type {
 
 .premium-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 50px rgba(200,168,78,0.18),
-                0 8px 30px rgba(200,168,78,0.12),
-                0 0 80px rgba(200,168,78,0.06);
-    border-color: #c8a84e;
+    box-shadow: 0 15px 50px rgba(79,124,255,0.18),
+                0 8px 30px rgba(79,124,255,0.12);
+    border-color: #4F7CFF;
 }
 
 .premium-image img {
@@ -5069,7 +5068,7 @@ body.has-announcement section:first-of-type {
 }
 
 .premium-price {
-    color: #c8a84e;
+    color: #4F7CFF;
     font-weight: 700;
     font-size: 1.1rem;
     padding: 16px 20px 12px;
@@ -5114,7 +5113,7 @@ body.has-announcement section:first-of-type {
 
 .trust-number {
     display: block;
-    color: #c8a84e;
+    color: #4F7CFF;
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -5148,44 +5147,7 @@ body.has-announcement section:first-of-type {
 }
 
 
-/* === Homepage audit fixes: CTA gold scheme, detailing accordion, quick answers, mobile sticky === */
-.cta-btn,
-.cta-btn.primary,
-.nav-contact .cta-btn,
-.nav-mobile-book,
-.service-quote-btn {
-    background: #c8a84e;
-    color: #111111;
-    border-color: #c8a84e;
-}
-
-.cta-btn:hover,
-.cta-btn.primary:hover,
-.nav-contact .cta-btn:hover,
-.nav-mobile-book:hover,
-.service-quote-btn:hover {
-    background: #b5943f;
-    color: #111111;
-    border-color: #b5943f;
-}
-
-.cta-btn.secondary,
-.service-btn,
-.premium-cta .service-btn,
-.premium-cta .service-quote-btn {
-    background: transparent;
-    color: #c8a84e;
-    border-color: #c8a84e;
-}
-
-.cta-btn.secondary:hover,
-.service-btn:hover,
-.premium-cta .service-btn:hover,
-.premium-cta .service-quote-btn:hover {
-    background: #c8a84e;
-    color: #111111;
-    border-color: #c8a84e;
-}
+/* === Homepage audit fixes: detailing accordion, quick answers, mobile sticky === */
 
 .detailing-accordion {
     grid-column: 1 / -1;
@@ -5209,8 +5171,8 @@ body.has-announcement section:first-of-type {
 }
 
 .detailing-toggle:hover {
-    border-color: #c8a84e;
-    color: #c8a84e;
+    border-color: #4F7CFF;
+    color: #4F7CFF;
 }
 
 .detailing-toggle.open .dropdown-arrow {
@@ -5260,13 +5222,13 @@ body.has-announcement section:first-of-type {
 .areas-view-all-wrap { text-align: center; margin-top: 24px; }
 .areas-view-all-link {
     display: inline-block;
-    color: #c8a84e;
-    border: 1px solid #c8a84e;
+    color: #4F7CFF;
+    border: 1px solid #4F7CFF;
     border-radius: 8px;
     padding: 10px 16px;
     font-weight: 700;
 }
-.areas-view-all-link:hover { background: #c8a84e; color: #111111; }
+.areas-view-all-link:hover { background: #4F7CFF; color: #111111; }
 
 .mobile-sticky-cta {
     display: none;
@@ -5277,7 +5239,7 @@ body.has-announcement section:first-of-type {
     z-index: 9999;
     padding: 10px;
     background: #111111;
-    border-top: 1px solid #c8a84e;
+    border-top: 1px solid #4F7CFF;
     gap: 10px;
 }
 
@@ -5293,14 +5255,14 @@ body.has-announcement section:first-of-type {
 
 .sticky-call {
     background: transparent;
-    border: 2px solid #c8a84e;
-    color: #c8a84e;
+    border: 2px solid #4F7CFF;
+    color: #4F7CFF;
 }
 
 .sticky-quote {
-    background: #c8a84e;
+    background: #4F7CFF;
     color: #000000;
-    border: 2px solid #c8a84e;
+    border: 2px solid #4F7CFF;
 }
 
 @media (max-width: 768px) {
@@ -5308,3 +5270,4 @@ body.has-announcement section:first-of-type {
     body { padding-bottom: 70px; }
     .qa-grid { grid-template-columns: 1fr; }
 }
+
