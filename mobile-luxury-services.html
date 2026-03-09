@@ -168,15 +168,15 @@
 </head>
 <body>
     <!-- Navigation (Template 2 style) -->
-    <nav class="navbar">
+    ﻿﻿<nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html">716 Details</a>
             </div>
-            <a href="https://booking.716detailing.com/widget/service-menu/6916562e8d2159e52ad49b60" class="nav-mobile-book">Book Now</a>
+            <a href="https://booking.716detailing.com/widget/service-menu/6916562e8d2159e52ad49b60" class="nav-mobile-book">Book Online</a>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#services-section" class="dropdown-toggle">Services <span class="dropdown-arrow">&#9660;</span></a>
+
+                <li><a href="index.html#services" class="dropdown-toggle">Services <span class="dropdown-arrow">&#9660;</span></a>
                     <ul class="dropdown-menu">
                         <li class="has-submenu"><a href="#">Detailing <span class="dropdown-arrow">&#9660;</span></a>
                             <ul class="submenu">
@@ -203,7 +203,7 @@
                         <li><a href="window-tinting.html">Window Tinting</a></li>
                     </ul>
                 </li>
-                <li><a href="index.html#areas-section" class="dropdown-toggle">Service Areas <span class="dropdown-arrow">&#9660;</span></a>
+                <li><a href="index.html#areas" class="dropdown-toggle">Service Areas <span class="dropdown-arrow">▼</span></a>
                     <ul class="dropdown-menu">
                         <li><a href="locations/clarence-car-detailing.html">Clarence, NY</a></li>
                         <li><a href="locations/east-amherst-car-detailing.html">East Amherst, NY</a></li>
@@ -229,7 +229,7 @@
                                     <a href="https://www.tiktok.com/@716.details" class="social-icon-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
                                 </div>
                 <a href="tel:7164059988" class="phone-btn">(716) 405-9988</a>
-                <a href="https://booking.716detailing.com/widget/service-menu/6916562e8d2159e52ad49b60" class="cta-btn">Book Now</a>
+                <a href="https://booking.716detailing.com/widget/service-menu/6916562e8d2159e52ad49b60" class="cta-btn">Get Free Quote</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -238,6 +238,10 @@
             </div>
         </div>
     </nav>
+
+
+
+
 
     <!-- Hero Section with Image Carousel -->
     <section class="hero-carousel">
@@ -699,6 +703,101 @@
     </footer>
 
     <!-- Mobile Navigation Script - ULTIMATE VERSION -->
+    
+
+    <!-- Transformation Gallery Functionality -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const gallery = document.querySelector('.transformation-gallery');
+        if (!gallery) return;
+        const slides = gallery.querySelectorAll('.gallery-slide');
+        const prevBtn = gallery.querySelector('.prev-btn');
+        const nextBtn = gallery.querySelector('.next-btn');
+        const indicators = gallery.querySelectorAll('.indicator');
+        if (slides.length === 0) return;
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        function showSlide(index) {
+            slides.forEach((slide, i) => { slide.classList.remove('active'); if (indicators[i]) indicators[i].classList.remove('active'); });
+            if (slides[index]) slides[index].classList.add('active');
+            if (indicators[index]) indicators[index].classList.add('active');
+            currentSlide = index;
+        }
+        function nextSlide() { showSlide((currentSlide + 1) % totalSlides); }
+        function prevSlide() { showSlide((currentSlide - 1 + totalSlides) % totalSlides); }
+        if (nextBtn) nextBtn.addEventListener('click', function(e) { e.preventDefault(); pauseAutoPlayForUserInteraction(); nextSlide(); });
+        if (prevBtn) prevBtn.addEventListener('click', function(e) { e.preventDefault(); pauseAutoPlayForUserInteraction(); prevSlide(); });
+        indicators.forEach((indicator, index) => { indicator.addEventListener('click', function(e) { e.preventDefault(); pauseAutoPlayForUserInteraction(); showSlide(index); }); });
+        let autoPlayInterval, userInteractionTimeout, isUserInteracting = false;
+        function startAutoPlay() { if (autoPlayInterval) clearInterval(autoPlayInterval); if (!isUserInteracting) autoPlayInterval = setInterval(function() { if (!isUserInteracting) nextSlide(); }, 5000); }
+        function stopAutoPlay() { if (autoPlayInterval) { clearInterval(autoPlayInterval); autoPlayInterval = null; } }
+        function pauseAutoPlayForUserInteraction() { isUserInteracting = true; stopAutoPlay(); if (userInteractionTimeout) clearTimeout(userInteractionTimeout); userInteractionTimeout = setTimeout(function() { isUserInteracting = false; startAutoPlay(); }, 20000); }
+        startAutoPlay();
+        gallery.addEventListener('mouseenter', function() { isUserInteracting = true; stopAutoPlay(); });
+        let touchStartX = 0;
+        gallery.addEventListener('touchstart', function(e) { if (e.target.closest('.gallery-btn')) return; touchStartX = e.changedTouches[0].screenX; stopAutoPlay(); }, { passive: true });
+        gallery.addEventListener('touchend', function(e) { const diff = touchStartX - e.changedTouches[0].screenX; if (Math.abs(diff) > 30) { pauseAutoPlayForUserInteraction(); if (diff > 0) nextSlide(); else prevSlide(); } }, { passive: true });
+        showSlide(0);
+    });
+    </script>
+
+    <!-- Hero Carousel Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hc = document.querySelector('.hero-carousel'); if (!hc) return;
+        const slides = hc.querySelectorAll('.hero-carousel-slide'), indicators = hc.querySelectorAll('.indicator');
+        let cur = 0, interval;
+        function show(i) { slides.forEach(s => s.classList.remove('active')); indicators.forEach(ind => ind.classList.remove('active')); slides[i].classList.add('active'); if(indicators[i]) indicators[i].classList.add('active'); }
+        function next() { cur = (cur + 1) % slides.length; show(cur); }
+        function start() { interval = setInterval(next, 8000); }
+        function stop() { clearInterval(interval); }
+        start(); hc.addEventListener('mouseenter', stop); hc.addEventListener('mouseleave', start);
+        indicators.forEach((ind, i) => ind.addEventListener('click', () => { cur = i; show(cur); stop(); start(); }));
+    });
+    </script>
+
+    <!-- Go High Level Chat Widget -->
+    <script 
+      src="https://widgets.leadconnectorhq.com/loader.js"  
+      data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
+      data-widget-id="691760a633e99280e65eb5b1">
+    </script>
+<!-- Custom Quote Modal Overlay -->
+<!-- Custom Quote Modal Overlay -->
+<div id="quoteModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:10000;align-items:center;justify-content:center;">
+  <div style="position:relative;background:#111;border-radius:12px;max-width:500px;width:90%;max-height:85vh;overflow-y:auto;padding:0;margin:20px;">
+    <button onclick="closeQuotePopup()" style="position:absolute;top:10px;right:15px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;z-index:10001;">&times;</button>
+    <div style="padding:20px 20px 0;">
+      <h2 style="color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;margin:0 0 5px;font-size:22px;">Get Your Free Quote</h2>
+      <p style="color:#aaa;font-size:14px;margin:0 0 15px;">Tell us what you need. We'll call you back with a price.</p>
+    </div>
+    <iframe src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="width:100%;height:340px;border:none;" id="quoteFormFrame" data-layout="{'id':'INLINE'}" data-form-name="Get Quote Pop Up Form" data-height="340" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Pop Up Form"></iframe>
+  </div>
+</div>
+<script>
+function openQuotePopup() {
+  var modal = document.getElementById('quoteModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeQuotePopup() {
+  var modal = document.getElementById('quoteModal');
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('quoteModal').addEventListener('click', function(e) {
+  if (e.target === this) closeQuotePopup();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeQuotePopup();
+});
+</script>
+﻿    <!-- Mobile Navigation Script - ULTIMATE VERSION -->
+    
+
+﻿
+
+﻿    <!-- Mobile Navigation Script - ULTIMATE VERSION -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Get elements
@@ -802,10 +901,7 @@
                             if (window.innerWidth <= 768) {
                                 areasMenu.style.display = 'none';
                             }
-                            const areasArrow = areasToggle.querySelector('.dropdown-arrow');
-                            if (areasArrow && window.innerWidth <= 768) {
-                                areasArrow.style.transform = 'rotate(0deg)';
-                            }
+                            // Arrow animation handled by CSS via .active class removal
                         }
                         
                         // Open this dropdown
@@ -815,11 +911,8 @@
                             servicesMenu.style.display = 'block';
                         }
                         
-                        // Force arrow animation on mobile
-                        const arrow = this.querySelector('.dropdown-arrow');
-                        if (arrow && window.innerWidth <= 768) {
-                            arrow.style.transform = 'rotate(180deg)';
-                        }
+                        // Arrow animation handled by CSS via .active class
+                        // CSS transition provides smooth rotation
                         
                         console.log('✅ Services opened');
                     }
@@ -850,10 +943,7 @@
                             if (window.innerWidth <= 768) {
                                 servicesMenu.style.display = 'none';
                             }
-                            const servicesArrow = servicesToggle.querySelector('.dropdown-arrow');
-                            if (servicesArrow && window.innerWidth <= 768) {
-                                servicesArrow.style.transform = 'rotate(0deg)';
-                            }
+                            // Arrow animation handled by CSS via .active class removal
                         }
                         
                         // Open this dropdown
@@ -863,11 +953,8 @@
                             areasMenu.style.display = 'block';
                         }
                         
-                        // Force arrow animation on mobile
-                        const arrow = this.querySelector('.dropdown-arrow');
-                        if (arrow && window.innerWidth <= 768) {
-                            arrow.style.transform = 'rotate(180deg)';
-                        }
+                        // Arrow animation handled by CSS via .active class
+                        // CSS transition provides smooth rotation
                         
                         console.log('✅ Service Areas opened');
                     }
@@ -888,10 +975,7 @@
             
             allDropdownToggles.forEach(toggle => {
                 toggle.classList.remove('active');
-                const arrow = toggle.querySelector('.dropdown-arrow');
-                if (arrow) {
-                    arrow.style.transform = '';
-                }
+                // Arrow animation handled by CSS via .active class removal
                 console.log('Cleaned toggle:', toggle.textContent.trim());
             });
             
@@ -929,10 +1013,15 @@
             }
         }
         
-        // Close menu when clicking on regular links (not dropdown toggles)
+        // Close menu when clicking on actual page links (not dropdown/submenu toggles)
         const navLinks = document.querySelectorAll('.nav-menu a:not(.dropdown-toggle)');
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
+                // Submenu toggles use .has-submenu > a with href="#" - keep menu open
+                if (this.parentElement && this.parentElement.classList.contains('has-submenu')) {
+                    return;
+                }
+
                 // Don't prevent default - let the link work
                 if (window.innerWidth <= 768) {
                     setTimeout(closeMenu, 100);
@@ -940,11 +1029,16 @@
             });
         });
         
-        // Prevent dropdown menu clicks from closing the menu
+        // Close menu for actual dropdown page links (not submenu toggles)
         const dropdownMenuLinks = document.querySelectorAll('.dropdown-menu a');
         dropdownMenuLinks.forEach(link => {
             link.addEventListener('click', function(e) {
-                // Allow the link to work but close menu after navigation
+                // Submenu toggles should only expand/collapse nested menus
+                if (this.parentElement && this.parentElement.classList.contains('has-submenu')) {
+                    return;
+                }
+
+                // Allow real links to navigate, then close menu on mobile
                 if (window.innerWidth <= 768) {
                     setTimeout(closeMenu, 100);
                 }
@@ -1018,16 +1112,8 @@
             });
             document.querySelectorAll('.nav-menu .dropdown-toggle').forEach(toggle => {
                 toggle.classList.remove('active');
-                const arrow = toggle.querySelector('.dropdown-arrow');
-                if (arrow) {
-                    // Only force arrow rotation on mobile
-                    if (window.innerWidth <= 768) {
-                        arrow.style.transform = 'rotate(0deg)';
-                    } else {
-                        arrow.style.transform = '';
-                    }
-                    console.log('🎯 Reset arrow rotation');
-                }
+                // Arrow animation handled by CSS via .active class removal
+                // CSS transition provides smooth rotation back to original position
             });
         }
         
@@ -1063,10 +1149,7 @@
                     // Reset dropdown toggles for desktop
                     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
                         toggle.classList.remove('active');
-                        const arrow = toggle.querySelector('.dropdown-arrow');
-                        if (arrow) {
-                            arrow.style.transform = '';
-                        }
+                        // Arrow animation handled by CSS via .active class removal
                     });
                 }
             }, 250);
@@ -1084,96 +1167,7 @@
     });
     </script>
 
-    <!-- Transformation Gallery Functionality -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const gallery = document.querySelector('.transformation-gallery');
-        if (!gallery) return;
-        const slides = gallery.querySelectorAll('.gallery-slide');
-        const prevBtn = gallery.querySelector('.prev-btn');
-        const nextBtn = gallery.querySelector('.next-btn');
-        const indicators = gallery.querySelectorAll('.indicator');
-        if (slides.length === 0) return;
-        let currentSlide = 0;
-        const totalSlides = slides.length;
-        function showSlide(index) {
-            slides.forEach((slide, i) => { slide.classList.remove('active'); if (indicators[i]) indicators[i].classList.remove('active'); });
-            if (slides[index]) slides[index].classList.add('active');
-            if (indicators[index]) indicators[index].classList.add('active');
-            currentSlide = index;
-        }
-        function nextSlide() { showSlide((currentSlide + 1) % totalSlides); }
-        function prevSlide() { showSlide((currentSlide - 1 + totalSlides) % totalSlides); }
-        if (nextBtn) nextBtn.addEventListener('click', function(e) { e.preventDefault(); pauseAutoPlayForUserInteraction(); nextSlide(); });
-        if (prevBtn) prevBtn.addEventListener('click', function(e) { e.preventDefault(); pauseAutoPlayForUserInteraction(); prevSlide(); });
-        indicators.forEach((indicator, index) => { indicator.addEventListener('click', function(e) { e.preventDefault(); pauseAutoPlayForUserInteraction(); showSlide(index); }); });
-        let autoPlayInterval, userInteractionTimeout, isUserInteracting = false;
-        function startAutoPlay() { if (autoPlayInterval) clearInterval(autoPlayInterval); if (!isUserInteracting) autoPlayInterval = setInterval(function() { if (!isUserInteracting) nextSlide(); }, 5000); }
-        function stopAutoPlay() { if (autoPlayInterval) { clearInterval(autoPlayInterval); autoPlayInterval = null; } }
-        function pauseAutoPlayForUserInteraction() { isUserInteracting = true; stopAutoPlay(); if (userInteractionTimeout) clearTimeout(userInteractionTimeout); userInteractionTimeout = setTimeout(function() { isUserInteracting = false; startAutoPlay(); }, 20000); }
-        startAutoPlay();
-        gallery.addEventListener('mouseenter', function() { isUserInteracting = true; stopAutoPlay(); });
-        let touchStartX = 0;
-        gallery.addEventListener('touchstart', function(e) { if (e.target.closest('.gallery-btn')) return; touchStartX = e.changedTouches[0].screenX; stopAutoPlay(); }, { passive: true });
-        gallery.addEventListener('touchend', function(e) { const diff = touchStartX - e.changedTouches[0].screenX; if (Math.abs(diff) > 30) { pauseAutoPlayForUserInteraction(); if (diff > 0) nextSlide(); else prevSlide(); } }, { passive: true });
-        showSlide(0);
-    });
-    </script>
-
-    <!-- Hero Carousel Script -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const hc = document.querySelector('.hero-carousel'); if (!hc) return;
-        const slides = hc.querySelectorAll('.hero-carousel-slide'), indicators = hc.querySelectorAll('.indicator');
-        let cur = 0, interval;
-        function show(i) { slides.forEach(s => s.classList.remove('active')); indicators.forEach(ind => ind.classList.remove('active')); slides[i].classList.add('active'); if(indicators[i]) indicators[i].classList.add('active'); }
-        function next() { cur = (cur + 1) % slides.length; show(cur); }
-        function start() { interval = setInterval(next, 8000); }
-        function stop() { clearInterval(interval); }
-        start(); hc.addEventListener('mouseenter', stop); hc.addEventListener('mouseleave', start);
-        indicators.forEach((ind, i) => ind.addEventListener('click', () => { cur = i; show(cur); stop(); start(); }));
-    });
-    </script>
-
-    <!-- Go High Level Chat Widget -->
-    <script 
-      src="https://widgets.leadconnectorhq.com/loader.js"  
-      data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
-      data-widget-id="691760a633e99280e65eb5b1">
-    </script>
-<!-- Custom Quote Modal Overlay -->
-<!-- Custom Quote Modal Overlay -->
-<div id="quoteModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:10000;align-items:center;justify-content:center;">
-  <div style="position:relative;background:#111;border-radius:12px;max-width:500px;width:90%;max-height:85vh;overflow-y:auto;padding:0;margin:20px;">
-    <button onclick="closeQuotePopup()" style="position:absolute;top:10px;right:15px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;z-index:10001;">&times;</button>
-    <div style="padding:20px 20px 0;">
-      <h2 style="color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;margin:0 0 5px;font-size:22px;">Get Your Free Quote</h2>
-      <p style="color:#aaa;font-size:14px;margin:0 0 15px;">Tell us what you need. We'll call you back with a price.</p>
-    </div>
-    <iframe src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="width:100%;height:340px;border:none;" id="quoteFormFrame" data-layout="{'id':'INLINE'}" data-form-name="Get Quote Pop Up Form" data-height="340" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Pop Up Form"></iframe>
-  </div>
-</div>
-<script>
-function openQuotePopup() {
-  var modal = document.getElementById('quoteModal');
-  modal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-function closeQuotePopup() {
-  var modal = document.getElementById('quoteModal');
-  modal.style.display = 'none';
-  document.body.style.overflow = '';
-}
-document.getElementById('quoteModal').addEventListener('click', function(e) {
-  if (e.target === this) closeQuotePopup();
-});
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeQuotePopup();
-});
-</script>
-
-
-    <script>
+﻿    <script>
     document.addEventListener('DOMContentLoaded', function() {
         const submenuParents = document.querySelectorAll('.dropdown-menu .has-submenu > a');
 
@@ -1218,7 +1212,6 @@ document.addEventListener('keydown', function(e) {
         }
     });
     </script>
-
 </body>
 </html>
 

@@ -118,15 +118,16 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 .nav-logo a {
     font-size: 2rem;
     font-weight: 800;
     color: #ffffff;
+    white-space: nowrap;
     text-decoration: none;
 }
 
@@ -147,6 +148,19 @@ a {
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    white-space: nowrap;
+}
+
+/* Force top-level nav links and dropdown toggles to keep text + arrow on one line */
+.nav-menu > li > a,
+.nav-menu .dropdown-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
 }
 
 .nav-menu a:hover {
@@ -159,11 +173,21 @@ a {
 }
 
 /* Dropdown Arrow */
-.dropdown-arrow {
+.nav-menu .dropdown-arrow {
     font-size: 0.8rem;
-    margin-left: 0.5rem;
+    margin-left: 0;
     transition: transform 0.3s ease;
-    display: inline-block;
+    display: inline;
+    flex-shrink: 0;
+}
+
+/* Force dropdown arrows to stay inline with label text */
+.nav-menu .dropdown-arrow,
+.nav-menu > li > a .dropdown-arrow {
+    display: inline !important;
+    flex-shrink: 0 !important;
+    margin-left: 4px !important;
+    line-height: 1 !important;
 }
 
 .dropdown-toggle.active .dropdown-arrow {
@@ -271,18 +295,51 @@ a {
     align-items: center;
 }
 
+/* Hide nav contact buttons on narrow desktop (show mobile book button instead) */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .nav-contact {
+        display: none !important;
+    }
+    
+    .nav-mobile-book {
+        display: block !important;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .nav-menu a {
+        font-size: 0.9rem;
+    }
+}
+
 /* Desktop navigation Book Now button - black theme */
-@media (min-width: 769px) {
-    .nav-contact .cta-btn {
+@media (min-width: 1101px) {
+    .nav-contact .cta-btn,
+    .nav-contact .phone-btn {
         background: #000000;
         color: #ffffff;
         border: 2px solid #ffffff;
+        white-space: nowrap;
+    }
+    
+    .nav-contact .phone-btn {
+        background: #ffffff;
+        color: #000000;
+        border: 2px solid #000000;
     }
     
     .nav-contact .cta-btn:hover {
         background: #ffffff;
         color: #000000;
         border-color: #000000;
+    }
+    
+    .nav-contact .phone-btn:hover {
+        background: #000000;
+        color: #ffffff;
+        border-color: #ffffff;
     }
 }
 
@@ -3538,6 +3595,7 @@ input:focus, select:focus, textarea:focus {
     }
 
     .nav-menu {
+        display: none;
         position: fixed;
         left: -100%;
         top: 70px;
@@ -3603,6 +3661,7 @@ input:focus, select:focus, textarea:focus {
     }
 
     .nav-menu.active {
+        display: flex;
         left: 0;
     }
 
@@ -3655,7 +3714,7 @@ input:focus, select:focus, textarea:focus {
         opacity: 1;
         visibility: visible;
         transform: none;
-        background: #111111;
+        background: #000000;
         box-shadow: none;
         border: none;
         margin: 0;
@@ -3674,23 +3733,37 @@ input:focus, select:focus, textarea:focus {
     }
 
     .dropdown-menu a {
-        padding: 0.75rem 2rem;
-        border-bottom: 1px solid #333333;
-        background: #111111;
+        padding: 0.75rem 1rem;
+        border-bottom: none;
+        background: #000000;
         font-size: 0.9rem;
+        color: #ffffff;
+        text-align: center;
+        justify-content: center;
     }
 
     .dropdown-menu a:hover {
-        background: #222222;
+        background: #111111;
         color: #4F7CFF;
     }
 
     .dropdown-menu .submenu a {
-        padding-left: calc(2rem + 20px);
+        padding: 0.75rem 1rem;
+        text-align: center;
+        justify-content: center;
     }
 
     .dropdown-menu .submenu .submenu a {
-        padding-left: calc(2rem + 40px);
+        padding: 0.75rem 1rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Center submenu toggle links on mobile */
+    .dropdown-menu .has-submenu > a {
+        justify-content: center;
+        text-align: center;
+        gap: 0.5rem;
     }
 
     .nav-contact {
@@ -4653,7 +4726,7 @@ body.has-announcement section:first-of-type {
     display: block;
 }
 
-.winter-popup h2 {
+.winter-popup .winter-popup-title {
     color: #ffffff;
     font-size: 1.8rem;
     margin-bottom: 15px;
@@ -4735,7 +4808,7 @@ body.has-announcement section:first-of-type {
         font-size: 2.8rem;
     }
     
-    .winter-popup h2 {
+    .winter-popup .winter-popup-title {
         font-size: 1.5rem;
     }
     
@@ -5003,4 +5076,407 @@ body.has-announcement section:first-of-type {
   .nav-social-links { gap: 4px; }
   .social-icon-link { width: 28px; height: 28px; }
   .social-icon-link svg { width: 16px; height: 16px; }
+}
+
+/* Premium Services Section */
+.premium-services {
+    padding: 60px 0;
+    background: #0a0a0a;
+}
+
+.premium-services h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.premium-services .section-subtitle {
+    text-align: center;
+    color: #cccccc;
+    margin-bottom: 40px;
+}
+
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.premium-card {
+    background: #000000;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(255,255,255,0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.premium-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 50px rgba(79,124,255,0.18),
+                0 8px 30px rgba(79,124,255,0.12);
+    border-color: #4F7CFF;
+}
+
+.premium-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.premium-card h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    padding: 20px 20px 10px;
+    margin: 0;
+}
+
+.premium-card p {
+    color: #cccccc;
+    padding: 0 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.premium-price {
+    color: #4F7CFF;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 16px 20px 12px;
+}
+
+.premium-cta {
+    padding: 0 20px 20px;
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.premium-cta .service-btn,
+.premium-cta .service-quote-btn {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    padding: 1rem 1.1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+/* Trust Bar */
+.trust-bar {
+    padding: 30px 0;
+    background: #111111;
+    border-top: 1px solid #222222;
+    border-bottom: 1px solid #222222;
+}
+
+.trust-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    text-align: center;
+}
+
+.trust-number {
+    display: block;
+    color: #4F7CFF;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.trust-label {
+    display: block;
+    color: #cccccc;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* Mobile responsive for premium section */
+@media (max-width: 768px) {
+    .premium-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .premium-services {
+        padding: 40px 0;
+    }
+    
+    .trust-items {
+        gap: 20px;
+    }
+    
+    .trust-item {
+        flex: 0 0 calc(50% - 20px);
+    }
+}
+
+
+/* === Homepage audit fixes: detailing accordion, quick answers, mobile sticky === */
+
+.service-accordion-group {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+}
+
+.service-accordion {
+    margin-bottom: 20px;
+}
+
+.service-accordion:last-child {
+    margin-bottom: 0;
+}
+
+.detailing-toggle {
+    width: 100%;
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.detailing-toggle:hover {
+    background: #1a1a1a;
+    border-color: #4F7CFF;
+    color: #ffffff;
+}
+
+.detailing-toggle.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.detailing-services {
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.detailing-services .service-card {
+    margin-bottom: 0;
+    max-width: 400px;
+}
+
+/* Single-card accordions (Boat, RV) - center and constrain card size */
+.detailing-services:only-child .service-card:only-child,
+/* Single-card accordions - reasonable width, centered, NO height cutoff */
+#detailing-services-boat .service-card,
+#detailing-services-rv .service-card {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Commercial cards - center the grid */
+/* Commercial cards - center within grid when visible */
+#detailing-services-commercial {
+    justify-content: center;
+    justify-items: center;
+}
+
+#detailing-services-commercial .service-card {
+    max-width: 400px;
+}
+
+.quick-answers {
+    padding: 70px 0;
+    background: #0d0d0d;
+}
+
+.qa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.qa-item {
+    background: #111111;
+    border: 1px solid #232323;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.qa-item h3 { color: #ffffff; font-size: 1.25rem; }
+.qa-item p { color: #d5d5d5; margin: 0; }
+
+.areas-view-all-wrap { text-align: center; margin-top: 24px; }
+.areas-view-all-link {
+    display: inline-block;
+    color: #4F7CFF;
+    border: 1px solid #4F7CFF;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 700;
+}
+.areas-view-all-link:hover { background: #4F7CFF; color: #111111; }
+
+.mobile-sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    padding: 10px;
+    background: #111111;
+    border-top: 1px solid #4F7CFF;
+    gap: 10px;
+}
+
+.sticky-call, .sticky-quote {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.sticky-call {
+    background: transparent;
+    border: 2px solid #4F7CFF;
+    color: #4F7CFF;
+}
+
+.sticky-quote {
+    background: #4F7CFF;
+    color: #000000;
+    border: 2px solid #4F7CFF;
+}
+
+@media (max-width: 768px) {
+    .mobile-sticky-cta { display: flex; }
+    body { padding-bottom: 70px; }
+    .qa-grid { grid-template-columns: 1fr; }
+}
+
+/* Mobile accessibility hardening: tap targets + readable text + FAQ visibility */
+@media (max-width: 768px) {
+    /* Carousel arrows - increase tap target */
+    .carousel-arrow,
+    .slider-arrow,
+    .gallery-arrow,
+    .work-carousel-nav {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Read more links - increase tap area */
+    .read-more,
+    a.read-more,
+    .review-toggle {
+        padding: 12px 8px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Close buttons */
+    .close-popup,
+    .popup-close,
+    [class*="close"] {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Footer links */
+    footer a {
+        padding: 8px 4px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    /* Ensure no text is smaller than 14px on mobile */
+    p,
+    li,
+    a,
+    span,
+    td,
+    th,
+    label,
+    input,
+    select,
+    textarea {
+        font-size: max(14px, 1em);
+    }
+
+    /* Specific small text areas */
+    .service-card p,
+    .service-card li {
+        font-size: 14px;
+    }
+
+    /* FAQ fallback: keep answers visible if no accordion JS is present */
+    .faq-item p {
+        display: block;
+        max-height: none;
+        opacity: 1;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    /* Ensure minimum 16px body text on mobile */
+    body {
+        font-size: 16px;
+    }
+
+    .stat-label,
+    .stat-number,
+    .trust-label,
+    .trust-number,
+    .footer-section p,
+    .footer-section li {
+        font-size: 16px !important;
+    }
+
+    /* Exception: winter bar can be smaller since it's a banner */
+    .announcement-bar,
+    .announcement-bar * {
+        font-size: 14px !important;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Push chat widget above sticky CTA bar */
+    .lc_btn,
+    [class*="chat-widget"],
+    [class*="leadConnector"] {
+        bottom: 80px !important;
+    }
+
+    .mobile-sticky-cta {
+        z-index: 10000;
+    }
 }
