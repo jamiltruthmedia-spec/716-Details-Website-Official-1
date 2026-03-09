@@ -127,6 +127,7 @@ a {
     font-size: 2rem;
     font-weight: 800;
     color: #ffffff;
+    white-space: nowrap;
     text-decoration: none;
 }
 
@@ -147,6 +148,9 @@ a {
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.3s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
 }
 
 .nav-menu a:hover {
@@ -5213,6 +5217,15 @@ body.has-announcement section:first-of-type {
 
 .detailing-services .service-card {
     margin-bottom: 0;
+    max-width: 400px;
+}
+
+/* Single-card accordions (Boat, RV) - center the card */
+.detailing-services:only-child .service-card:only-child,
+#detailing-services-boat .service-card,
+#detailing-services-rv .service-card {
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .quick-answers {
