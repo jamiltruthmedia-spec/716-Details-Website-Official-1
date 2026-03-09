@@ -3728,11 +3728,13 @@ input:focus, select:focus, textarea:focus {
     }
 
     .dropdown-menu a {
-        padding: 0.75rem 2rem;
+        padding: 0.75rem 1rem;
         border-bottom: none;
         background: #000000;
         font-size: 0.9rem;
         color: #ffffff;
+        text-align: center;
+        justify-content: center;
     }
 
     .dropdown-menu a:hover {
@@ -3741,11 +3743,22 @@ input:focus, select:focus, textarea:focus {
     }
 
     .dropdown-menu .submenu a {
-        padding-left: calc(2rem + 20px);
+        padding: 0.75rem 1rem;
+        text-align: center;
+        justify-content: center;
     }
 
     .dropdown-menu .submenu .submenu a {
-        padding-left: calc(2rem + 40px);
+        padding: 0.75rem 1rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Center submenu toggle links on mobile */
+    .dropdown-menu .has-submenu > a {
+        justify-content: center;
+        text-align: center;
+        gap: 0.5rem;
     }
 
     .nav-contact {
