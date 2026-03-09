@@ -379,19 +379,31 @@
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#services-section" class="dropdown-toggle">Services <span class="dropdown-arrow">▼</span></a>
+                <li><a href="index.html#services-section" class="dropdown-toggle">Services <span class="dropdown-arrow"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="boat-detailing.html">Boat Detailing</a></li>
+                        <li class="has-submenu"><a href="#">Detailing</a>
+                            <ul class="submenu">
+                                <li class="has-submenu"><a href="#">Car Detailing</a>
+                                    <ul class="submenu">
+                                        <li><a href="car-detailing.html">All Car Detailing</a></li>
+                                        <li><a href="interior-detailing.html">Interior Detailing</a></li>
+                                        <li><a href="exterior-detailing.html">Exterior Detailing</a></li>
+                                        <li><a href="full-detail.html">Full Detail</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="mobile-car-detailing.html">Mobile Detailing</a></li>
+                                <li><a href="boat-detailing.html">Boat Detailing</a></li>
+                                <li><a href="rv-detailing.html">RV Detailing</a></li>
+                                <li class="has-submenu"><a href="#">Commercial</a>
+                                    <ul class="submenu">
+                                        <li><a href="fleet-detailing.html">Fleet Detailing</a></li>
+                                        <li><a href="dealership-detailing.html">Dealership Detailing</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                         <li><a href="ceramic-coating.html">Ceramic Coating</a></li>
-                        <li><a href="dealership-detailing.html">Dealership Detailing</a></li>
-                        <li><a href="exterior-detailing.html">Exterior Detailing</a></li>
-                        <li><a href="fleet-detailing.html">Fleet Detailing</a></li>
-                        <li><a href="full-detail.html">Full Detail</a></li>
-                        <li><a href="interior-detailing.html">Interior Detailing</a></li>
-                        <li><a href="mobile-car-detailing.html">Mobile Detailing</a></li>
-                        <li><a href="mobile-luxury-services.html">Mobile Luxury Services</a></li>
                         <li><a href="paint-correction.html">Paint Correction</a></li>
-                        <li><a href="rv-detailing.html">RV Detailing</a></li>
                         <li><a href="window-tinting.html">Window Tinting</a></li>
                     </ul>
                 </li>
@@ -896,6 +908,53 @@
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
       data-widget-id="691760a633e99280e65eb5b1">
     </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const submenuParents = document.querySelectorAll('.dropdown-menu .has-submenu > a');
+
+        function closeNestedSubmenus(scope) {
+            (scope || document).querySelectorAll('.dropdown-menu .has-submenu.open').forEach(item => item.classList.remove('open'));
+        }
+
+        submenuParents.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const parentItem = this.parentElement;
+                const siblingSubmenus = parentItem.parentElement.querySelectorAll(':scope > .has-submenu.open');
+                siblingSubmenus.forEach(item => {
+                    if (item !== parentItem) item.classList.remove('open');
+                });
+
+                parentItem.classList.toggle('open');
+            });
+        });
+
+        document.querySelectorAll('.nav-menu .dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                setTimeout(() => {
+                    if (!this.classList.contains('active')) {
+                        closeNestedSubmenus();
+                    }
+                }, 0);
+            });
+        });
+
+        const hamburger = document.querySelector('#hamburger');
+        if (hamburger) {
+            hamburger.addEventListener('click', function() {
+                setTimeout(() => {
+                    if (!hamburger.classList.contains('active')) {
+                        closeNestedSubmenus();
+                    }
+                }, 0);
+            });
+        }
+    });
+    </script>
+
 </body>
 </html>
 

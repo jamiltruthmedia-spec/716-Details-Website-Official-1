@@ -216,6 +216,50 @@ a {
     color: #4F7CFF;
 }
 
+/* Services dropdown accordion (desktop + mobile) */
+.dropdown-menu .has-submenu > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+}
+
+.dropdown-menu .has-submenu > a::after {
+    content: '▸';
+    margin-left: 0.75rem;
+    font-size: 0.9rem;
+    color: #4F7CFF;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu .has-submenu.open > a::after {
+    transform: rotate(90deg);
+}
+
+.dropdown-menu .submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.dropdown-menu .has-submenu.open > .submenu {
+    max-height: 500px;
+}
+
+.dropdown-menu .submenu a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding-left: calc(1.5rem + 16px);
+}
+
+.dropdown-menu .submenu .submenu a {
+    padding-left: calc(1.5rem + 32px);
+}
+
 .nav-contact {
     display: flex;
     gap: 1rem;
@@ -3634,6 +3678,14 @@ input:focus, select:focus, textarea:focus {
     .dropdown-menu a:hover {
         background: #222222;
         color: #4F7CFF;
+    }
+
+    .dropdown-menu .submenu a {
+        padding-left: calc(2rem + 20px);
+    }
+
+    .dropdown-menu .submenu .submenu a {
+        padding-left: calc(2rem + 40px);
     }
 
     .nav-contact {
