@@ -5263,19 +5263,22 @@ body.has-announcement section:first-of-type {
 
 /* Single-card accordions (Boat, RV) - center and constrain card size */
 .detailing-services:only-child .service-card:only-child,
+/* Single-card accordions - reasonable width, centered, NO height cutoff */
 #detailing-services-boat .service-card,
 #detailing-services-rv .service-card {
     max-width: 400px;
-    max-height: 550px;
-    overflow: hidden;
     margin: 0 auto;
 }
 
-/* Constrain Boat/RV card images to prevent oversized card height */
-#detailing-services-boat .service-card .service-icon img,
-#detailing-services-rv .service-card .service-icon img {
-    max-height: 180px;
-    object-fit: cover;
+/* Commercial cards - center the grid */
+#detailing-services-commercial {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+#detailing-services-commercial .service-card {
+    max-width: 400px;
 }
 
 .quick-answers {
