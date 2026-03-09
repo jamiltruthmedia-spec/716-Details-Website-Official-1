@@ -5163,30 +5163,41 @@ body.has-announcement section:first-of-type {
 
 /* === Homepage audit fixes: detailing accordion, quick answers, mobile sticky === */
 
-.detailing-accordion {
+.service-accordion-group {
     grid-column: 1 / -1;
     margin-top: 10px;
+}
+
+.service-accordion {
+    margin-bottom: 20px;
+}
+
+.service-accordion:last-child {
+    margin-bottom: 0;
 }
 
 .detailing-toggle {
     width: 100%;
     background: #111111;
     color: #ffffff;
-    border: 1px solid #333333;
-    border-radius: 10px;
-    padding: 14px 16px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 14px 20px;
     font-weight: 700;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-bottom: 15px;
 }
 
 .detailing-toggle:hover {
+    background: #1a1a1a;
     border-color: #4F7CFF;
-    color: #4F7CFF;
+    color: #ffffff;
 }
 
 .detailing-toggle.open .dropdown-arrow {
@@ -5194,22 +5205,14 @@ body.has-announcement section:first-of-type {
 }
 
 .detailing-services {
-    margin-top: 18px;
+    margin-top: 0;
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.45s ease, opacity 0.3s ease;
 }
 
 .detailing-services .service-card {
     margin-bottom: 0;
-}
-
-.detailing-toggle.open + .detailing-services {
-    max-height: 5000px;
-    opacity: 1;
 }
 
 .quick-answers {
