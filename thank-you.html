@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
@@ -223,5 +223,52 @@
     <footer class="thank-you-footer">
         <p>&copy; 2026 716 Details | Lewiston, NY</p>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const submenuParents = document.querySelectorAll('.dropdown-menu .has-submenu > a');
+
+        function closeNestedSubmenus(scope) {
+            (scope || document).querySelectorAll('.dropdown-menu .has-submenu.open').forEach(item => item.classList.remove('open'));
+        }
+
+        submenuParents.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const parentItem = this.parentElement;
+                const siblingSubmenus = parentItem.parentElement.querySelectorAll(':scope > .has-submenu.open');
+                siblingSubmenus.forEach(item => {
+                    if (item !== parentItem) item.classList.remove('open');
+                });
+
+                parentItem.classList.toggle('open');
+            });
+        });
+
+        document.querySelectorAll('.nav-menu .dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                setTimeout(() => {
+                    if (!this.classList.contains('active')) {
+                        closeNestedSubmenus();
+                    }
+                }, 0);
+            });
+        });
+
+        const hamburger = document.querySelector('#hamburger');
+        if (hamburger) {
+            hamburger.addEventListener('click', function() {
+                setTimeout(() => {
+                    if (!hamburger.classList.contains('active')) {
+                        closeNestedSubmenus();
+                    }
+                }, 0);
+            });
+        }
+    });
+    </script>
+
 </body>
 </html>

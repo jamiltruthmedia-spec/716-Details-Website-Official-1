@@ -153,6 +153,11 @@ a {
     color: #4F7CFF;
 }
 
+/* Dropdown Toggle - keep text and arrow on same line */
+.dropdown-toggle {
+    white-space: nowrap;
+}
+
 /* Dropdown Arrow */
 .dropdown-arrow {
     font-size: 0.8rem;
@@ -214,6 +219,50 @@ a {
 .dropdown-menu a:hover {
     background-color: #111111;
     color: #4F7CFF;
+}
+
+/* Services dropdown accordion (desktop + mobile) */
+.dropdown-menu .has-submenu > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+}
+
+.dropdown-menu .has-submenu > a .dropdown-arrow {
+    margin-left: 0.75rem;
+    font-size: 0.8rem;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+    transform: rotate(0deg);
+}
+
+.dropdown-menu .has-submenu.open > a .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu .submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.dropdown-menu .has-submenu.open > .submenu {
+    max-height: 500px;
+}
+
+.dropdown-menu .submenu a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding-left: calc(1.5rem + 16px);
+}
+
+.dropdown-menu .submenu .submenu a {
+    padding-left: calc(1.5rem + 32px);
 }
 
 .nav-contact {
@@ -3587,7 +3636,7 @@ input:focus, select:focus, textarea:focus {
         .dropdown-arrow {
             font-size: 0.9rem;
             margin-left: 0.8rem;
-            color: #4F7CFF;
+            color: #ffffff;
             font-weight: bold;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-block;
@@ -3596,7 +3645,7 @@ input:focus, select:focus, textarea:focus {
         
         .dropdown-toggle.active .dropdown-arrow {
             transform: rotate(180deg);
-            color: #4F7CFF;
+            color: #ffffff;
         }
     }
 
@@ -3634,6 +3683,14 @@ input:focus, select:focus, textarea:focus {
     .dropdown-menu a:hover {
         background: #222222;
         color: #4F7CFF;
+    }
+
+    .dropdown-menu .submenu a {
+        padding-left: calc(2rem + 20px);
+    }
+
+    .dropdown-menu .submenu .submenu a {
+        padding-left: calc(2rem + 40px);
     }
 
     .nav-contact {
