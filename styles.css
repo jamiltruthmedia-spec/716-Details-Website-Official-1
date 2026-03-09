@@ -4721,7 +4721,7 @@ body.has-announcement section:first-of-type {
     display: block;
 }
 
-.winter-popup h2 {
+.winter-popup .winter-popup-title {
     color: #ffffff;
     font-size: 1.8rem;
     margin-bottom: 15px;
@@ -4803,7 +4803,7 @@ body.has-announcement section:first-of-type {
         font-size: 2.8rem;
     }
     
-    .winter-popup h2 {
+    .winter-popup .winter-popup-title {
         font-size: 1.5rem;
     }
     
@@ -5437,3 +5437,41 @@ body.has-announcement section:first-of-type {
     }
 }
 
+
+
+@media (max-width: 768px) {
+    /* Ensure minimum 16px body text on mobile */
+    body {
+        font-size: 16px;
+    }
+
+    .stat-label,
+    .stat-number,
+    .trust-label,
+    .trust-number,
+    .footer-section p,
+    .footer-section li {
+        font-size: 16px !important;
+    }
+
+    /* Exception: winter bar can be smaller since it's a banner */
+    .announcement-bar,
+    .announcement-bar * {
+        font-size: 14px !important;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Push chat widget above sticky CTA bar */
+    .lc_btn,
+    [class*="chat-widget"],
+    [class*="leadConnector"] {
+        bottom: 80px !important;
+    }
+
+    .mobile-sticky-cta {
+        z-index: 10000;
+    }
+}
