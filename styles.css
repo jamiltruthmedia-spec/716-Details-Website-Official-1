@@ -268,16 +268,30 @@ a {
 
 /* Desktop navigation Book Now button - black theme */
 @media (min-width: 769px) {
-    .nav-contact .cta-btn {
+    .nav-contact .cta-btn,
+    .nav-contact .phone-btn {
         background: #000000;
         color: #ffffff;
         border: 2px solid #ffffff;
+        white-space: nowrap;
+    }
+    
+    .nav-contact .phone-btn {
+        background: #ffffff;
+        color: #000000;
+        border: 2px solid #000000;
     }
     
     .nav-contact .cta-btn:hover {
         background: #ffffff;
         color: #000000;
         border-color: #000000;
+    }
+    
+    .nav-contact .phone-btn:hover {
+        background: #000000;
+        color: #ffffff;
+        border-color: #ffffff;
     }
 }
 
