@@ -5271,11 +5271,10 @@ body.has-announcement section:first-of-type {
 }
 
 /* Commercial cards - center the grid */
+/* Commercial cards - center within grid when visible */
 #detailing-services-commercial {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 30px;
-    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
 }
 
 #detailing-services-commercial .service-card {
