@@ -4999,3 +4999,142 @@ body.has-announcement section:first-of-type {
   .social-icon-link { width: 28px; height: 28px; }
   .social-icon-link svg { width: 16px; height: 16px; }
 }
+
+/* Premium Services Section */
+.premium-services {
+    padding: 60px 0;
+    background: #0a0a0a;
+}
+
+.premium-services h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.premium-services .section-subtitle {
+    text-align: center;
+    color: #cccccc;
+    margin-bottom: 40px;
+}
+
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.premium-card {
+    background: #111111;
+    border: 1px solid #222222;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.premium-card:hover {
+    transform: translateY(-5px);
+    border-color: #c8a84e;
+}
+
+.premium-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.premium-card h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    padding: 20px 20px 10px;
+    margin: 0;
+}
+
+.premium-card p {
+    color: #cccccc;
+    padding: 0 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.premium-price {
+    color: #c8a84e;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+}
+
+.premium-cta {
+    padding: 0 20px 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.premium-cta .service-btn,
+.premium-cta .service-quote-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Trust Bar */
+.trust-bar {
+    padding: 30px 0;
+    background: #111111;
+    border-top: 1px solid #222222;
+    border-bottom: 1px solid #222222;
+}
+
+.trust-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    text-align: center;
+}
+
+.trust-number {
+    display: block;
+    color: #c8a84e;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.trust-label {
+    display: block;
+    color: #cccccc;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* Mobile responsive for premium section */
+@media (max-width: 768px) {
+    .premium-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .premium-services {
+        padding: 40px 0;
+    }
+    
+    .trust-items {
+        gap: 20px;
+    }
+    
+    .trust-item {
+        flex: 0 0 calc(50% - 20px);
+    }
+}
