@@ -224,16 +224,16 @@ a {
     min-height: 44px;
 }
 
-.dropdown-menu .has-submenu > a::after {
-    content: '▸';
+.dropdown-menu .has-submenu > a .dropdown-arrow {
     margin-left: 0.75rem;
     font-size: 0.9rem;
     color: #4F7CFF;
     transition: transform 0.3s ease;
+    transform: rotate(-90deg);
 }
 
-.dropdown-menu .has-submenu.open > a::after {
-    transform: rotate(90deg);
+.dropdown-menu .has-submenu.open > a .dropdown-arrow {
+    transform: rotate(0deg);
 }
 
 .dropdown-menu .submenu {
