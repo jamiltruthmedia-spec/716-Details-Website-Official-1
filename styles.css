@@ -154,6 +154,15 @@ a {
     white-space: nowrap;
 }
 
+/* Force top-level nav links and dropdown toggles to keep text + arrow on one line */
+.nav-menu > li > a,
+.nav-menu .dropdown-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+}
+
 .nav-menu a:hover {
     color: #4F7CFF;
 }
@@ -165,6 +174,15 @@ a {
     transition: transform 0.3s ease;
     display: inline;
     flex-shrink: 0;
+}
+
+/* Force dropdown arrows to stay inline with label text */
+.nav-menu .dropdown-arrow,
+.nav-menu > li > a .dropdown-arrow {
+    display: inline !important;
+    flex-shrink: 0 !important;
+    margin-left: 4px !important;
+    line-height: 1 !important;
 }
 
 .dropdown-toggle.active .dropdown-arrow {
