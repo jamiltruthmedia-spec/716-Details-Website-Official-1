@@ -10,13 +10,31 @@
   gtag('config', 'AW-16886615838');
 </script>
 
-    <!-- Event snippet for Submit lead form conversion page -->
+    <!-- Service-Specific Google Ads Conversion -->
     <script>
+      // Get service from URL parameter
+      const params = new URLSearchParams(window.location.search);
+      const service = params.get('service');
+      
+      // Service values based on 716 Details pricing
+      const values = {
+        'Car Detail': 290,
+        'Window Tint': 350,
+        'Ceramic Coating': 705,
+        'Paint Correction': 975,
+        'Emergency Service': 200
+      };
+      
+      // Fire conversion with correct value (default to 290 if no match)
+      const convValue = values[service] || 290;
+      
       gtag('event', 'conversion', {
         'send_to': 'AW-16886615838/_JrrCP6Oq_sbEJ6elfQ-',
-        'value': 150.0,
+        'value': convValue,
         'currency': 'USD'
       });
+      
+      console.log('Google Ads conversion fired: ' + service + ' = $' + convValue);
     </script>
 
     <meta charset="UTF-8">
