@@ -791,23 +791,7 @@
       });
     });
 
-    window.addEventListener('message', function(event) {
-      var data = event.data;
-      var payload = '';
-      try { payload = typeof data === 'string' ? data : JSON.stringify(data); } catch (e) { payload = ''; }
-      var looksLikeSubmit =
-        (data && (data.type === 'form_submitted' || data.event === 'form_submitted' || data.name === 'form_submitted')) ||
-        payload.toLowerCase().indexOf('form_submitted') > -1 ||
-        payload.toLowerCase().indexOf('submission') > -1 ||
-        payload.toLowerCase().indexOf('thank you') > -1;
-      if (looksLikeSubmit) {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-16886615838/conversion',
-          'event_category': 'Form',
-          'event_label': 'quote_form_submit'
-        });
-      }
-    });
+    // Form conversion tracking handled by thank-you.html with service-specific values
 
     // no peek animation - arrows only
   </script>
