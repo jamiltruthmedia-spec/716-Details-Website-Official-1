@@ -507,14 +507,13 @@
     <!-- Individual Review Schema -->
     
 </head>
-<body class="has-announcement">
-    <!-- Winter Announcement Bar (Persistent - No Close Button) -->
+<body>
+    <!-- WINTER POPUP - Re-enable November 2026
     <div class="announcement-bar" id="announcement-bar" role="banner" aria-label="Seasonal notice">
         <span class="snow-icon">❄️</span>
         <span class="text">Winter Season: In-Shop Appointments Only at Our Lewiston Location</span>
     </div>
 
-    <!-- Winter Popup Modal -->
     <div class="winter-popup-overlay" id="winter-popup">
         <div class="winter-popup">
             <button class="winter-popup-close" onclick="closeWinterPopup()" aria-label="Close popup">&times;</button>
@@ -528,6 +527,7 @@
             <button class="winter-popup-btn" onclick="closeWinterPopup()">Got It!</button>
         </div>
     </div>
+    -->
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -1852,16 +1852,15 @@
     </script>
     <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
 
-    <!-- Winter Announcement & Popup Script -->
+    <!-- WINTER POPUP SCRIPT - Re-enable November 2026
     <script>
-    // Check if winter popup was already shown
     function showWinterPopup() {
         const popupShown = localStorage.getItem('winterPopup2025');
         if (!popupShown) {
             setTimeout(function() {
                 document.getElementById('winter-popup').classList.add('active');
                 document.body.style.overflow = 'hidden';
-            }, 1000); // Show after 1 second
+            }, 1000);
         }
     }
 
@@ -1871,23 +1870,18 @@
         localStorage.setItem('winterPopup2025', 'true');
     }
 
-    // Announcement bar is persistent (no close functionality needed)
-
-    // Close popup on overlay click
     document.getElementById('winter-popup').addEventListener('click', function(e) {
         if (e.target === this) {
             closeWinterPopup();
         }
     });
 
-    // Close popup on Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeWinterPopup();
         }
     });
 
-    // Initialize on page load - delay popup by 10 seconds of scroll engagement
     document.addEventListener('DOMContentLoaded', function() {
         var scrollTimer = null;
         var popupTriggered = false;
@@ -1900,7 +1894,6 @@
                 }, 10000);
             }
         });
-        // Fallback: show after 30 seconds even without scroll
         setTimeout(function() {
             if (!popupTriggered) {
                 popupTriggered = true;
@@ -1909,6 +1902,7 @@
         }, 30000);
     });
     </script>
+    -->
 
     <!-- Custom Quote Modal Overlay -->
     <div id="quoteModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:10000;align-items:center;justify-content:center;">

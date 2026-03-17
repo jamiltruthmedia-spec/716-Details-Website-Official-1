@@ -2477,7 +2477,7 @@ a {
 
 .gallery-caption p {
     color: #cccccc;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 0;
     line-height: 1.7;
 }
@@ -3891,7 +3891,7 @@ input:focus, select:focus, textarea:focus {
     }
     
     .contact-info-card p {
-        font-size: 0.95rem;
+        font-size: 1rem;
         line-height: 1.6;
     }
 
@@ -3947,7 +3947,7 @@ input:focus, select:focus, textarea:focus {
     }
     
     .feature {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
     
     .emergency-cta {
@@ -4007,7 +4007,7 @@ input:focus, select:focus, textarea:focus {
     }
     
     .service-features li {
-        font-size: 0.95rem;
+        font-size: 1rem;
         margin-bottom: 0.7rem;
     }
     
@@ -4065,7 +4065,7 @@ input:focus, select:focus, textarea:focus {
     
     .area-item {
         padding: 1.2rem 1rem;
-        font-size: 0.95rem;
+        font-size: 1rem;
         min-height: 50px;
         display: flex;
         align-items: center;
@@ -4200,7 +4200,7 @@ input:focus, select:focus, textarea:focus {
 
     .area-item {
         padding: 1.2rem 0.8rem;
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     
     .services {
@@ -4221,7 +4221,7 @@ input:focus, select:focus, textarea:focus {
     }
     
     .section-subtitle {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
     
     .footer-content {
@@ -4239,7 +4239,7 @@ input:focus, select:focus, textarea:focus {
     
     .footer-section p,
     .footer-section li {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     
     .footer-section ul {
@@ -4527,7 +4527,7 @@ input:focus, select:focus, textarea:focus {
 
 .legal-footer p {
     color: #888888;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
 }
 
@@ -4876,7 +4876,7 @@ body.has-announcement section:first-of-type {
 
 .step p {
     color: #aaa;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
 }
 
@@ -4931,7 +4931,7 @@ body.has-announcement section:first-of-type {
 
 .faq-item p {
     color: #aaa;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
 }
 
@@ -5008,7 +5008,7 @@ body.has-announcement section:first-of-type {
 .review-name {
     color: #fff;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .review-stars {
@@ -5019,14 +5019,14 @@ body.has-announcement section:first-of-type {
 
 .review-text {
     color: #ccc;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin: 0;
 }
 
 .review-toggle {
     color: #4F7CFF;
-    font-size: 0.88rem;
+    font-size: 1rem;
     margin-left: 4px;
     text-decoration: none;
     white-space: nowrap;
@@ -5140,7 +5140,7 @@ body.has-announcement section:first-of-type {
 .premium-card p {
     color: #cccccc;
     padding: 0 20px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin: 0;
 }
@@ -5199,7 +5199,7 @@ body.has-announcement section:first-of-type {
 .trust-label {
     display: block;
     color: #cccccc;
-    font-size: 0.85rem;
+    font-size: 1rem;
     margin-top: 4px;
 }
 
