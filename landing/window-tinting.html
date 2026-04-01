@@ -210,24 +210,23 @@
       border-radius: 8px;
       margin-top: 16px;
     }
+    .hero-image-wrap {
+      position: relative;
+      overflow: hidden;
+      margin-top: 16px;
+    }
     .hero-gallery {
       display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-      padding-bottom: 8px;
-      margin-top: 16px;
-      margin-bottom: 8px;
-    }
-    .hero-gallery::-webkit-scrollbar { display: none; }
-    .hero-gallery {
-      scroll-snap-type: x mandatory;
+      transition: transform 0.4s ease-out;
     }
     .hero-gallery img {
-      scroll-snap-align: start;
+      width: 100%;
+      min-width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex: 0 0 100%;
     }
-    .hero-image-wrap { position: relative; }
     .gallery-arrow {
       position: absolute;
       top: 50%;
@@ -246,22 +245,15 @@
       align-items: center;
       justify-content: center;
       color: #333;
-      transition: background .2s, opacity .2s, transform .2s;
+      transition: background 0.2s, opacity 0.2s;
     }
     .gallery-arrow:hover { background: #fff; }
-    .gallery-arrow.left { left: 6px; }
-    .gallery-arrow.right { right: 6px; }
+    .gallery-arrow.left { left: 12px; }
+    .gallery-arrow.right { right: 12px; }
     .gallery-arrow.disabled {
       opacity: 0.3;
       cursor: default;
       pointer-events: none;
-    }
-    .hero-gallery img {
-      width: 300px;
-      height: 280px;
-      object-fit: cover;
-      border-radius: 8px;
-      flex: 0 0 auto;
     }
 
     .form-section, .reviews, .faq { background: #fff; padding: 24px 16px; }
@@ -325,25 +317,21 @@
     .stars { color: #FFD700; margin: 6px 0; letter-spacing: 1px; }
     .review-card p { margin: 0; color: #333; font-size: 14px; }
 
-    .gallery-scroll-wrap { position: relative; }
+    .gallery-scroll-wrap {
+      position: relative;
+      overflow: hidden;
+    }
     .gallery-scroll {
       display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-      padding-bottom: 8px;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
+      transition: transform 0.4s ease-out;
     }
-    .gallery-scroll::-webkit-scrollbar { display: none; }
     .gallery-scroll img {
-      width: 280px;
+      width: 100%;
+      min-width: 100%;
       height: 280px;
       object-fit: cover;
       border-radius: 8px;
-      flex: 0 0 auto;
-      scroll-snap-align: start;
+      flex: 0 0 100%;
     }
     .gallery-arrow-bottom {
       position: absolute;
@@ -362,15 +350,36 @@
       align-items: center;
       justify-content: center;
       color: #333;
-      transition: opacity .2s, transform .2s;
+      transition: opacity 0.2s;
     }
     .gallery-arrow-bottom:hover { background: #fff; }
-    .gallery-arrow-bottom.left { left: 6px; }
-    .gallery-arrow-bottom.right { right: 6px; }
+    .gallery-arrow-bottom.left { left: 12px; }
+    .gallery-arrow-bottom.right { right: 12px; }
     .gallery-arrow-bottom.disabled {
       opacity: 0.3;
       cursor: default;
       pointer-events: none;
+    }
+
+    /* Carousel Dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ddd;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      padding: 0;
+    }
+    .carousel-dot.active {
+      background: #1a56db;
     }
 
     .steps-grid {
@@ -490,10 +499,8 @@
       .backup-reviews { grid-template-columns: repeat(3, minmax(0,1fr)); }
       .steps-grid { grid-template-columns: repeat(4, 1fr); }
 
-      .hero-gallery { overflow-x: auto; flex-wrap: nowrap; }
-      .hero-gallery img { width: 320px; height: 280px; flex: 0 0 auto; }
-      .gallery-scroll { overflow-x: auto; }
-      .gallery-scroll img { width: 300px; height: 260px; flex: 0 0 auto; }
+      .hero-gallery img { height: 320px; }
+      .gallery-scroll img { height: 300px; }
       .mobile-sticky { display: none; }
     }
   </style>
@@ -529,12 +536,13 @@
           <button class="gallery-arrow left disabled" id="hero-arrow-left" aria-label="Previous image">❮</button>
           <div class="hero-gallery" id="hero-gallery">
             <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with professional window tint">
-            <img src="../images/gallery/window-tinting/tint-sedan-black-sunset-1.webp" alt="Black sedan with ceramic window tint at sunset" loading="lazy">
-            <img src="../images/gallery/window-tinting/tint-tundra-white-front-1.webp" alt="White Toyota Tundra with full window tint" loading="lazy">
-            <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport with window tinting" loading="lazy">
-            <img src="../images/gallery/window-tinting/tint-sonata-white-shop-1.webp" alt="White Hyundai Sonata in 716 Details shop after tinting" loading="lazy">
+            <img src="../images/gallery/window-tinting/tint-sedan-black-sunset-1.webp" alt="Black sedan with ceramic window tint at sunset">
+            <img src="../images/gallery/window-tinting/tint-tundra-white-front-1.webp" alt="White Toyota Tundra with full window tint">
+            <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport with window tinting">
+            <img src="../images/gallery/window-tinting/tint-sonata-white-shop-1.webp" alt="White Hyundai Sonata in 716 Details shop after tinting">
           </div>
           <button class="gallery-arrow right" id="hero-arrow-right" aria-label="Next image">❯</button>
+          <div class="carousel-dots" id="hero-dots"></div>
         </div>
       </div>
 
@@ -665,13 +673,14 @@
       <div class="gallery-scroll-wrap">
         <button class="gallery-arrow-bottom left disabled" id="recent-arrow-left" aria-label="Previous">❮</button>
         <div class="gallery-scroll" id="recent-work-gallery">
-          <img src="../images/gallery/window-tinting/tint-silverado-gray-1.webp" alt="Gray Chevy Silverado with window tint" loading="lazy">
-          <img src="../images/gallery/window-tinting/tint-tundra-white-rear-1.webp" alt="White Toyota Tundra rear view with tint" loading="lazy">
-          <img src="../images/gallery/window-tinting/tint-suv-windshield-black-1.webp" alt="Black SUV with windshield tint" loading="lazy">
-          <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport window tinting" loading="lazy">
-          <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with ceramic window tint" loading="lazy">
+          <img src="../images/gallery/window-tinting/tint-silverado-gray-1.webp" alt="Gray Chevy Silverado with window tint">
+          <img src="../images/gallery/window-tinting/tint-tundra-white-rear-1.webp" alt="White Toyota Tundra rear view with tint">
+          <img src="../images/gallery/window-tinting/tint-suv-windshield-black-1.webp" alt="Black SUV with windshield tint">
+          <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport window tinting">
+          <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with ceramic window tint">
         </div>
         <button class="gallery-arrow-bottom right" id="recent-arrow-right" aria-label="Next">❯</button>
+        <div class="carousel-dots" id="recent-dots"></div>
       </div>
     </div>
   </section>
@@ -757,54 +766,120 @@
       }
     });
 
-    // Apple-style gallery with bounded scroll and smart arrows
-    function initGallery(galleryId, leftArrowId, rightArrowId, scrollAmount) {
-      var gallery = document.getElementById(galleryId);
-      var leftArrow = document.getElementById(leftArrowId);
-      var rightArrow = document.getElementById(rightArrowId);
+    // Centered Carousel with Dots
+    function initCarousel(config) {
+      var gallery = document.getElementById(config.galleryId);
+      var leftArrow = document.getElementById(config.leftArrowId);
+      var rightArrow = document.getElementById(config.rightArrowId);
+      var dotsContainer = document.getElementById(config.dotsId);
+
       if (!gallery || !leftArrow || !rightArrow) return;
 
-      function updateArrows() {
-        var scrollLeft = gallery.scrollLeft;
-        var maxScroll = gallery.scrollWidth - gallery.clientWidth;
-        
-        // Left arrow: disabled at start
-        if (scrollLeft <= 5) {
+      var images = gallery.querySelectorAll('img');
+      var currentIndex = 0;
+      var totalImages = images.length;
+
+      // Create dots
+      if (dotsContainer) {
+        for (var i = 0; i < totalImages; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+          dot.dataset.index = i;
+          dot.addEventListener('click', function() {
+            goToSlide(parseInt(this.dataset.index));
+          });
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function updateCarousel() {
+        gallery.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+
+        if (currentIndex === 0) {
           leftArrow.classList.add('disabled');
         } else {
           leftArrow.classList.remove('disabled');
         }
-        
-        // Right arrow: disabled at end
-        if (scrollLeft >= maxScroll - 5) {
+
+        if (currentIndex === totalImages - 1) {
           rightArrow.classList.add('disabled');
         } else {
           rightArrow.classList.remove('disabled');
         }
+
+        if (dotsContainer) {
+          var dots = dotsContainer.querySelectorAll('.carousel-dot');
+          dots.forEach(function(dot, index) {
+            if (index === currentIndex) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        }
+      }
+
+      function goToSlide(index) {
+        if (index >= 0 && index < totalImages) {
+          currentIndex = index;
+          updateCarousel();
+        }
       }
 
       leftArrow.addEventListener('click', function() {
-        if (!leftArrow.classList.contains('disabled')) {
-          gallery.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
         }
       });
 
       rightArrow.addEventListener('click', function() {
-        if (!rightArrow.classList.contains('disabled')) {
-          gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        if (currentIndex < totalImages - 1) {
+          currentIndex++;
+          updateCarousel();
         }
       });
 
-      gallery.addEventListener('scroll', updateArrows);
-      window.addEventListener('resize', updateArrows);
-      
+      // Touch/swipe support
+      var touchStartX = 0;
+      var touchEndX = 0;
+
+      gallery.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      gallery.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        var swipeThreshold = 50;
+        var diff = touchStartX - touchEndX;
+        if (diff > swipeThreshold && currentIndex < totalImages - 1) {
+          currentIndex++;
+          updateCarousel();
+        } else if (diff < -swipeThreshold && currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      }, { passive: true });
+
       // Initial state
-      updateArrows();
+      updateCarousel();
     }
 
-    // Initialize both galleries
-    initGallery('hero-gallery', 'hero-arrow-left', 'hero-arrow-right', 310);
-    initGallery('recent-work-gallery', 'recent-arrow-left', 'recent-arrow-right', 290);
+    // Initialize both carousels
+    initCarousel({
+      galleryId: 'hero-gallery',
+      leftArrowId: 'hero-arrow-left',
+      rightArrowId: 'hero-arrow-right',
+      dotsId: 'hero-dots'
+    });
+
+    initCarousel({
+      galleryId: 'recent-work-gallery',
+      leftArrowId: 'recent-arrow-left',
+      rightArrowId: 'recent-arrow-right',
+      dotsId: 'recent-dots'
+    });
   </script>
 </body>
 </html>
