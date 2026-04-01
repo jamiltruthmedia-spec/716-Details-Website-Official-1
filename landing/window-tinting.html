@@ -221,6 +221,12 @@
       margin-bottom: 8px;
     }
     .hero-gallery::-webkit-scrollbar { display: none; }
+    .hero-gallery {
+      scroll-snap-type: x mandatory;
+    }
+    .hero-gallery img {
+      scroll-snap-align: start;
+    }
     .hero-image-wrap { position: relative; }
     .gallery-arrow {
       position: absolute;
@@ -240,11 +246,16 @@
       align-items: center;
       justify-content: center;
       color: #333;
-      transition: background .2s;
+      transition: background .2s, opacity .2s, transform .2s;
     }
     .gallery-arrow:hover { background: #fff; }
     .gallery-arrow.left { left: 6px; }
     .gallery-arrow.right { right: 6px; }
+    .gallery-arrow.disabled {
+      opacity: 0.3;
+      cursor: default;
+      pointer-events: none;
+    }
     .hero-gallery img {
       width: 300px;
       height: 280px;
@@ -323,6 +334,7 @@
       scrollbar-width: none;
       padding-bottom: 8px;
       scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
     }
     .gallery-scroll::-webkit-scrollbar { display: none; }
     .gallery-scroll img {
@@ -331,6 +343,7 @@
       object-fit: cover;
       border-radius: 8px;
       flex: 0 0 auto;
+      scroll-snap-align: start;
     }
     .gallery-arrow-bottom {
       position: absolute;
@@ -349,10 +362,16 @@
       align-items: center;
       justify-content: center;
       color: #333;
+      transition: opacity .2s, transform .2s;
     }
     .gallery-arrow-bottom:hover { background: #fff; }
     .gallery-arrow-bottom.left { left: 6px; }
     .gallery-arrow-bottom.right { right: 6px; }
+    .gallery-arrow-bottom.disabled {
+      opacity: 0.3;
+      cursor: default;
+      pointer-events: none;
+    }
 
     .steps-grid {
       display: grid;
@@ -507,15 +526,15 @@
         </div>
 
         <div class="hero-image-wrap">
-          <button class="gallery-arrow left" onclick="document.querySelector('.hero-gallery').scrollBy({left:-310,behavior:'smooth'})" aria-label="Previous image">❮</button>
-          <div class="hero-gallery">
+          <button class="gallery-arrow left disabled" id="hero-arrow-left" aria-label="Previous image">❮</button>
+          <div class="hero-gallery" id="hero-gallery">
             <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with professional window tint">
             <img src="../images/gallery/window-tinting/tint-sedan-black-sunset-1.webp" alt="Black sedan with ceramic window tint at sunset" loading="lazy">
             <img src="../images/gallery/window-tinting/tint-tundra-white-front-1.webp" alt="White Toyota Tundra with full window tint" loading="lazy">
             <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport with window tinting" loading="lazy">
             <img src="../images/gallery/window-tinting/tint-sonata-white-shop-1.webp" alt="White Hyundai Sonata in 716 Details shop after tinting" loading="lazy">
           </div>
-          <button class="gallery-arrow right" onclick="document.querySelector('.hero-gallery').scrollBy({left:310,behavior:'smooth'})" aria-label="Next image">❯</button>
+          <button class="gallery-arrow right" id="hero-arrow-right" aria-label="Next image">❯</button>
         </div>
       </div>
 
@@ -644,7 +663,7 @@
     <div class="container">
       <h2>Our Recent Work</h2>
       <div class="gallery-scroll-wrap">
-        <button class="gallery-arrow-bottom left" onclick="document.getElementById('recent-work-gallery').scrollBy({left:-290,behavior:'smooth'})" aria-label="Previous">❮</button>
+        <button class="gallery-arrow-bottom left disabled" id="recent-arrow-left" aria-label="Previous">❮</button>
         <div class="gallery-scroll" id="recent-work-gallery">
           <img src="../images/gallery/window-tinting/tint-silverado-gray-1.webp" alt="Gray Chevy Silverado with window tint" loading="lazy">
           <img src="../images/gallery/window-tinting/tint-tundra-white-rear-1.webp" alt="White Toyota Tundra rear view with tint" loading="lazy">
@@ -652,7 +671,7 @@
           <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport window tinting" loading="lazy">
           <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with ceramic window tint" loading="lazy">
         </div>
-        <button class="gallery-arrow-bottom right" onclick="document.getElementById('recent-work-gallery').scrollBy({left:290,behavior:'smooth'})" aria-label="Next">❯</button>
+        <button class="gallery-arrow-bottom right" id="recent-arrow-right" aria-label="Next">❯</button>
       </div>
     </div>
   </section>
@@ -737,6 +756,55 @@
         });
       }
     });
+
+    // Apple-style gallery with bounded scroll and smart arrows
+    function initGallery(galleryId, leftArrowId, rightArrowId, scrollAmount) {
+      var gallery = document.getElementById(galleryId);
+      var leftArrow = document.getElementById(leftArrowId);
+      var rightArrow = document.getElementById(rightArrowId);
+      if (!gallery || !leftArrow || !rightArrow) return;
+
+      function updateArrows() {
+        var scrollLeft = gallery.scrollLeft;
+        var maxScroll = gallery.scrollWidth - gallery.clientWidth;
+        
+        // Left arrow: disabled at start
+        if (scrollLeft <= 5) {
+          leftArrow.classList.add('disabled');
+        } else {
+          leftArrow.classList.remove('disabled');
+        }
+        
+        // Right arrow: disabled at end
+        if (scrollLeft >= maxScroll - 5) {
+          rightArrow.classList.add('disabled');
+        } else {
+          rightArrow.classList.remove('disabled');
+        }
+      }
+
+      leftArrow.addEventListener('click', function() {
+        if (!leftArrow.classList.contains('disabled')) {
+          gallery.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+      });
+
+      rightArrow.addEventListener('click', function() {
+        if (!rightArrow.classList.contains('disabled')) {
+          gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+      });
+
+      gallery.addEventListener('scroll', updateArrows);
+      window.addEventListener('resize', updateArrows);
+      
+      // Initial state
+      updateArrows();
+    }
+
+    // Initialize both galleries
+    initGallery('hero-gallery', 'hero-arrow-left', 'hero-arrow-right', 310);
+    initGallery('recent-work-gallery', 'recent-arrow-left', 'recent-arrow-right', 290);
   </script>
 </body>
 </html>
