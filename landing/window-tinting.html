@@ -210,56 +210,176 @@
       border-radius: 8px;
       margin-top: 16px;
     }
-    .hero-image-wrap {
+
+    /* Premium Carousel - Swiper */
+    .swiper-container {
       position: relative;
       overflow: hidden;
       margin-top: 16px;
+      border-radius: 12px;
     }
-    .hero-gallery {
-      display: flex;
-      transition: transform 0.4s ease-out;
-      touch-action: pan-y pinch-zoom;
-    }
-    .hero-gallery img {
+    .swiper {
       width: 100%;
-      min-width: 100%;
+      padding-bottom: 40px;
+    }
+    .swiper-slide {
+      width: 85%;
+      opacity: 0.5;
+      transform: scale(0.92);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .swiper-slide-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .swiper-slide img {
+      width: 100%;
       height: 280px;
       object-fit: cover;
-      border-radius: 8px;
-      flex: 0 0 100%;
+      border-radius: 12px;
+      display: block;
       -webkit-user-drag: none;
       user-select: none;
     }
-    .gallery-arrow {
+    .swiper-slide img.swiper-lazy {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .swiper-slide img.swiper-lazy-loaded {
+      opacity: 1;
+    }
+    .swiper-lazy-preloader {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      margin-left: -20px;
+      margin-top: -20px;
+      border: 3px solid #e5e7eb;
+      border-top-color: #1a56db;
+      border-radius: 50%;
+      animation: swiper-preloader-spin 1s linear infinite;
+    }
+    @keyframes swiper-preloader-spin {
+      100% { transform: rotate(360deg); }
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
       width: 44px;
       height: 44px;
+      background: rgba(255,255,255,0.95);
       border-radius: 50%;
-      background: rgba(255,255,255,0.9);
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      font-size: 18px;
-      line-height: 1;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       color: #333;
-      transition: background 0.2s, opacity 0.2s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
     }
-    .gallery-arrow:hover { background: #fff; }
-    .gallery-arrow.left { left: 12px; }
-    .gallery-arrow.right { right: 12px; }
-    .gallery-arrow.disabled {
-      opacity: 0.3;
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .swiper-button-disabled {
+      opacity: 0.3 !important;
       cursor: default;
       pointer-events: none;
     }
+    .swiper-pagination {
+      bottom: 8px !important;
+    }
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: #ccc;
+      opacity: 1;
+      transition: all 0.3s ease;
+    }
+    .swiper-pagination-bullet-active {
+      background: #1a56db;
+      transform: scale(1.3);
+    }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox-image {
+      max-width: 95vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      touch-action: manipulation;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      touch-action: manipulation;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
 
     .form-section, .reviews, .faq { background: #fff; padding: 24px 16px; }
     .services, .gallery { background: #f8f9fa; padding: 24px 16px; }
@@ -359,75 +479,7 @@
       display: none;
     }
 
-    .gallery-scroll-wrap {
-      position: relative;
-      overflow: hidden;
-    }
-    .gallery-scroll {
-      display: flex;
-      transition: transform 0.4s ease-out;
-      touch-action: pan-y pinch-zoom;
-    }
-    .gallery-scroll img {
-      width: 100%;
-      min-width: 100%;
-      height: 280px;
-      object-fit: cover;
-      border-radius: 8px;
-      flex: 0 0 100%;
-      -webkit-user-drag: none;
-      user-select: none;
-    }
-    .gallery-arrow-bottom {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.9);
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      font-size: 18px;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-      align-items: center;
-      justify-content: center;
-      color: #333;
-      transition: opacity 0.2s;
-    }
-    .gallery-arrow-bottom:hover { background: #fff; }
-    .gallery-arrow-bottom.left { left: 12px; }
-    .gallery-arrow-bottom.right { right: 12px; }
-    .gallery-arrow-bottom.disabled {
-      opacity: 0.3;
-      cursor: default;
-      pointer-events: none;
-    }
 
-    /* Carousel Dots */
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 12px;
-    }
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ddd;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s;
-      padding: 0;
-    }
-    .carousel-dot.active {
-      background: #1a56db;
-    }
 
     .steps-grid {
       display: grid;
@@ -546,11 +598,15 @@
       .backup-reviews { grid-template-columns: repeat(3, minmax(0,1fr)); }
       .steps-grid { grid-template-columns: repeat(4, 1fr); }
 
-      .hero-gallery img { height: 320px; }
-      .gallery-scroll img { height: 300px; }
+      .swiper-slide { width: 70%; }
+      .swiper-slide img { height: 360px; }
+      .swiper-button-prev { left: 20px; }
+      .swiper-button-next { right: 20px; }
       .mobile-sticky { display: none; }
     }
   </style>
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
   <header style="padding:12px 20px;background:#fff;">
@@ -579,17 +635,49 @@
           <span class="badge"><span style="color:#16a34a;">✓</span> MaxPro Film</span>
         </div>
 
-        <div class="hero-image-wrap">
-          <button class="gallery-arrow left disabled" id="hero-arrow-left" aria-label="Previous image">❮</button>
-          <div class="hero-gallery" id="hero-gallery">
-            <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with professional window tint">
-            <img src="../images/gallery/window-tinting/tint-sedan-black-sunset-1.webp" alt="Black sedan with ceramic window tint at sunset">
-            <img src="../images/gallery/window-tinting/tint-tundra-white-front-1.webp" alt="White Toyota Tundra with full window tint">
-            <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport with window tinting">
-            <img src="../images/gallery/window-tinting/tint-sonata-white-shop-1.webp" alt="White Hyundai Sonata in 716 Details shop after tinting">
+        <div class="swiper-container">
+          <div class="swiper" id="hero-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp"
+                     alt="White Mercedes coupe with professional window tint"
+                     class="swiper-lazy"
+                     data-full="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp">
+                <div class="swiper-lazy-preloader"></div>
+              </div>
+              <div class="swiper-slide">
+                <img src="../images/gallery/window-tinting/tint-sedan-black-sunset-1.webp"
+                     alt="Black sedan with ceramic window tint at sunset"
+                     class="swiper-lazy"
+                     data-full="../images/gallery/window-tinting/tint-sedan-black-sunset-1.webp">
+                <div class="swiper-lazy-preloader"></div>
+              </div>
+              <div class="swiper-slide">
+                <img src="../images/gallery/window-tinting/tint-tundra-white-front-1.webp"
+                     alt="White Toyota Tundra with full window tint"
+                     class="swiper-lazy"
+                     data-full="../images/gallery/window-tinting/tint-tundra-white-front-1.webp">
+                <div class="swiper-lazy-preloader"></div>
+              </div>
+              <div class="swiper-slide">
+                <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp"
+                     alt="Silver Ford F-150 Sport with window tinting"
+                     class="swiper-lazy"
+                     data-full="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp">
+                <div class="swiper-lazy-preloader"></div>
+              </div>
+              <div class="swiper-slide">
+                <img src="../images/gallery/window-tinting/tint-sonata-white-shop-1.webp"
+                     alt="White Hyundai Sonata in 716 Details shop after tinting"
+                     class="swiper-lazy"
+                     data-full="../images/gallery/window-tinting/tint-sonata-white-shop-1.webp">
+                <div class="swiper-lazy-preloader"></div>
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
           </div>
-          <button class="gallery-arrow right" id="hero-arrow-right" aria-label="Next image">❯</button>
-          <div class="carousel-dots" id="hero-dots"></div>
         </div>
       </div>
 
@@ -746,17 +834,49 @@
   <section class="gallery">
     <div class="container">
       <h2>Our Recent Work</h2>
-      <div class="gallery-scroll-wrap">
-        <button class="gallery-arrow-bottom left disabled" id="recent-arrow-left" aria-label="Previous">❮</button>
-        <div class="gallery-scroll" id="recent-work-gallery">
-          <img src="../images/gallery/window-tinting/tint-silverado-gray-1.webp" alt="Gray Chevy Silverado with window tint">
-          <img src="../images/gallery/window-tinting/tint-tundra-white-rear-1.webp" alt="White Toyota Tundra rear view with tint">
-          <img src="../images/gallery/window-tinting/tint-suv-windshield-black-1.webp" alt="Black SUV with windshield tint">
-          <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport window tinting">
-          <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with ceramic window tint">
+      <div class="swiper-container">
+        <div class="swiper" id="recent-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="../images/gallery/window-tinting/tint-silverado-gray-1.webp"
+                   alt="Gray Chevy Silverado with window tint"
+                   class="swiper-lazy"
+                   data-full="../images/gallery/window-tinting/tint-silverado-gray-1.webp">
+              <div class="swiper-lazy-preloader"></div>
+            </div>
+            <div class="swiper-slide">
+              <img src="../images/gallery/window-tinting/tint-tundra-white-rear-1.webp"
+                   alt="White Toyota Tundra rear view with tint"
+                   class="swiper-lazy"
+                   data-full="../images/gallery/window-tinting/tint-tundra-white-rear-1.webp">
+              <div class="swiper-lazy-preloader"></div>
+            </div>
+            <div class="swiper-slide">
+              <img src="../images/gallery/window-tinting/tint-suv-windshield-black-1.webp"
+                   alt="Black SUV with windshield tint"
+                   class="swiper-lazy"
+                   data-full="../images/gallery/window-tinting/tint-suv-windshield-black-1.webp">
+              <div class="swiper-lazy-preloader"></div>
+            </div>
+            <div class="swiper-slide">
+              <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp"
+                   alt="Silver Ford F-150 Sport window tinting"
+                   class="swiper-lazy"
+                   data-full="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp">
+              <div class="swiper-lazy-preloader"></div>
+            </div>
+            <div class="swiper-slide">
+              <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp"
+                   alt="White Mercedes coupe with ceramic window tint"
+                   class="swiper-lazy"
+                   data-full="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp">
+              <div class="swiper-lazy-preloader"></div>
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
         </div>
-        <button class="gallery-arrow-bottom right" id="recent-arrow-right" aria-label="Next">❯</button>
-        <div class="carousel-dots" id="recent-dots"></div>
       </div>
     </div>
   </section>
@@ -807,7 +927,18 @@
     <a href="#quote-form" class="btn btn-primary" onclick="scrollToQuote(event,'sticky_quote_click')">Get My Free Quote</a>
   </div>
 
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+    <button class="lightbox-close" aria-label="Close lightbox">&#x2715;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#x276E;</button>
+    <img class="lightbox-image" id="lightbox-image" src="" alt="">
+    <button class="lightbox-nav lightbox-next" aria-label="Next image">&#x276F;</button>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+
   <script src="https://booking.716detailing.com/js/form_embed.js"></script>
+  <!-- Swiper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     document.querySelectorAll('.faq-question').forEach(function(btn){
       btn.addEventListener('click', function(){
@@ -842,161 +973,148 @@
       }
     });
 
-    // Centered Carousel with Dots
-    function initCarousel(config) {
-      var gallery = document.getElementById(config.galleryId);
-      var leftArrow = document.getElementById(config.leftArrowId);
-      var rightArrow = document.getElementById(config.rightArrowId);
-      var dotsContainer = document.getElementById(config.dotsId);
-
-      if (!gallery || !leftArrow || !rightArrow) return;
-
-      var images = gallery.querySelectorAll('img');
-      var currentIndex = 0;
-      var totalImages = images.length;
-
-      // Create dots
-      if (dotsContainer) {
-        for (var i = 0; i < totalImages; i++) {
-          var dot = document.createElement('button');
-          dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-          dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
-          dot.dataset.index = i;
-          dot.addEventListener('click', function() {
-            goToSlide(parseInt(this.dataset.index));
-          });
-          dotsContainer.appendChild(dot);
-        }
+    // Swiper Configuration
+    var swiperConfig = {
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      spaceBetween: 16,
+      grabCursor: true,
+      speed: 400,
+      resistance: true,
+      resistanceRatio: 0.85,
+      touchRatio: 1,
+      touchAngle: 45,
+      simulateTouch: true,
+      shortSwipes: true,
+      longSwipes: true,
+      longSwipesRatio: 0.3,
+      longSwipesMs: 100,
+      preventInteractionOnTransition: false,
+      touchStartPreventDefault: false,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true
+      },
+      a11y: {
+        enabled: true,
+        prevSlideMessage: 'Previous image',
+        nextSlideMessage: 'Next image',
+        firstSlideMessage: 'This is the first image',
+        lastSlideMessage: 'This is the last image',
+        paginationBulletMessage: 'Go to image {{index}}'
       }
+    };
 
-      function updateCarousel() {
-        gallery.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
-
-        if (currentIndex === 0) {
-          leftArrow.classList.add('disabled');
-        } else {
-          leftArrow.classList.remove('disabled');
-        }
-
-        if (currentIndex === totalImages - 1) {
-          rightArrow.classList.add('disabled');
-        } else {
-          rightArrow.classList.remove('disabled');
-        }
-
-        if (dotsContainer) {
-          var dots = dotsContainer.querySelectorAll('.carousel-dot');
-          dots.forEach(function(dot, index) {
-            if (index === currentIndex) {
-              dot.classList.add('active');
-            } else {
-              dot.classList.remove('active');
-            }
-          });
-        }
+    // Initialize Hero Swiper
+    var heroSwiper = new Swiper('#hero-swiper', Object.assign({}, swiperConfig, {
+      lazy: { loadPrevNext: true, loadPrevNextAmount: 2 },
+      navigation: {
+        nextEl: '#hero-swiper .swiper-button-next',
+        prevEl: '#hero-swiper .swiper-button-prev'
+      },
+      pagination: {
+        el: '#hero-swiper .swiper-pagination',
+        clickable: true,
+        dynamicBullets: true
       }
+    }));
 
-      function goToSlide(index) {
-        if (index >= 0 && index < totalImages) {
-          currentIndex = index;
-          updateCarousel();
-        }
+    // Initialize Recent Work Swiper
+    var recentSwiper = new Swiper('#recent-swiper', Object.assign({}, swiperConfig, {
+      lazy: { loadPrevNext: true, loadPrevNextAmount: 2 },
+      navigation: {
+        nextEl: '#recent-swiper .swiper-button-next',
+        prevEl: '#recent-swiper .swiper-button-prev'
+      },
+      pagination: {
+        el: '#recent-swiper .swiper-pagination',
+        clickable: true,
+        dynamicBullets: true
       }
+    }));
 
-      // Debounce to prevent double-tap zoom
-      var isAnimating = false;
-      
-      leftArrow.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (isAnimating || currentIndex <= 0) return;
-        isAnimating = true;
-        currentIndex--;
-        updateCarousel();
-        setTimeout(function() { isAnimating = false; }, 400);
-      });
+    // Lightbox functionality
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImage = document.getElementById('lightbox-image');
+    var lightboxCounter = document.getElementById('lightbox-counter');
+    var currentLightboxImages = [];
+    var currentLightboxIndex = 0;
+    var lightboxTouchStartX = 0;
 
-      rightArrow.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (isAnimating || currentIndex >= totalImages - 1) return;
-        isAnimating = true;
-        currentIndex++;
-        updateCarousel();
-        setTimeout(function() { isAnimating = false; }, 400);
-      });
-
-      // Touch/swipe support - properly handle to prevent page scroll
-      var touchStartX = 0;
-      var touchStartY = 0;
-      var touchMoved = false;
-      var isHorizontalSwipe = null;
-
-      gallery.addEventListener('touchstart', function(e) {
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-        touchMoved = false;
-        isHorizontalSwipe = null;
-      }, { passive: true });
-
-      gallery.addEventListener('touchmove', function(e) {
-        if (!touchStartX) return;
-        
-        var touchX = e.touches[0].clientX;
-        var touchY = e.touches[0].clientY;
-        var diffX = touchStartX - touchX;
-        var diffY = touchStartY - touchY;
-        
-        // Determine swipe direction on first significant move
-        if (isHorizontalSwipe === null && (Math.abs(diffX) > 10 || Math.abs(diffY) > 10)) {
-          isHorizontalSwipe = Math.abs(diffX) > Math.abs(diffY);
-        }
-        
-        // If horizontal swipe, prevent page scroll
-        if (isHorizontalSwipe) {
-          e.preventDefault();
-          touchMoved = true;
-        }
-      }, { passive: false });
-
-      gallery.addEventListener('touchend', function(e) {
-        if (!touchMoved || !isHorizontalSwipe) {
-          touchStartX = 0;
-          return;
-        }
-        
-        var touchEndX = e.changedTouches[0].clientX;
-        var diff = touchStartX - touchEndX;
-        var swipeThreshold = 50;
-        
-        if (diff > swipeThreshold && currentIndex < totalImages - 1) {
-          currentIndex++;
-          updateCarousel();
-        } else if (diff < -swipeThreshold && currentIndex > 0) {
-          currentIndex--;
-          updateCarousel();
-        }
-        
-        touchStartX = 0;
-        touchMoved = false;
-        isHorizontalSwipe = null;
-      }, { passive: true });
-
-      // Initial state
-      updateCarousel();
+    function openLightbox(images, index) {
+      currentLightboxImages = images;
+      currentLightboxIndex = index;
+      updateLightbox();
+      lightbox.style.display = 'flex';
+      setTimeout(function() { lightbox.style.opacity = '1'; }, 10);
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
 
-    // Initialize both carousels
-    initCarousel({
-      galleryId: 'hero-gallery',
-      leftArrowId: 'hero-arrow-left',
-      rightArrowId: 'hero-arrow-right',
-      dotsId: 'hero-dots'
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightbox.style.display = 'none';
+      lightbox.style.opacity = '0';
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      var img = currentLightboxImages[currentLightboxIndex];
+      lightboxImage.src = img.getAttribute('data-full') || img.src;
+      lightboxImage.alt = img.alt;
+      lightboxCounter.textContent = (currentLightboxIndex + 1) + ' / ' + currentLightboxImages.length;
+    }
+
+    function lightboxPrev() {
+      if (currentLightboxIndex > 0) {
+        currentLightboxIndex--;
+        updateLightbox();
+      }
+    }
+
+    function lightboxNext() {
+      if (currentLightboxIndex < currentLightboxImages.length - 1) {
+        currentLightboxIndex++;
+        updateLightbox();
+      }
+    }
+
+    document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    document.querySelector('.lightbox-prev').addEventListener('click', lightboxPrev);
+    document.querySelector('.lightbox-next').addEventListener('click', lightboxNext);
+
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
     });
 
-    initCarousel({
-      galleryId: 'recent-work-gallery',
-      leftArrowId: 'recent-arrow-left',
-      rightArrowId: 'recent-arrow-right',
-      dotsId: 'recent-dots'
+    // Lightbox touch swipe
+    lightbox.addEventListener('touchstart', function(e) {
+      lightboxTouchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', function(e) {
+      var diff = lightboxTouchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) lightboxNext();
+        else lightboxPrev();
+      }
+    }, { passive: true });
+
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxPrev();
+      if (e.key === 'ArrowRight') lightboxNext();
+    });
+
+    // Click image to open lightbox
+    document.querySelectorAll('.swiper-slide img').forEach(function(img) {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function() {
+        var swiper = this.closest('.swiper');
+        var images = Array.from(swiper.querySelectorAll('.swiper-slide img'));
+        var clickedIndex = images.indexOf(this);
+        openLightbox(images, clickedIndex);
+      });
     });
   </script>
 </body>
