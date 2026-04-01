@@ -241,31 +241,10 @@
       -webkit-user-drag: none;
       user-select: none;
     }
-    .swiper-slide img.swiper-lazy {
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-    .swiper-slide img.swiper-lazy-loaded {
-      opacity: 1;
-    }
-    .swiper-lazy-preloader {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 40px;
-      height: 40px;
-      margin-left: -20px;
-      margin-top: -20px;
-      border: 3px solid #e5e7eb;
-      border-top-color: #1a56db;
-      border-radius: 50%;
-      animation: swiper-preloader-spin 1s linear infinite;
-    }
-    @keyframes swiper-preloader-spin {
-      100% { transform: rotate(360deg); }
-    }
+
     .swiper-button-prev,
     .swiper-button-next {
+      --swiper-navigation-size: 16px;
       width: 44px;
       height: 44px;
       background: rgba(255,255,255,0.95);
@@ -283,8 +262,9 @@
     }
     .swiper-button-prev:after,
     .swiper-button-next:after {
-      font-size: 18px;
+      font-size: 16px !important;
       font-weight: bold;
+      color: #333;
     }
     .swiper-button-disabled {
       opacity: 0.3 !important;
@@ -639,39 +619,19 @@
           <div class="swiper" id="hero-swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp"
-                     alt="White Mercedes coupe with professional window tint"
-                     class="swiper-lazy"
-                     data-full="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp">
-                <div class="swiper-lazy-preloader"></div>
+                <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with professional window tint">
               </div>
               <div class="swiper-slide">
-                <img src="../images/gallery/window-tinting/tint-sedan-black-sunset-1.webp"
-                     alt="Black sedan with ceramic window tint at sunset"
-                     class="swiper-lazy"
-                     data-full="../images/gallery/window-tinting/tint-sedan-black-sunset-1.webp">
-                <div class="swiper-lazy-preloader"></div>
+                <img src="../images/gallery/window-tinting/tint-sedan-black-sunset-1.webp" alt="Black sedan with ceramic window tint at sunset">
               </div>
               <div class="swiper-slide">
-                <img src="../images/gallery/window-tinting/tint-tundra-white-front-1.webp"
-                     alt="White Toyota Tundra with full window tint"
-                     class="swiper-lazy"
-                     data-full="../images/gallery/window-tinting/tint-tundra-white-front-1.webp">
-                <div class="swiper-lazy-preloader"></div>
+                <img src="../images/gallery/window-tinting/tint-tundra-white-front-1.webp" alt="White Toyota Tundra with full window tint">
               </div>
               <div class="swiper-slide">
-                <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp"
-                     alt="Silver Ford F-150 Sport with window tinting"
-                     class="swiper-lazy"
-                     data-full="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp">
-                <div class="swiper-lazy-preloader"></div>
+                <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport with window tinting">
               </div>
               <div class="swiper-slide">
-                <img src="../images/gallery/window-tinting/tint-sonata-white-shop-1.webp"
-                     alt="White Hyundai Sonata in 716 Details shop after tinting"
-                     class="swiper-lazy"
-                     data-full="../images/gallery/window-tinting/tint-sonata-white-shop-1.webp">
-                <div class="swiper-lazy-preloader"></div>
+                <img src="../images/gallery/window-tinting/tint-sonata-white-shop-1.webp" alt="White Hyundai Sonata in 716 Details shop after tinting">
               </div>
             </div>
             <div class="swiper-button-prev"></div>
@@ -838,39 +798,19 @@
         <div class="swiper" id="recent-swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="../images/gallery/window-tinting/tint-silverado-gray-1.webp"
-                   alt="Gray Chevy Silverado with window tint"
-                   class="swiper-lazy"
-                   data-full="../images/gallery/window-tinting/tint-silverado-gray-1.webp">
-              <div class="swiper-lazy-preloader"></div>
+              <img src="../images/gallery/window-tinting/tint-silverado-gray-1.webp" alt="Gray Chevy Silverado with window tint">
             </div>
             <div class="swiper-slide">
-              <img src="../images/gallery/window-tinting/tint-tundra-white-rear-1.webp"
-                   alt="White Toyota Tundra rear view with tint"
-                   class="swiper-lazy"
-                   data-full="../images/gallery/window-tinting/tint-tundra-white-rear-1.webp">
-              <div class="swiper-lazy-preloader"></div>
+              <img src="../images/gallery/window-tinting/tint-tundra-white-rear-1.webp" alt="White Toyota Tundra rear view with tint">
             </div>
             <div class="swiper-slide">
-              <img src="../images/gallery/window-tinting/tint-suv-windshield-black-1.webp"
-                   alt="Black SUV with windshield tint"
-                   class="swiper-lazy"
-                   data-full="../images/gallery/window-tinting/tint-suv-windshield-black-1.webp">
-              <div class="swiper-lazy-preloader"></div>
+              <img src="../images/gallery/window-tinting/tint-suv-windshield-black-1.webp" alt="Black SUV with windshield tint">
             </div>
             <div class="swiper-slide">
-              <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp"
-                   alt="Silver Ford F-150 Sport window tinting"
-                   class="swiper-lazy"
-                   data-full="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp">
-              <div class="swiper-lazy-preloader"></div>
+              <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport window tinting">
             </div>
             <div class="swiper-slide">
-              <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp"
-                   alt="White Mercedes coupe with ceramic window tint"
-                   class="swiper-lazy"
-                   data-full="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp">
-              <div class="swiper-lazy-preloader"></div>
+              <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with ceramic window tint">
             </div>
           </div>
           <div class="swiper-button-prev"></div>
@@ -1007,7 +947,6 @@
 
     // Initialize Hero Swiper
     var heroSwiper = new Swiper('#hero-swiper', Object.assign({}, swiperConfig, {
-      lazy: { loadPrevNext: true, loadPrevNextAmount: 2 },
       navigation: {
         nextEl: '#hero-swiper .swiper-button-next',
         prevEl: '#hero-swiper .swiper-button-prev'
@@ -1021,7 +960,6 @@
 
     // Initialize Recent Work Swiper
     var recentSwiper = new Swiper('#recent-swiper', Object.assign({}, swiperConfig, {
-      lazy: { loadPrevNext: true, loadPrevNextAmount: 2 },
       navigation: {
         nextEl: '#recent-swiper .swiper-button-next',
         prevEl: '#recent-swiper .swiper-button-prev'
