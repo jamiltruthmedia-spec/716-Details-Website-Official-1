@@ -218,6 +218,7 @@
     .hero-gallery {
       display: flex;
       transition: transform 0.4s ease-out;
+      touch-action: pan-y pinch-zoom;
     }
     .hero-gallery img {
       width: 100%;
@@ -226,6 +227,8 @@
       object-fit: cover;
       border-radius: 8px;
       flex: 0 0 100%;
+      -webkit-user-drag: none;
+      user-select: none;
     }
     .gallery-arrow {
       position: absolute;
@@ -246,6 +249,8 @@
       justify-content: center;
       color: #333;
       transition: background 0.2s, opacity 0.2s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     .gallery-arrow:hover { background: #fff; }
     .gallery-arrow.left { left: 12px; }
@@ -361,6 +366,7 @@
     .gallery-scroll {
       display: flex;
       transition: transform 0.4s ease-out;
+      touch-action: pan-y pinch-zoom;
     }
     .gallery-scroll img {
       width: 100%;
@@ -369,6 +375,8 @@
       object-fit: cover;
       border-radius: 8px;
       flex: 0 0 100%;
+      -webkit-user-drag: none;
+      user-select: none;
     }
     .gallery-arrow-bottom {
       position: absolute;
@@ -384,6 +392,8 @@
       cursor: pointer;
       z-index: 10;
       display: flex;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
       align-items: center;
       justify-content: center;
       color: #333;
@@ -893,32 +903,70 @@
         }
       }
 
-      leftArrow.addEventListener('click', function() {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateCarousel();
-        }
+      // Debounce to prevent double-tap zoom
+      var isAnimating = false;
+      
+      leftArrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (isAnimating || currentIndex <= 0) return;
+        isAnimating = true;
+        currentIndex--;
+        updateCarousel();
+        setTimeout(function() { isAnimating = false; }, 400);
       });
 
-      rightArrow.addEventListener('click', function() {
-        if (currentIndex < totalImages - 1) {
-          currentIndex++;
-          updateCarousel();
-        }
+      rightArrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (isAnimating || currentIndex >= totalImages - 1) return;
+        isAnimating = true;
+        currentIndex++;
+        updateCarousel();
+        setTimeout(function() { isAnimating = false; }, 400);
       });
 
-      // Touch/swipe support
+      // Touch/swipe support - properly handle to prevent page scroll
       var touchStartX = 0;
-      var touchEndX = 0;
+      var touchStartY = 0;
+      var touchMoved = false;
+      var isHorizontalSwipe = null;
 
       gallery.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchMoved = false;
+        isHorizontalSwipe = null;
       }, { passive: true });
 
+      gallery.addEventListener('touchmove', function(e) {
+        if (!touchStartX) return;
+        
+        var touchX = e.touches[0].clientX;
+        var touchY = e.touches[0].clientY;
+        var diffX = touchStartX - touchX;
+        var diffY = touchStartY - touchY;
+        
+        // Determine swipe direction on first significant move
+        if (isHorizontalSwipe === null && (Math.abs(diffX) > 10 || Math.abs(diffY) > 10)) {
+          isHorizontalSwipe = Math.abs(diffX) > Math.abs(diffY);
+        }
+        
+        // If horizontal swipe, prevent page scroll
+        if (isHorizontalSwipe) {
+          e.preventDefault();
+          touchMoved = true;
+        }
+      }, { passive: false });
+
       gallery.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        var swipeThreshold = 50;
+        if (!touchMoved || !isHorizontalSwipe) {
+          touchStartX = 0;
+          return;
+        }
+        
+        var touchEndX = e.changedTouches[0].clientX;
         var diff = touchStartX - touchEndX;
+        var swipeThreshold = 50;
+        
         if (diff > swipeThreshold && currentIndex < totalImages - 1) {
           currentIndex++;
           updateCarousel();
@@ -926,6 +974,10 @@
           currentIndex--;
           updateCarousel();
         }
+        
+        touchStartX = 0;
+        touchMoved = false;
+        isHorizontalSwipe = null;
       }, { passive: true });
 
       // Initial state
