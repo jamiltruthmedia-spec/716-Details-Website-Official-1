@@ -244,7 +244,6 @@
 
     .swiper-button-prev,
     .swiper-button-next {
-      --swiper-navigation-size: 16px;
       width: 44px;
       height: 44px;
       background: rgba(255,255,255,0.95);
@@ -262,12 +261,19 @@
     }
     .swiper-button-prev:after,
     .swiper-button-next:after {
-      font-size: 16px !important;
-      font-weight: bold;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
       color: #333;
     }
+    .swiper-button-prev:after {
+      content: '❮';
+    }
+    .swiper-button-next:after {
+      content: '❯';
+    }
     .swiper-button-disabled {
-      opacity: 0.3 !important;
+      opacity: 0.3;
       cursor: default;
       pointer-events: none;
     }
