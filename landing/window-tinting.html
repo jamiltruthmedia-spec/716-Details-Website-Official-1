@@ -317,6 +317,43 @@
     .stars { color: #FFD700; margin: 6px 0; letter-spacing: 1px; }
     .review-card p { margin: 0; color: #333; font-size: 14px; }
 
+    /* Expandable Reviews */
+    .review-card {
+      cursor: pointer;
+      transition: box-shadow 0.2s ease;
+    }
+    .review-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .review-text {
+      margin: 0;
+      color: #333;
+      font-size: 14px;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .review-card.expanded .review-text {
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+    .read-more {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #1a56db;
+      font-weight: 600;
+    }
+    .review-card.expanded .read-more-text {
+      display: none;
+    }
+    .review-card:not(.expanded) .read-less-text {
+      display: none;
+    }
+
     .gallery-scroll-wrap {
       position: relative;
       overflow: hidden;
@@ -623,7 +660,7 @@
     <div class="container">
       <h2>What Our Customers Say</h2>
       <div class="backup-reviews">
-        <article class="review-card">
+        <article class="review-card" onclick="this.classList.toggle('expanded')">
           <div class="review-top">
             <div class="avatar">R</div>
             <div>
@@ -632,10 +669,11 @@
             </div>
           </div>
           <div class="stars">★★★★★</div>
-          <p>"5 stars all day. Clean work completely changed my vehicle and the tint came out great. Definitely takes pride in their work and I will be returning."</p>
+          <p class="review-text">"5 stars all day. Great customer service, made things super easy. Clean work completely changed my vehicle and the tint came out great. Definitely takes pride in their work and I will be returning."</p>
+          <span class="read-more"><span class="read-more-text">Read more</span><span class="read-less-text">Read less</span></span>
         </article>
 
-        <article class="review-card">
+        <article class="review-card" onclick="this.classList.toggle('expanded')">
           <div class="review-top">
             <div class="avatar">J</div>
             <div>
@@ -644,10 +682,11 @@
             </div>
           </div>
           <div class="stars">★★★★★</div>
-          <p>"5% ceramic tint on the sides and rear with 50% ceramic on the windshield... perfect amount of privacy while still keeping great visibility and noticeably helps with heat."</p>
+          <p class="review-text">"I recently got 5% ceramic tint on the sides and rear with 50% ceramic on the windshield. Nathan and the team did an excellent job. The install was flawless with no bubbles or imperfections. It's the perfect amount of privacy while still keeping great visibility and noticeably helps with heat. Highly recommend 716 Details for anyone looking for quality tint work."</p>
+          <span class="read-more"><span class="read-more-text">Read more</span><span class="read-less-text">Read less</span></span>
         </article>
 
-        <article class="review-card">
+        <article class="review-card" onclick="this.classList.toggle('expanded')">
           <div class="review-top">
             <div class="avatar">A</div>
             <div>
@@ -656,7 +695,8 @@
             </div>
           </div>
           <div class="stars">★★★★★</div>
-          <p>"First time getting tint on a vehicle before and couldn't be more pleased. Highly recommend Nathan for anyone considering tint."</p>
+          <p class="review-text">"First time getting tint on a vehicle before and couldn't be more pleased with the results. Nathan was professional, communicative, and did excellent work. The tint looks amazing and was done quickly. Highly recommend Nathan and 716 Details for anyone considering tint."</p>
+          <span class="read-more"><span class="read-more-text">Read more</span><span class="read-less-text">Read less</span></span>
         </article>
       </div>
 
