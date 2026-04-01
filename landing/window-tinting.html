@@ -157,7 +157,7 @@
       gap: 12px;
     }
 
-    .hero { background: #f8f9fa; padding: 24px 16px; }
+    .hero { background: #f8f9fa; padding: 24px 16px; overflow-x: hidden; }
     .hero-grid { display: block; }
     .hero-content h1 { margin: 0 0 4px; font-size: 28px; font-weight: 800; color: #1a1a1a; }
     .hero-title-break { display: block; }
@@ -259,7 +259,7 @@
       transition: background 0.2s ease, box-shadow 0.2s ease;
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
-      top: 50%;
+      top: 140px;
       transform: translateY(-50%);
       margin-top: 0;
     }
@@ -338,10 +338,14 @@
       opacity: 1;
     }
     body.lightbox-open {
-      overflow: hidden;
+      overflow: hidden !important;
       position: fixed;
       width: 100%;
       height: 100%;
+      touch-action: none;
+    }
+    html.lightbox-open {
+      overflow: hidden !important;
     }
     .lightbox-image {
       max-width: 95vw;
@@ -634,7 +638,7 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <h1 style="font-size:28px;font-weight:800;color:#1a1a1a;margin:0 0 4px;">Window Tinting in <span class="hero-title-break">Lewiston, NY</span></h1>
+        <h1>Window Tinting in <span class="hero-title-break">Lewiston, NY</span></h1>
         <p class="hero-tagline">Professional Tint. Done in 2 Hours.</p>
         <p style="font-size:18px;color:#1a56db;font-weight:600;margin:0 0 8px;">Lewiston's Trusted Window Tinting Experts</p>
         <p style="font-size:15px;color:#555;margin:0 0 16px;">Drop off your car. Pick it up with a fresh, clean tint job. Professional window tinting starting at $330.</p>
@@ -660,16 +664,16 @@
                 <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with professional window tint">
               </div>
               <div class="swiper-slide">
-                <img src="../images/gallery/window-tinting/tint-sedan-black-sunset-1.webp" alt="Black sedan with ceramic window tint at sunset">
+                <img src="../images/gallery/window-tinting/tint-sedan-black-sunset-1.webp" alt="Black sedan with ceramic window tint at sunset" loading="lazy">
               </div>
               <div class="swiper-slide">
-                <img src="../images/gallery/window-tinting/tint-tundra-white-front-1.webp" alt="White Toyota Tundra with full window tint">
+                <img src="../images/gallery/window-tinting/tint-tundra-white-front-1.webp" alt="White Toyota Tundra with full window tint" loading="lazy">
               </div>
               <div class="swiper-slide">
-                <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport with window tinting">
+                <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport with window tinting" loading="lazy">
               </div>
               <div class="swiper-slide">
-                <img src="../images/gallery/window-tinting/tint-sonata-white-shop-1.webp" alt="White Hyundai Sonata in 716 Details shop after tinting">
+                <img src="../images/gallery/window-tinting/tint-sonata-white-shop-1.webp" alt="White Hyundai Sonata in 716 Details shop after tinting" loading="lazy">
               </div>
             </div>
             <div class="swiper-button-prev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
@@ -836,19 +840,19 @@
         <div class="swiper" id="recent-swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="../images/gallery/window-tinting/tint-silverado-gray-1.webp" alt="Gray Chevy Silverado with window tint">
+              <img src="../images/gallery/window-tinting/tint-silverado-gray-1.webp" alt="Gray Chevy Silverado with window tint" loading="lazy">
             </div>
             <div class="swiper-slide">
-              <img src="../images/gallery/window-tinting/tint-tundra-white-rear-1.webp" alt="White Toyota Tundra rear view with tint">
+              <img src="../images/gallery/window-tinting/tint-tundra-white-rear-1.webp" alt="White Toyota Tundra rear view with tint" loading="lazy">
             </div>
             <div class="swiper-slide">
-              <img src="../images/gallery/window-tinting/tint-suv-windshield-black-1.webp" alt="Black SUV with windshield tint">
+              <img src="../images/gallery/window-tinting/tint-suv-windshield-black-1.webp" alt="Black SUV with windshield tint" loading="lazy">
             </div>
             <div class="swiper-slide">
-              <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport window tinting">
+              <img src="../images/gallery/window-tinting/tint-f150-sport-silver-1.webp" alt="Silver Ford F-150 Sport window tinting" loading="lazy">
             </div>
             <div class="swiper-slide">
-              <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with ceramic window tint">
+              <img src="../images/gallery/window-tinting/tint-mercedes-coupe-white-1.webp" alt="White Mercedes coupe with ceramic window tint" loading="lazy">
             </div>
           </div>
           <div class="swiper-button-prev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
@@ -1025,12 +1029,14 @@
       setTimeout(function() { lightbox.style.opacity = '1'; }, 10);
       lightbox.classList.add('active');
       document.body.classList.add('lightbox-open');
+      document.documentElement.classList.add('lightbox-open');
     }
 
     function closeLightbox() {
       lightbox.classList.remove('active');
       lightbox.style.display = 'none';
       document.body.classList.remove('lightbox-open');
+      document.documentElement.classList.remove('lightbox-open');
       lightbox.style.opacity = '0';
       document.body.style.overflow = '';
     }
