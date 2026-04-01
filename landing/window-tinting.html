@@ -252,9 +252,7 @@
       background: rgba(255,255,255,0.9);
       border-radius: 50%;
       box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: absolute;
       transition: background 0.2s ease, box-shadow 0.2s ease;
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
@@ -274,12 +272,22 @@
     }
     .swiper-button-prev svg,
     .swiper-button-next svg {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       stroke: #333;
       stroke-width: 2.5;
       fill: none;
       flex-shrink: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .swiper-button-prev svg {
+      margin-left: -1px;
+    }
+    .swiper-button-next svg {
+      margin-left: 1px;
     }
     .swiper-button-prev { left: 8px; }
     .swiper-button-next { right: 8px; }
