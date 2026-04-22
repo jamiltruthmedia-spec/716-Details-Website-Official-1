@@ -1231,6 +1231,81 @@
 }
 </style>
 
+
+<style id="mobile-bottom-cta-upgrade">
+.mobile-sticky-cta { display:none; }
+@media (max-width: 900px) {
+  nav {
+    position:relative !important;
+    top:auto !important;
+    left:auto !important;
+    right:auto !important;
+    backdrop-filter:none !important;
+  }
+  .nav-cta {
+    display:none !important;
+  }
+  .hero-left { padding-top:2rem !important; }
+  #quote { scroll-margin-top:1rem; }
+  body {
+    padding-bottom:calc(4.8rem + env(safe-area-inset-bottom)) !important;
+  }
+  .mobile-sticky-cta {
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:999;
+    display:grid !important;
+    grid-template-columns:1.15fr 0.85fr;
+    border-top:1px solid rgba(255,255,255,0.12);
+    box-shadow:0 -12px 32px rgba(0,0,0,0.35);
+    padding-bottom:env(safe-area-inset-bottom);
+    background:rgba(8,8,8,0.98);
+    backdrop-filter:blur(14px);
+    transform:translateY(calc(100% + env(safe-area-inset-bottom)));
+    opacity:0;
+    pointer-events:none;
+    transition:transform 0.24s ease, opacity 0.24s ease;
+  }
+  .mobile-sticky-cta.is-visible {
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+  .mobile-sticky-cta a {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:56px;
+    padding:0.95rem 0.85rem;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:0.73rem;
+    font-weight:700;
+    line-height:1.2;
+    text-align:center;
+  }
+  .mobile-sticky-cta a:first-child {
+    background:var(--cyan, var(--blue));
+    color:#000;
+    box-shadow:0 0 20px rgba(0,191,255,0.18) inset;
+  }
+  .mobile-sticky-cta a:last-child {
+    background:rgba(255,255,255,0.04);
+    color:#fff;
+    border-left:1px solid rgba(255,255,255,0.08);
+  }
+}
+@media (max-width: 480px) {
+  .mobile-sticky-cta a {
+    font-size:0.68rem;
+    padding:0.85rem 0.7rem;
+    min-height:54px;
+  }
+}
+</style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16886615838"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -1623,10 +1698,28 @@ gtag('config', 'AW-16886615838');
 }
 </style>
 
-<div class="mobile-sticky-cta">
-  <a href="#quote">Get My Free Quote</a>
-  <a href="tel:7164059988">Call Now</a>
+
+<div class="mobile-sticky-cta" aria-label="Quick contact actions">
+  <a href="#quote" data-label="sticky_quote_click">Get My Free Quote</a>
+  <a href="tel:7164059988" data-label="sticky_call_click">Call Now</a>
 </div>
+<script>
+(function () {
+  var stickyBar = document.querySelector('.mobile-sticky-cta');
+  if (!stickyBar) return;
+  function syncStickyBar() {
+    var isMobile = window.innerWidth <= 1024;
+    if (!isMobile) {
+      stickyBar.classList.remove('is-visible');
+      return;
+    }
+    stickyBar.classList.toggle('is-visible', window.scrollY > 140);
+  }
+  syncStickyBar();
+  window.addEventListener('scroll', syncStickyBar, { passive: true });
+  window.addEventListener('resize', syncStickyBar);
+})();
+</script>
 <script src="https://booking.716detailing.com/js/form_embed.js"></script>
 <script>
 (function () {
