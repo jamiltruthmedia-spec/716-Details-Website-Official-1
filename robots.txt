@@ -60,5 +60,24 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
+# Allow AI crawlers for AEO and AI search visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 # Sitemap locations
 Sitemap: https://www.716detailing.com/sitemap.xml
