@@ -1309,6 +1309,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 (function () {
   var stickyBar = document.querySelector('.mobile-sticky-cta');
   if (!stickyBar) return;
+
   function syncStickyBar() {
     var isMobile = window.innerWidth <= 1024;
     if (!isMobile) {
@@ -1317,6 +1318,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
     stickyBar.classList.toggle('is-visible', window.scrollY > 140);
   }
+
+  var stickyQuoteLink = stickyBar.querySelector('a[href="#quote"]');
+  if (stickyQuoteLink) {
+    stickyQuoteLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      var target = document.getElementById('quote-form') || document.getElementById('quote');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
   syncStickyBar();
   window.addEventListener('scroll', syncStickyBar, { passive: true });
   window.addEventListener('resize', syncStickyBar);
