@@ -847,7 +847,7 @@ body {
     bottom:0;
     z-index:999;
     display:grid !important;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
     border-top:1px solid rgba(255,255,255,0.12);
     box-shadow:0 -12px 32px rgba(0,0,0,0.35);
     padding-bottom:env(safe-area-inset-bottom);
@@ -876,6 +876,8 @@ body {
     font-weight:700;
     line-height:1.2;
     text-align:center;
+    min-width:0;
+    white-space:normal;
   }
   .mobile-sticky-cta a:first-child {
     background:var(--cyan, var(--blue));
