@@ -48,7 +48,7 @@ if (failures.length > 0) {
 console.log('Booking routes, homepage CTAs, and sitemap coverage verified.');
 
 function collectHtmlRoutes(root) {
-  const ignoredDirs = new Set(['.git', 'node_modules', '.hermes']);
+  const ignoredDirs = new Set(['.git', 'node_modules', '.hermes', 'backups-v1']);
   const routes = [];
 
   function walk(dir) {
