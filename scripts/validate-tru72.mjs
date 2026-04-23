@@ -62,6 +62,7 @@ const checks = [
       "prices start at $89",
       "starts at $290",
       "starts at $705",
+      "Lifetime warranties available",
     ],
   },
 ];
@@ -90,6 +91,9 @@ for (const file of readdirSync(join(root, "locations"))) {
   const content = read(path);
   if (content.includes('class="service-price"')) {
     failures.push(`${path}: still contains service-price markup`);
+  }
+  if (content.includes("Lifetime warranties available")) {
+    failures.push(`${path}: still contains unsupported tint warranty copy`);
   }
 }
 
