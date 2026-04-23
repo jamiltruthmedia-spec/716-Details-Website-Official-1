@@ -40,6 +40,43 @@ if (homepage.includes(`href="${externalBookingUrl}"`)) {
   failures.push('Homepage still links CTAs directly to the external booking service menu');
 }
 
+const homepageBookingCtas = [
+  {
+    name: 'hero CTA',
+    pattern: /<div class="hero-cta">[\s\S]*?<a href="([^"]+)"(?:[^>]*onclick="([^"]*)")?[^>]*class="cta-btn primary"/
+  },
+  {
+    name: 'mid-page CTA',
+    pattern: /<section id="about" class="about">[\s\S]*?<a href="([^"]+)"(?:[^>]*onclick="([^"]*)")?[^>]*class="cta-btn">(?:Book Online|Get Free Quote)<\/a>/
+  },
+  {
+    name: 'selection CTA',
+    pattern: /<div class="selection-cta">[\s\S]*?<a href="([^"]+)"(?:[^>]*onclick="([^"]*)")?[^>]*class="cta-btn primary"/
+  },
+  {
+    name: 'contact CTA',
+    pattern: /<div class="contact-cta-buttons">[\s\S]*?<a href="([^"]+)"(?:[^>]*onclick="([^"]*)")?[^>]*class="cta-btn primary"/
+  }
+];
+
+for (const { name, pattern } of homepageBookingCtas) {
+  const match = homepage.match(pattern);
+
+  if (!match) {
+    failures.push(`Could not locate homepage ${name} in index.html`);
+    continue;
+  }
+
+  const [, href, onclick = ''] = match;
+  if (href !== internalBookingUrl) {
+    failures.push(`Homepage ${name} should point to ${internalBookingUrl}, found ${href}`);
+  }
+
+  if (onclick.includes('openQuotePopup')) {
+    failures.push(`Homepage ${name} should navigate to the booking route instead of opening the quote popup`);
+  }
+}
+
 if (failures.length > 0) {
   console.error(failures.join('\n'));
   process.exit(1);
