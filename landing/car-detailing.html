@@ -836,6 +836,41 @@ body {
   }
   .hero { padding-top:0 !important; }
   .hero-content { padding-top:2rem !important; }
+  .hero-image {
+    min-height:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    overflow:visible !important;
+    background:#0a0a0a !important;
+  }
+  .hero-image::before,
+  .hero-image::after {
+    display:none !important;
+  }
+  .hero-image img {
+    position:relative !important;
+    inset:auto !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    width:100% !important;
+    height:240px !important;
+    min-height:240px !important;
+    object-fit:cover !important;
+    object-position:28% center !important;
+    transform:none !important;
+    margin:0 0 1rem !important;
+    border:1px solid rgba(255,255,255,0.08) !important;
+  }
+  .quote-form-container {
+    position:relative !important;
+    top:auto !important;
+    left:auto !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 !important;
+  }
   #quote, #quote-form { scroll-margin-top:1rem; }
   body {
     padding-bottom:calc(4.8rem + env(safe-area-inset-bottom)) !important;
