@@ -29,6 +29,14 @@
     {
       "source": "/sitemap.xml",
       "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/booking/schedule-appointment.html",
+      "destination": "/booking/schedule-appointment.html"
+    },
+    {
+      "source": "/thank-you.html",
+      "destination": "/thank-you.html"
     }
   ],
   "headers": [
