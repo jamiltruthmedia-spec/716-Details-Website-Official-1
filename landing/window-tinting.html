@@ -1760,6 +1760,35 @@ gtag('config', 'AW-16886615838');
     });
   });
 
+  document.querySelectorAll('.faq-question').forEach(function (question) {
+    var item = question.closest('.faq-item');
+    if (!item) return;
+    question.setAttribute('role', 'button');
+    question.setAttribute('tabindex', '0');
+    question.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
+
+    function toggleFaq() {
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+        if (openItem !== item) {
+          openItem.classList.remove('open');
+          var openQuestion = openItem.querySelector('.faq-question');
+          if (openQuestion) openQuestion.setAttribute('aria-expanded', 'false');
+        }
+      });
+      item.classList.toggle('open', !isOpen);
+      question.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    }
+
+    question.addEventListener('click', toggleFaq);
+    question.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleFaq();
+      }
+    });
+  });
+
   window.addEventListener('message', function(event) {
     var data = event.data;
     var payload = '';
