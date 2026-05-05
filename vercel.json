@@ -19,6 +19,11 @@
       "source": "/mobile-detailing-near-me",
       "destination": "/mobile-car-detailing.html",
       "permanent": true
+    },
+    {
+      "source": "/booking/schedule-appointment.html",
+      "destination": "https://booking.716detailing.com/booking/PGlYHaagbepUC7Fhmriz",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -29,10 +34,6 @@
     {
       "source": "/sitemap.xml",
       "destination": "/sitemap.xml"
-    },
-    {
-      "source": "/booking/schedule-appointment.html",
-      "destination": "/booking/schedule-appointment.html"
     },
     {
       "source": "/thank-you.html",
