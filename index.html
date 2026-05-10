@@ -506,10 +506,11 @@
 
     <!-- Individual Review Schema -->
     
+    <link rel="stylesheet" href="/quote-popup.css">
 </head>
-<body class="has-announcement">
+<body>
     <!-- Winter Announcement Bar (Persistent - No Close Button) -->
-    <div class="announcement-bar" id="announcement-bar" role="banner" aria-label="Seasonal notice">
+    <div class="announcement-bar" id="announcement-bar" role="banner" aria-label="Seasonal notice" hidden style="display: none;">
         <span class="snow-icon">❄️</span>
         <span class="text">Winter Season: In-Shop Appointments Only at Our Lewiston Location</span>
     </div>
@@ -1854,11 +1855,16 @@
 
     <!-- Winter Announcement & Popup Script -->
     <script>
+    const WINTER_SEASON_NOTICE_ENABLED = false;
+
     // Check if winter popup was already shown
     function showWinterPopup() {
+        if (!WINTER_SEASON_NOTICE_ENABLED) return;
+
         const popupShown = localStorage.getItem('winterPopup2025');
         if (!popupShown) {
             setTimeout(function() {
+                if (!WINTER_SEASON_NOTICE_ENABLED) return;
                 document.getElementById('winter-popup').classList.add('active');
                 document.body.style.overflow = 'hidden';
             }, 1000); // Show after 1 second
@@ -1872,6 +1878,19 @@
     }
 
     // Announcement bar is persistent (no close functionality needed)
+    document.addEventListener('DOMContentLoaded', function() {
+        const announcementBar = document.getElementById('announcement-bar');
+        if (WINTER_SEASON_NOTICE_ENABLED) {
+            document.body.classList.add('has-announcement');
+            if (announcementBar) {
+                announcementBar.hidden = false;
+                announcementBar.style.display = '';
+            }
+        } else if (announcementBar) {
+            announcementBar.hidden = true;
+            announcementBar.style.display = 'none';
+        }
+    });
 
     // Close popup on overlay click
     document.getElementById('winter-popup').addEventListener('click', function(e) {
@@ -1889,6 +1908,8 @@
 
     // Initialize on page load - delay popup by 10 seconds of scroll engagement
     document.addEventListener('DOMContentLoaded', function() {
+        if (!WINTER_SEASON_NOTICE_ENABLED) return;
+
         var scrollTimer = null;
         var popupTriggered = false;
         window.addEventListener('scroll', function() {
@@ -1909,21 +1930,7 @@
         }, 30000);
     });
     </script>
-
-    <!-- Custom Quote Modal Overlay -->
-    <div id="quoteModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:10000;align-items:center;justify-content:center;">
-      <div style="position:relative;background:#111;border-radius:12px;max-width:500px;width:90%;max-height:85vh;overflow-y:auto;padding:0;margin:20px;">
-        <button onclick="closeQuotePopup()" style="position:absolute;top:10px;right:15px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;z-index:10001;">&times;</button>
-        <div style="padding:20px 20px 0;">
-          <h2 style="color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;margin:0 0 5px;font-size:22px;">Get Free Quote</h2>
-          <p style="color:#aaa;font-size:14px;margin:0 0 15px;">Tell us what you need. We'll call you back with a price.</p>
-        </div>
-        <iframe src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="width:100%;height:340px;border:none;" id="quoteFormFrame" data-layout="{'id':'INLINE'}" data-form-name="Get Quote Pop Up Form" data-height="340" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Pop Up Form"></iframe>
-      </div>
-    </div>
-    <script src="https://booking.716detailing.com/js/form_embed.js"></script>
-
-    <script>
+<script>
     function toggleServiceAccordion(sectionId, toggleButton) {
         const section = document.getElementById(sectionId);
         if (!section || !toggleButton) return;
@@ -1947,38 +1954,7 @@
             link.textContent = 'read more';
         }
     }
-    function openQuotePopup() {
-      var modal = document.getElementById('quoteModal');
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-    function closeQuotePopup() {
-      var modal = document.getElementById('quoteModal');
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
-    }
-    // Close on clicking backdrop
-    document.getElementById('quoteModal').addEventListener('click', function(e) {
-      if (e.target === this) closeQuotePopup();
-    });
-    // Close on Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeQuotePopup();
-    });
-    </script>
-
-    <script>
-    // Listen for GHL form submission and redirect to thank-you page
-    window.addEventListener('message', function(event) {
-      if (event.data && event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmitted') {
-        window.location.href = '/thank-you.html';
-      }
-      // Also check for LeadConnector/GHL form submit events
-      if (event.data && (event.data === 'formSubmitted' || (typeof event.data === 'string' && event.data.includes('formSubmit')))) {
-        window.location.href = '/thank-you.html';
-      }
-    });
-    </script>
+</script>
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -2026,5 +2002,6 @@
     });
     </script>
 
+    <script src="/quote-popup.js" defer></script>
 </body>
 </html>

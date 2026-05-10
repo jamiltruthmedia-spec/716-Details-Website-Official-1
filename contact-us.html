@@ -51,6 +51,7 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/landing/quote-form.css">
     
     <!-- LocalBusiness Schema -->
     <script type="application/ld+json">
@@ -188,28 +189,29 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
             line-height: 1.7;
         }
         
-        /* Iframe Container - Responsive */
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            min-height: 550px;
-            overflow: visible;
-            border-radius: 12px;
-            margin-bottom: 0;
-            transition: min-height 0.5s ease;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 1rem;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+        .contact-native-quote {
+            margin: 0 auto;
+            max-width: 560px;
         }
-        
-        .iframe-container iframe {
-            width: 100%;
-            height: 100%;
-            min-height: 550px;
-            border: none;
-            border-radius: 12px;
-            transition: min-height 0.5s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+        .contact-native-quote .native-quote-form {
+            margin-top: 0;
+            --quote-accent: #4F7CFF;
+            --quote-accent-bright: #7B9EFF;
+            --quote-surface: rgba(255, 255, 255, 0.035);
+            --quote-surface-focus: rgba(255, 255, 255, 0.065);
+        }
+
+        .form-container .native-quote-consent,
+        .form-container .native-quote-microcopy,
+        .form-container .native-quote-status {
+            margin: 0;
+        }
+
+        .form-container .native-quote-consent,
+        .form-container .native-quote-microcopy {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
         }
         
         /* Emergency CTA */
@@ -285,27 +287,6 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
                 margin-bottom: 1.5rem;
             }
             
-            .iframe-container {
-                min-height: 720px;
-                margin: 0 -0.25rem 0 -0.25rem;
-                width: calc(100% + 0.5rem);
-                transition: min-height 0.5s ease;
-                padding: 0.75rem;
-            }
-            
-            .iframe-container iframe {
-                min-height: 720px;
-                transition: min-height 0.5s ease;
-            }
-            
-            .iframe-container.submitted {
-                min-height: 400px !important;
-            }
-            
-            .iframe-container.submitted iframe {
-                min-height: 400px !important;
-            }
-            
             .emergency-contact {
                 padding: 50px 15px;
             }
@@ -343,27 +324,6 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
             .form-container h2 {
                 font-size: 1.5rem;
                 margin-bottom: 1.25rem;
-            }
-            
-            .iframe-container {
-                min-height: 780px;
-                margin: 0;
-                width: 100%;
-                transition: min-height 0.5s ease;
-                padding: 0.5rem;
-            }
-            
-            .iframe-container iframe {
-                min-height: 780px;
-                transition: min-height 0.5s ease;
-            }
-            
-            .iframe-container.submitted {
-                min-height: 400px !important;
-            }
-            
-            .iframe-container.submitted iframe {
-                min-height: 400px !important;
             }
             
             .emergency-contact {
@@ -488,101 +448,37 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
                   </div>
                 </div>
 
-                <!-- Go High Level Form Iframe -->
-                <div class="iframe-container">
-                    <iframe
-                        src="https://api.leadconnectorhq.com/widget/form/S1NWRLg2pO7S2NK55yZF"
-                        style="width:100%;height:100%;border:none;border-radius:10px"
-                        id="inline-S1NWRLg2pO7S2NK55yZF" 
-                        data-layout="{'id':'INLINE'}"
-                        data-trigger-type="alwaysShow"
-                        data-trigger-value=""
-                        data-activation-type="alwaysActivated"
-                        data-activation-value=""
-                        data-deactivation-type="neverDeactivate"
-                        data-deactivation-value=""
-                        data-form-name="Form 1 - Copy"
-                        data-height="492"
-                        data-layout-iframe-id="inline-S1NWRLg2pO7S2NK55yZF"
-                        data-form-id="S1NWRLg2pO7S2NK55yZF"
-                        title="Form 1 - Copy">
-                    </iframe>
-                    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+                <div class="contact-native-quote">
+                    <form class="native-quote-form" data-service="Website Quote" data-source="contact-page" data-form-source="Contact Page Quote Form">
+                        <div class="native-quote-field">
+                            <label for="contact-quote-name">Name</label>
+                            <input id="contact-quote-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+                        </div>
+
+                        <div class="native-quote-field">
+                            <label for="contact-quote-phone">Phone</label>
+                            <input id="contact-quote-phone" name="phone" type="tel" placeholder="(716) 555-1234" autocomplete="tel" required>
+                        </div>
+
+                        <div class="native-quote-field">
+                            <label for="contact-quote-vehicle">Vehicle Make / Model</label>
+                            <input id="contact-quote-vehicle" name="vehicleMakeModel" type="text" placeholder="2021 Toyota Camry" autocomplete="off" required>
+                        </div>
+
+                        <div class="native-quote-field">
+                            <label for="contact-quote-message">Message (optional)</label>
+                            <textarea id="contact-quote-message" name="message" placeholder="Tell us what you need"></textarea>
+                        </div>
+
+                        <button class="native-quote-submit" type="submit" data-quote-submit>Send Quote Request</button>
+                        <p class="native-quote-consent">By submitting, you agree 716 Details may call or text you about your quote request, including automated follow-up.</p>
+                        <div class="native-quote-status" data-quote-status role="status" aria-live="polite"></div>
+                        <p class="native-quote-microcopy">No spam. Free estimate. We call back quickly during business hours.</p>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Form Submission Handler Script -->
-    <script>
-        // Detect form submission and shrink iframe to show success message centered
-        (function() {
-            const iframe = document.getElementById('inline-S1NWRLg2pO7S2NK55yZF');
-            const formContainer = document.querySelector('.form-container');
-            const iframeContainer = document.querySelector('.iframe-container');
-            
-            if (!iframe || !formContainer || !iframeContainer) return;
-            
-            // Listen for messages from the iframe (form submission detection)
-            window.addEventListener('message', function(event) {
-                // Check if message is from the Go High Level form
-                if (event.origin === 'https://api.leadconnectorhq.com') {
-                    setTimeout(function() {
-                        // Shrink iframe on mobile to fit success message
-                        if (window.innerWidth <= 768) {
-                            iframeContainer.style.minHeight = '350px';
-                            iframe.style.minHeight = '350px';
-                            iframeContainer.classList.add('submitted');
-                            
-                            // Scroll to show "Request Your Free Quote" at the top
-                            setTimeout(function() {
-                                formContainer.scrollIntoView({ 
-                                    behavior: 'smooth', 
-                                    block: 'start' 
-                                });
-                            }, 200);
-                        }
-                    }, 600);
-                }
-            });
-            
-            // Additional detection: watch for height changes in iframe
-            let checkCount = 0;
-            const checkInterval = setInterval(function() {
-                checkCount++;
-                
-                // Check if form is likely submitted by looking at form elements
-                try {
-                    const iframeDoc = iframe.contentWindow.document;
-                    const thankYouMessage = iframeDoc.querySelector('[class*="thank"], [class*="success"], [class*="submitted"]');
-                    
-                    if (thankYouMessage) {
-                        clearInterval(checkInterval);
-                        
-                        if (window.innerWidth <= 768) {
-                            iframeContainer.style.minHeight = '350px';
-                            iframe.style.minHeight = '350px';
-                            iframeContainer.classList.add('submitted');
-                            
-                            setTimeout(function() {
-                                formContainer.scrollIntoView({ 
-                                    behavior: 'smooth', 
-                                    block: 'start' 
-                                });
-                            }, 200);
-                        }
-                    }
-                } catch(e) {
-                    // Cross-origin restriction, fallback method
-                }
-                
-                // Stop checking after 30 seconds
-                if (checkCount > 30) {
-                    clearInterval(checkInterval);
-                }
-            }, 1000);
-        })();
-    </script>
 
     <!-- Emergency Contact CTA -->
     <section class="emergency-contact">
@@ -1147,7 +1043,6 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
     });
     </script>
 
+    <script src="/landing/quote-form.js"></script>
 </body>
 </html>
-
-

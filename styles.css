@@ -4640,6 +4640,10 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+.announcement-bar[hidden] {
+    display: none !important;
+}
+
 .announcement-bar span.snow-icon {
     font-size: 1.1rem;
 }

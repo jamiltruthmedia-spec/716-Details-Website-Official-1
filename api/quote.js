@@ -1,7 +1,18 @@
 const ALLOWED_SERVICES = new Set([
+  'Website Quote',
   'Car Detailing',
+  'Interior Detailing',
+  'Exterior Detailing',
+  'Full Detail',
   'Ceramic Coating',
+  'Paint Correction',
   'Window Tinting',
+  'Mobile Detailing',
+  'Mobile Luxury Services',
+  'Boat Detailing',
+  'RV Detailing',
+  'Fleet Detailing',
+  'Dealership Detailing',
 ]);
 
 const PUBLIC_ERROR = 'Quote form is not available right now. Please call or text us directly at (716) 405-9988.';
@@ -84,9 +95,14 @@ export default async function handler(req, res) {
   const service = clean(body.service);
   const landingPageSource = clean(body.landingPageSource);
   const pageUrl = clean(body.pageUrl);
+  const source = clean(body.source) || 'Landing Page Quote Form';
 
-  if (!name || !phone || !vehicleMakeModel || !ALLOWED_SERVICES.has(service)) {
+  if (!name || !phone || !vehicleMakeModel) {
     return sendJson(res, 400, { ok: false, message: 'Please complete your name, phone, and vehicle.' });
+  }
+
+  if (!ALLOWED_SERVICES.has(service)) {
+    return sendJson(res, 400, { ok: false, message: PUBLIC_ERROR });
   }
 
   const payload = {
@@ -99,7 +115,7 @@ export default async function handler(req, res) {
     pageUrl,
     submittedAt: new Date().toISOString(),
     submissionId: crypto.randomUUID(),
-    source: 'Landing Page Quote Form',
+    source,
   };
 
   try {
