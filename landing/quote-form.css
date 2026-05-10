@@ -1,0 +1,195 @@
+.native-quote-form {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+  --quote-accent: var(--blue, var(--cyan, #29b6f6));
+  --quote-accent-bright: var(--blue-bright, var(--cyan-dark, #56c8ff));
+  --quote-surface: rgba(0, 0, 0, 0.44);
+  --quote-surface-focus: rgba(0, 0, 0, 0.58);
+}
+
+.quote-section .hero-form-card,
+.quote-section .quote-form-container {
+  width: min(560px, 100%);
+  max-width: 560px;
+  margin: 0;
+  padding: 2.1rem 1.9rem 1.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 2px;
+  background: rgba(10, 10, 10, 0.94);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+}
+
+.quote-section .hero-form-kicker,
+.quote-section .form-tag {
+  color: var(--quote-accent);
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  margin-bottom: 0.7rem;
+  text-transform: uppercase;
+}
+
+.quote-section .hero-form-card h3,
+.quote-section .form-title {
+  color: var(--white, #f5f3ef);
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 4vw, 2.1rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin: 0 0 0.65rem;
+  text-align: left;
+}
+
+.quote-section .hero-form-intro,
+.quote-section .form-sub {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0 0 1.05rem;
+  max-width: none;
+  text-align: left;
+}
+
+.native-quote-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.native-quote-field label {
+  color: var(--muted, rgba(255, 255, 255, 0.78));
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.native-quote-field input,
+.native-quote-field textarea {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0;
+  background: var(--quote-surface);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  outline: none;
+  padding: 0.85rem 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.native-quote-field textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+
+.native-quote-field input::placeholder,
+.native-quote-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.native-quote-field input:focus,
+.native-quote-field textarea:focus {
+  border-color: var(--quote-accent);
+  box-shadow: 0 0 0 3px rgba(41, 182, 246, 0.18);
+  background: var(--quote-surface-focus);
+}
+
+.native-quote-submit {
+  min-height: 52px;
+  border: 0;
+  border-radius: 0;
+  background: var(--quote-accent);
+  color: var(--black, #050505);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-top: 0.15rem;
+  padding: 0.95rem 1rem;
+  text-transform: uppercase;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.native-quote-submit:hover {
+  background: var(--quote-accent-bright);
+  transform: translateY(-1px);
+}
+
+.native-quote-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
+.native-quote-consent,
+.native-quote-microcopy {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+.native-quote-microcopy {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.native-quote-status {
+  display: none;
+  border: 1px solid rgba(41, 182, 246, 0.35);
+  color: #fff;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  padding: 0.75rem 0.85rem;
+  text-align: center;
+}
+
+.native-quote-status.is-visible {
+  display: block;
+}
+
+.native-quote-status.is-success {
+  background: rgba(41, 182, 246, 0.12);
+}
+
+.native-quote-status.is-error {
+  background: rgba(255, 82, 82, 0.1);
+  border-color: rgba(255, 82, 82, 0.35);
+}
+
+@media (max-width: 640px) {
+  .quote-section .hero-form-card,
+  .quote-section .quote-form-container {
+    max-width: none;
+    padding: 1.65rem 1.15rem 1.35rem;
+    border-radius: 2px;
+  }
+
+  .quote-section .hero-form-card h3,
+  .quote-section .form-title,
+  .quote-section .hero-form-kicker,
+  .quote-section .hero-form-intro,
+  .quote-section .form-tag,
+  .quote-section .form-sub {
+    text-align: left;
+  }
+
+  .native-quote-form {
+    gap: 0.75rem;
+  }
+
+  .native-quote-field input,
+  .native-quote-submit {
+    min-height: 48px;
+  }
+
+  .native-quote-field textarea {
+    min-height: 84px;
+  }
+}

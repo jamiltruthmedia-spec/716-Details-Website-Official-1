@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://booking.716detailing.com" crossorigin>
-<link rel="dns-prefetch" href="https://booking.716detailing.com">
 <title>716 Details | Professional Interior & Exterior Detailing | Lewiston, NY</title>
 <meta name="description" content="Premium interior and exterior detailing in Lewiston, NY for Western New York drivers who want a cleaner, fresher, better-protected vehicle. Call (716) 405-9988 for a free quote.">
 <meta name="robots" content="index, follow">
@@ -295,17 +293,54 @@ body {
 
 /* â”€â”€ QUOTE FORM â”€â”€ */
 .quote-form-container {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(420px, calc(100% - 64px));
+  width: min(560px, 100%);
   background: rgba(10,10,10,0.94);
   backdrop-filter: blur(14px);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 2px;
-  padding: 30px 26px 22px;
+  padding: 34px 30px 26px;
   box-shadow: 0 24px 70px rgba(0,0,0,0.55);
-  z-index: 10;
   scroll-margin-top: 88px;
+}
+.quote-section {
+  background:
+    linear-gradient(135deg, rgba(0,191,255,0.09), transparent 42%),
+    var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 68px 48px;
+}
+.quote-section-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(340px, 560px);
+  gap: 54px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.quote-section-copy {
+  max-width: 460px;
+}
+.quote-section-copy .section-tag {
+  margin-bottom: 14px;
+}
+.quote-section-copy .section-title {
+  margin-bottom: 14px;
+}
+.quote-section-copy .section-sub {
+  margin-bottom: 22px;
+  text-align: left;
+}
+.quote-points {
+  display: grid;
+  gap: 10px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.quote-points span {
+  border-left: 2px solid var(--cyan);
+  padding-left: 12px;
 }
 .form-tag {
   color: var(--cyan); font-size: 11px; font-weight: 600;
@@ -724,10 +759,12 @@ body {
   .hero-image { min-height: 360px; }
   .hero-image img { object-position: 28% center; }
   .quote-form-container {
-    position: relative; top: auto; right: auto; left: auto;
-    transform: none; width: 100%; max-width: 100%;
-    margin: 0; border-radius: 0; border: none; border-top: 1px solid var(--border);
-    box-shadow: none;
+    width: 100%; max-width: 100%;
+  }
+  .quote-section { padding: 60px 20px; }
+  .quote-section-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
   .packages-grid { grid-template-columns: 1fr; max-width: 420px; }
   .reviews-grid { grid-template-columns: 1fr; }
@@ -862,15 +899,7 @@ body {
     margin:0 0 1rem !important;
     border:1px solid rgba(255,255,255,0.08) !important;
   }
-  .quote-form-container {
-    position:relative !important;
-    top:auto !important;
-    left:auto !important;
-    transform:none !important;
-    width:100% !important;
-    max-width:100% !important;
-    margin:0 !important;
-  }
+  .quote-form-container { width:100% !important; max-width:100% !important; }
   #quote, #quote-form { scroll-margin-top:1rem; }
   body {
     padding-bottom:calc(4.8rem + env(safe-area-inset-bottom)) !important;
@@ -934,12 +963,16 @@ body {
   }
 }
 </style>
+<link rel="stylesheet" href="quote-form.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16886615838"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'AW-16886615838');
+gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
+  'phone_conversion_number': '(716) 405-9988'
+});
 </script>
 </head>
 <body>
@@ -953,7 +986,7 @@ gtag('config', 'AW-16886615838');
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="quote">
+<section class="hero">
   <div class="hero-content">
     <div class="hero-tag">Professional Detailing &middot; Lewiston, NY</div>
     <h1>Step Into a Car<br><em>That Feels Brand <span class="nowrap">New <span class="white-text">Again</span></span></em></h1>
@@ -976,16 +1009,6 @@ gtag('config', 'AW-16886615838');
   </div>
   <div class="hero-image">
     <img src="assets-v2/hero-interior-detail-v2.jpeg" alt="Freshly detailed Toyota interior with protected steering wheel and spotless cabin">
-    <div class="quote-form-container" id="quote-form">
-      <div class="form-tag">Free Estimate</div>
-      <div class="form-title">Get Your Free Quote</div>
-      <p class="form-sub">Takes about 30 seconds. We respond same day during business hours.</p>
-      <div class="embedded-quote-wrap">
-  <div id="form-loader" style="text-align:center;padding:18px 0;color:#b8b8b8;font-size:14px;">Loading form...</div>
-  <iframe id="quote-form-iframe" src="https://booking.716detailing.com/widget/form/3yILzyxZjNq2sxiqQYbf" style="width:100%;height:500px;border:none;overflow:hidden;opacity:0;transition:opacity 0.3s;background:transparent;" scrolling="no" data-layout="{'id':'INLINE'}" data-form-name="Get Quote Form" data-height="500" data-form-id="3yILzyxZjNq2sxiqQYbf" title="Get Quote Form" onload="this.style.opacity='1';var loader=document.getElementById('form-loader');if(loader){loader.style.display='none';}"></iframe>
-  <p style="text-align:center;font-size:13px;color:#9e9e9e;margin-top:8px;">✓ No spam · ✓ Free estimate · ✓ We call back in 15 min</p>
-</div>
-    </div>
   </div>
 </section>
 
@@ -1008,6 +1031,49 @@ gtag('config', 'AW-16886615838');
     <p>Fully Licensed &amp; Insured</p>
   </div>
 </div>
+
+<!-- QUOTE FORM -->
+<section class="quote-section" id="quote">
+  <div class="quote-section-inner">
+    <div class="quote-section-copy">
+      <div class="section-tag">Free Estimate</div>
+      <h2 class="section-title">Get a Fast Detailing Quote</h2>
+      <p class="section-sub">Tell us what you drive and what you need. We will call or text back with the next step.</p>
+      <div class="quote-points">
+        <span>Tell us what you drive and what you want cleaned.</span>
+        <span>We will follow up with a clear quote and next steps.</span>
+        <span>Fast response during business hours.</span>
+      </div>
+    </div>
+    <div class="quote-form-container" id="quote-form">
+      <div class="form-tag">Free Estimate</div>
+      <div class="form-title">Get Your Free Quote</div>
+      <p class="form-sub">Takes about 30 seconds. We respond same day during business hours.</p>
+      <form class="native-quote-form" data-service="Car Detailing" data-source="car-detailing-landing">
+        <div class="native-quote-field">
+          <label for="car-detailing-name">Name</label>
+          <input id="car-detailing-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+        </div>
+        <div class="native-quote-field">
+          <label for="car-detailing-phone">Phone</label>
+          <input id="car-detailing-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(716) 555-1234" required>
+        </div>
+        <div class="native-quote-field">
+          <label for="car-detailing-vehicle">Vehicle Make / Model</label>
+          <input id="car-detailing-vehicle" name="vehicleMakeModel" type="text" autocomplete="off" placeholder="2021 Toyota Camry" required>
+        </div>
+        <div class="native-quote-field">
+          <label for="car-detailing-message">Message <span aria-hidden="true">(Optional)</span></label>
+          <textarea id="car-detailing-message" name="message" placeholder="Tell us what you need"></textarea>
+        </div>
+        <button class="native-quote-submit" type="submit" data-quote-submit>Send Quote Request</button>
+        <p class="native-quote-consent">By submitting, you agree 716 Details may call or text you about your quote request, including automated follow-up.</p>
+        <p class="native-quote-status" data-quote-status aria-live="polite"></p>
+        <p class="native-quote-microcopy">No spam. Free estimate. We call back quickly during business hours.</p>
+      </form>
+    </div>
+  </div>
+</section>
 
 <!-- PACKAGES -->
 <section class="packages" id="packages">
@@ -1349,7 +1415,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
   function syncStickyBar() {
     var isMobile = window.innerWidth <= 1024;
-    if (!isMobile) {
+    var quoteSection = document.getElementById('quote');
+    var quoteRect = quoteSection ? quoteSection.getBoundingClientRect() : null;
+    var quoteVisible = quoteRect && quoteRect.top < window.innerHeight && quoteRect.bottom > 0;
+
+    if (!isMobile || quoteVisible) {
       stickyBar.classList.remove('is-visible');
       return;
     }
@@ -1372,46 +1442,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   window.addEventListener('resize', syncStickyBar);
 })();
 </script>
-<script src="https://booking.716detailing.com/js/form_embed.js"></script>
-<script>
-(function () {
-  function fireTrackedConversion(category, label) {
-    if (typeof window.gtag !== 'function') return;
-    window.gtag('event', 'conversion', {
-      'send_to': 'AW-16886615838/conversion',
-      'event_category': category || 'CTA',
-      'event_label': label || 'cta_click'
-    });
-  }
-
-  document.querySelectorAll('a[href="#quote"]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      fireTrackedConversion('CTA', el.getAttribute('data-label') || 'quote_scroll_click');
-    });
-  });
-
-  document.querySelectorAll('a[href^="tel:"]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      fireTrackedConversion('CTA', el.getAttribute('data-label') || 'phone_click');
-    });
-  });
-
-  window.addEventListener('message', function(event) {
-    var data = event.data;
-    var payload = '';
-    try { payload = typeof data === 'string' ? data : JSON.stringify(data); } catch (e) { payload = ''; }
-    var normalized = payload.toLowerCase();
-    var looksLikeSubmit =
-      (data && (data.type === 'form_submitted' || data.event === 'form_submitted' || data.name === 'form_submitted')) ||
-      normalized.indexOf('form_submitted') > -1 ||
-      normalized.indexOf('submission') > -1 ||
-      normalized.indexOf('thank you') > -1;
-    if (looksLikeSubmit) {
-      fireTrackedConversion('Form', 'quote_form_submit');
-    }
-  });
-})();
-</script>
+<script src="quote-form.js"></script>
 </body>
 </html>
-
