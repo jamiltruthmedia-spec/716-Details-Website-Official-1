@@ -1191,7 +1191,36 @@
 
 <style>
   .nav-links { gap: 2rem; }
-  .nav-logo img { height: 64px; }
+  .nav-logo img {
+    width: 106px;
+    height: auto;
+    max-height: 68px;
+    object-fit: contain;
+  }
+  .footer-logo img {
+    width: 124px;
+    height: auto;
+    max-height: 82px;
+    object-fit: contain;
+  }
+  @media (max-width: 768px) {
+    .nav-logo img {
+      width: 88px;
+      height: auto;
+      max-height: 58px;
+    }
+    .footer-logo img {
+      width: 108px;
+      height: auto;
+      max-height: 72px;
+    }
+  }
+  @media (max-width: 375px) {
+    .nav-logo img {
+      width: 82px;
+      max-height: 54px;
+    }
+  }
   .packages, .reviews, .faq-section, .lead-reassurance-section { border-top:1px solid var(--border); }
   .reviews-grid { grid-template-columns:repeat(3,1fr); }
   .reviews-grid .review-card:nth-child(n+4) { display:none; }
@@ -1387,7 +1416,7 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
 <body>
 <nav>
   <a href="/" class="nav-logo" aria-label="716 Details home">
-    <img src="assets-v2/716-details-logo-transparent.png" alt="716 Details Logo">
+    <img src="../images/logo/716-details-logo-new.png" alt="716 Details">
   </a>
   <a href="#quote" class="nav-cta">Get Quote</a>
 </nav>
@@ -1661,7 +1690,7 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
   <p class="cta-note">Free, no-obligation quote &nbsp;&bull;&nbsp; Fast response &nbsp;&bull;&nbsp; Licensed &amp; insured</p>
 </section>
 <footer>
-  <div class="footer-logo"><img src="assets-v2/716-details-logo-transparent.png" alt="716 Details"></div>
+  <div class="footer-logo"><img src="../images/logo/716-details-logo-new.png" alt="716 Details"></div>
   <div class="footer-info">
     4689 Model City Rd, Lewiston, NY 14092<br>
     (716) 405-9988 &nbsp;&middot;&nbsp; Mon&ndash;Sun 8AM&ndash;9PM<br>

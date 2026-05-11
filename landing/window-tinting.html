@@ -1132,7 +1132,36 @@
 
 <style>
   .nav-links { gap: 2rem; }
-  .nav-logo img { height: 64px; }
+  .nav-logo img {
+    width: 106px;
+    height: auto;
+    max-height: 68px;
+    object-fit: contain;
+  }
+  .footer-logo img {
+    width: 116px;
+    height: auto;
+    max-height: 76px;
+    object-fit: contain;
+  }
+  @media (max-width: 768px) {
+    .nav-logo img {
+      width: 88px;
+      height: auto;
+      max-height: 58px;
+    }
+    .footer-logo img {
+      width: 108px;
+      height: auto;
+      max-height: 72px;
+    }
+  }
+  @media (max-width: 375px) {
+    .nav-logo img {
+      width: 82px;
+      max-height: 54px;
+    }
+  }
   .nav-links {
     display:flex;
     align-items:center;
@@ -1331,7 +1360,7 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
 
 <nav>
   <a href="#" class="nav-logo">
-    <img src="assets-v2/716-details-logo-transparent.png" alt="716 Details">
+    <img src="../images/logo/716-details-logo-new.png" alt="716 Details">
   </a>
   <ul class="nav-links">
   </ul>
@@ -1633,7 +1662,7 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
   <div class="footer-inner">
     <div class="footer-logo">
       <a href="/" aria-label="716 Details home">
-        <img src="assets-v2/716-details-logo-transparent.png" alt="716 Details">
+        <img src="../images/logo/716-details-logo-new.png" alt="716 Details">
       </a>
     </div>
     <div class="footer-info">
