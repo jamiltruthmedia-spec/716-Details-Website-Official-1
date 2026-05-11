@@ -131,6 +131,31 @@ a {
     text-decoration: none;
 }
 
+.nav-logo-link {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.nav-logo-img {
+    display: block;
+    width: clamp(96px, 8vw, 130px);
+    height: auto;
+    max-height: 72px;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.55rem 0;
+    }
+
+    .nav-logo-img {
+        width: 82px;
+        max-height: 54px;
+    }
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
