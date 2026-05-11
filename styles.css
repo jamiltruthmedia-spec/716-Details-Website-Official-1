@@ -150,9 +150,24 @@ a {
         padding: 0.55rem 0;
     }
 
+    .nav-container {
+        align-items: center;
+    }
+
+    .nav-logo-link {
+        flex: 0 0 auto;
+    }
+
     .nav-logo-img {
         width: 82px;
         max-height: 54px;
+    }
+}
+
+@media (max-width: 375px) {
+    .nav-logo-img {
+        width: 78px;
+        max-height: 52px;
     }
 }
 
@@ -554,14 +569,15 @@ a {
 .hero-carousel {
     position: relative;
     width: 100vw;
-    min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
     margin: 0;
-    padding: 0;
+    padding: 104px 0 70px;
     margin-left: calc(-50vw + 50%);
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .hero-carousel-slider {
@@ -728,7 +744,10 @@ a {
 /* Responsive hero carousel */
 @media (max-width: 768px) {
     .hero-carousel {
-        min-height: 100vh;
+        min-height: 100dvh;
+        align-items: flex-start;
+        padding-top: 108px;
+        padding-bottom: 88px;
     }
     
     .hero-carousel-content h1 {
@@ -3327,6 +3346,15 @@ input:focus, select:focus, textarea:focus {
     color: #ffffff;
 }
 
+.footer-brand-logo {
+    display: block;
+    width: 124px;
+    height: auto;
+    max-height: 82px;
+    object-fit: contain;
+    margin-bottom: 1.25rem;
+}
+
 .footer-section h4 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
@@ -4260,6 +4288,12 @@ input:focus, select:focus, textarea:focus {
         font-size: 1.3rem;
         margin-bottom: 1rem;
         text-align: center;
+    }
+
+    .footer-brand-logo {
+        width: 108px;
+        max-height: 72px;
+        margin: 0 auto 1rem;
     }
     
     .footer-section p,
