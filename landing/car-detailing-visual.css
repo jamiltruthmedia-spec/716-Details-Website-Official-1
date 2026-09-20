@@ -1,0 +1,283 @@
+/* Detailing-only presentation; the shared form and production integrations stay intact. */
+.detailing-landing {
+  --cyan: #025ae0;
+  --cyan-dark: #0248b3;
+  --detail-blue-text: #5b94eb;
+  --detail-blue-glow: rgba(2, 90, 224, 0.3);
+  --detail-header-height: 96px;
+}
+
+.detailing-landing .nav {
+  height: var(--detail-header-height);
+}
+
+.detailing-landing .nav-logo img {
+  width: 76px;
+  height: auto;
+  max-height: 60px;
+}
+
+.detailing-landing .footer-logo img {
+  width: 92px;
+  height: auto;
+  max-height: 64px;
+}
+
+/* Natural row height leaves room for the real form and its submission feedback. */
+.detailing-landing .hero {
+  min-height: 100svh;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  padding-top: var(--detail-header-height);
+}
+
+.detailing-landing .hero-content {
+  min-width: 0;
+  padding-top: 64px;
+}
+
+.detailing-landing .hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 48px 24px;
+}
+
+.detailing-landing .hero-quote {
+  position: relative;
+  z-index: 3;
+  width: min(420px, 100%);
+  min-width: 0;
+}
+
+.detailing-landing #quote,
+.detailing-landing #quote-form {
+  scroll-margin-top: calc(var(--detail-header-height) + 16px);
+}
+
+.detailing-landing .quote-form-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 30px 26px 22px;
+  background: rgba(10, 10, 10, 0.97);
+  border-radius: 0;
+}
+
+.detailing-landing .form-title {
+  font-weight: 400;
+  line-height: 0.98;
+}
+
+.detailing-landing .native-quote-form {
+  --quote-accent: var(--cyan);
+  --quote-accent-bright: var(--cyan-dark);
+  --quote-surface: #1e1e1e;
+  --quote-surface-focus: #272727;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px 12px;
+  margin-top: 0;
+}
+
+.detailing-landing .native-quote-form > * {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.detailing-landing .native-quote-field:nth-child(2),
+.detailing-landing .native-quote-field:nth-child(3) {
+  grid-column: auto;
+}
+
+.detailing-landing .native-quote-field label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  line-height: 1.4;
+}
+
+.detailing-landing .native-quote-field input,
+.detailing-landing .native-quote-field textarea {
+  min-height: 46px;
+  padding: 12px 14px;
+}
+
+.detailing-landing .native-quote-field textarea {
+  min-height: 84px;
+}
+
+.detailing-landing .native-quote-field input::placeholder,
+.detailing-landing .native-quote-field textarea::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+.detailing-landing .native-quote-field input:focus,
+.detailing-landing .native-quote-field textarea:focus {
+  border-color: var(--detail-blue-text);
+  box-shadow: 0 0 0 3px var(--detail-blue-glow);
+}
+
+.detailing-landing .native-quote-submit {
+  min-height: 48px;
+  padding: 13px 16px;
+  margin-top: 8px;
+}
+
+.detailing-landing .native-quote-consent,
+.detailing-landing .native-quote-microcopy,
+.detailing-landing .native-quote-status {
+  overflow-wrap: anywhere;
+}
+
+.detailing-landing .native-quote-status {
+  border-color: var(--detail-blue-text);
+}
+
+.detailing-landing .native-quote-status.is-success {
+  background: rgba(2, 90, 224, 0.15);
+}
+
+.detailing-landing .native-quote-status.is-error {
+  border-color: #ed8585;
+}
+
+.detailing-landing .quote-phone-help {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #b8b8b8;
+  text-align: center;
+}
+
+.detailing-landing .quote-phone-help a {
+  color: var(--detail-blue-text);
+  text-decoration: none;
+}
+
+/* Preserve the quote card's existing presentation. */
+.detailing-landing .form-tag {
+  color: var(--detail-blue-text);
+}
+
+/* Client-approved deep blue matches the supplied design's accent text. */
+.detailing-landing :is(.hero-tag, .hero h1 em, .section-tag, .section-title em,
+  .package-protection, .review-score, .review-stars, .review-card-stars,
+  .review-link, .faq-toggle,
+  .footer-right a),
+.detailing-landing .package-features li::before {
+  color: var(--cyan);
+}
+
+.detailing-landing :is(.nav-cta, .btn-primary, .package-cta-fill, .native-quote-submit) {
+  color: #fff;
+  box-shadow: 0 0 24px var(--detail-blue-glow);
+}
+
+.detailing-landing :is(.tab-btn.active, .popular-badge),
+.detailing-landing .mobile-sticky-cta a:first-child {
+  color: #fff;
+}
+
+.detailing-landing :is(.nav-cta, .btn-primary, .package-cta-fill, .native-quote-submit):hover {
+  background: var(--cyan-dark);
+  border-color: var(--cyan-dark);
+  color: #fff;
+  box-shadow: 0 0 28px var(--detail-blue-glow);
+}
+
+.detailing-landing :is(.package-cta-outline, .tab-btn):hover {
+  color: var(--cyan);
+}
+
+.detailing-landing .tab-btn.active:hover {
+  color: #fff;
+}
+
+.detailing-landing :is(a, button):focus-visible {
+  outline: 2px solid var(--detail-blue-text);
+  outline-offset: 4px;
+}
+
+.detailing-landing .mobile-sticky-cta a:first-child {
+  box-shadow: none;
+}
+
+/* Long answers must remain readable when text wraps on narrow phones. */
+.detailing-landing .faq-item.open .faq-answer {
+  max-height: none;
+}
+
+@media (max-width: 1024px) {
+  .detailing-landing .hero {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detailing-landing .hero-content {
+    padding: 36px 20px 28px;
+  }
+
+  .detailing-landing .nav-cta {
+    display: inline-flex !important;
+    padding: 12px 20px;
+    font-size: 11px;
+  }
+
+  .detailing-landing .hero-image {
+    --detail-photo-height: clamp(280px, 48vw, 420px);
+    padding: 0;
+    min-height: 0 !important;
+    align-items: stretch;
+  }
+
+  .detailing-landing .hero-image img {
+    height: var(--detail-photo-height) !important;
+    min-height: var(--detail-photo-height) !important;
+    object-position: 40% center !important;
+    margin: 0 !important;
+    border: 0 !important;
+  }
+
+  .detailing-landing .hero-image::before,
+  .detailing-landing .hero-image::after {
+    display: block !important;
+    bottom: auto;
+    height: var(--detail-photo-height);
+  }
+
+  .detailing-landing .hero-quote {
+    width: 100%;
+  }
+
+  .detailing-landing .quote-form-container {
+    padding: 24px 20px 22px;
+    box-shadow: none;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .detailing-landing .native-quote-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detailing-landing .native-quote-field:nth-child(2),
+  .detailing-landing .native-quote-field:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .detailing-landing #quote,
+  .detailing-landing #quote-form {
+    scroll-margin-top: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detailing-landing *,
+  .detailing-landing *::before,
+  .detailing-landing *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

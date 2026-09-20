@@ -1,0 +1,260 @@
+/* Tint-only presentation. Shared assets, form styles and submission code stay shared. */
+.tint-landing {
+  --blue: #025ae0;
+  --blue-bright: #5b94eb;
+  --blue-dim: #013686;
+  --blue-glow: rgba(2, 90, 224, 0.15);
+  --blue-glow-s: rgba(2, 90, 224, 0.3);
+  --tint-header-height: 96px;
+}
+
+.tint-landing nav {
+  height: var(--tint-header-height);
+}
+
+.tint-landing .nav-logo img {
+  width: 76px;
+  height: auto;
+  max-height: 60px;
+}
+
+.tint-landing .footer-logo img {
+  width: 92px;
+  height: auto;
+  max-height: 64px;
+}
+
+/* Intrinsic rows allow validation messages and short desktop screens to grow. */
+.tint-landing .hero {
+  height: auto;
+  min-height: 100svh;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  padding-top: var(--tint-header-height);
+  overflow: visible;
+}
+
+.tint-landing .hero-left {
+  min-width: 0;
+  padding: 3rem clamp(2rem, 4vw, 4rem) 3rem clamp(2rem, 6.25vw, 5rem);
+}
+
+.tint-landing .hero-right {
+  min-width: 0;
+  height: auto;
+  padding: 2rem clamp(1.5rem, 3.75vw, 3rem) 3rem;
+  overflow: hidden;
+}
+
+.tint-landing .hero-form-wrapper {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 458px);
+  margin: 0 auto;
+}
+
+.tint-landing #quote,
+.tint-landing #quote-form {
+  scroll-margin-top: calc(var(--tint-header-height) + 1rem);
+}
+
+.tint-landing .hero-form-card {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 1.75rem;
+  background: rgba(12, 12, 12, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 2px;
+  box-shadow: 0 26px 78px rgba(0, 0, 0, 0.58);
+}
+
+.tint-landing .hero-form-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.85rem;
+  font-weight: 300;
+  line-height: 1.06;
+  margin: 0 0 0.65rem;
+  color: var(--white);
+}
+
+.tint-landing .hero-form-intro {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+  max-width: none;
+}
+
+.tint-landing .native-quote-form {
+  --quote-accent: var(--blue);
+  --quote-accent-bright: var(--blue-bright);
+  --quote-surface: #272727;
+  --quote-surface-focus: #303030;
+  gap: 0.8rem;
+  margin-top: 0;
+}
+
+.tint-landing .native-quote-field label {
+  font-weight: 400;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  line-height: 1.35;
+}
+
+.tint-landing .native-quote-field input,
+.tint-landing .native-quote-field textarea {
+  min-height: 44px;
+  padding: 0.7rem 1rem;
+}
+
+.tint-landing .native-quote-field textarea {
+  min-height: 76px;
+}
+
+.tint-landing .native-quote-field input::placeholder,
+.tint-landing .native-quote-field textarea::placeholder {
+  color: #b8b8b8;
+  opacity: 1;
+}
+
+.tint-landing .native-quote-field input:focus,
+.tint-landing .native-quote-field textarea:focus {
+  border-color: var(--blue-bright);
+  box-shadow: 0 0 0 3px var(--blue-glow-s);
+}
+
+.tint-landing .native-quote-submit {
+  margin-top: 0.6rem;
+  min-height: 48px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 0 20px var(--blue-glow-s);
+}
+
+.tint-landing .native-quote-consent,
+.tint-landing .native-quote-microcopy {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.tint-landing .native-quote-status {
+  border-color: var(--blue-bright);
+  overflow-wrap: anywhere;
+}
+
+.tint-landing .native-quote-status.is-success {
+  background: var(--blue-glow);
+}
+
+.tint-landing .native-quote-status.is-error {
+  border-color: #ed8585;
+}
+
+/* Use the reference's lighter blue for text; keep the deep blue on filled actions. */
+.tint-landing :is(.hero-tag, .hero-title em, .section-tag, .section-title em,
+  .package-duration, .review-score, .review-stars, .review-stars-sm,
+  .hero-form-kicker, .lead-reassurance-visual-kicker, .footer-right a),
+.tint-landing .package-features li::before,
+.tint-landing .faq-question::after {
+  color: var(--blue-bright);
+}
+
+.tint-landing footer a {
+  --blue: var(--blue-bright);
+}
+
+.tint-landing :is(.nav-cta, .btn-primary, .package-badge, .native-quote-submit),
+.tint-landing .package-card.featured .package-btn,
+.tint-landing .mobile-sticky-cta a:first-child {
+  color: #fff;
+}
+
+.tint-landing :is(.nav-cta, .btn-primary, .native-quote-submit):hover,
+.tint-landing .package-card.featured .package-btn:hover {
+  color: var(--black);
+}
+
+.tint-landing .btn-outline:hover,
+.tint-landing .package-btn:hover {
+  color: var(--blue-bright);
+}
+
+.tint-landing :is(a, button):focus-visible {
+  outline: 2px solid var(--blue-bright);
+  outline-offset: 4px;
+}
+
+.tint-landing .mobile-sticky-cta a:first-child {
+  background: var(--blue);
+  box-shadow: none;
+}
+
+.tint-landing .mobile-sticky-cta a:last-child {
+  background: var(--charcoal);
+  box-shadow: none;
+}
+
+@media (max-width: 900px) {
+  .tint-landing {
+    --tint-header-height: 80px;
+  }
+
+  .tint-landing .nav-logo img {
+    width: 64px;
+    max-height: 48px;
+  }
+
+  .tint-landing .hero {
+    min-height: auto;
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 0;
+  }
+
+  .tint-landing .hero-left {
+    padding: 2rem 1.5rem;
+  }
+
+  .tint-landing .hero-right {
+    padding: 0 1.5rem 2.5rem;
+    overflow: visible;
+  }
+
+  .tint-landing .hero-form-wrapper {
+    width: 100%;
+    margin: 0;
+  }
+
+  .tint-landing .hero-form-card {
+    padding: 1.5rem 1.15rem 1.4rem;
+    border-radius: 18px;
+  }
+
+  .tint-landing .hero-form-card h2 {
+    font-size: 1.72rem;
+  }
+
+  .tint-landing .native-quote-field input,
+  .tint-landing .native-quote-field textarea {
+    min-height: 52px;
+    padding: 0.95rem 1rem;
+  }
+
+  .tint-landing .native-quote-field textarea {
+    min-height: 92px;
+  }
+
+  .tint-landing #quote,
+  .tint-landing #quote-form {
+    scroll-margin-top: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.tint-landing) {
+    scroll-behavior: auto;
+  }
+
+  .tint-landing *,
+  .tint-landing *::before,
+  .tint-landing *::after {
+    transition: none;
+  }
+}
