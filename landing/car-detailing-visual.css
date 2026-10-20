@@ -71,7 +71,7 @@
 
 .detailing-landing .native-quote-form {
   --quote-accent: var(--cyan);
-  --quote-accent-bright: var(--cyan-dark);
+  --quote-accent-bright: var(--detail-blue-text);
   --quote-surface: #1e1e1e;
   --quote-surface-focus: #272727;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

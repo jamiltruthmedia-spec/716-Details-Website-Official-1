@@ -44,14 +44,14 @@
 
 .site-quote-modal__close:hover,
 .site-quote-modal__close:focus {
-  border-color: var(--blue, #29b6f6);
+  border-color: var(--blue-bright, #5B94EB);
   color: #fff;
   outline: none;
 }
 
 .site-quote-modal__kicker {
   display: block;
-  color: var(--blue, #29b6f6);
+  color: var(--blue-bright, #5B94EB);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -123,8 +123,8 @@
 
 .site-quote-field input:focus,
 .site-quote-field textarea:focus {
-  border-color: var(--blue, #29b6f6);
-  box-shadow: 0 0 0 3px rgba(41, 182, 246, 0.18);
+  border-color: var(--blue-bright, #5B94EB);
+  box-shadow: 0 0 0 3px rgba(2, 90, 224, 0.18);
   background: rgba(0, 0, 0, 0.58);
 }
 
@@ -132,8 +132,8 @@
   min-height: 52px;
   border: 0;
   border-radius: 0;
-  background: var(--blue, #29b6f6);
-  color: var(--black, #050505);
+  background: var(--blue, #025AE0);
+  color: #ffffff;
   cursor: pointer;
   font: inherit;
   font-size: 0.78rem;
@@ -147,7 +147,7 @@
 
 .site-quote-submit:hover,
 .site-quote-submit:focus {
-  background: var(--blue-bright, #56c8ff);
+  background: var(--blue-hover, #0248B3);
   outline: none;
   transform: translateY(-1px);
 }
@@ -173,7 +173,7 @@
 
 .site-quote-status {
   display: none;
-  border: 1px solid rgba(41, 182, 246, 0.35);
+  border: 1px solid rgba(2, 90, 224, 0.35);
   color: #fff;
   font-size: 0.86rem;
   line-height: 1.5;
@@ -186,7 +186,7 @@
 }
 
 .site-quote-status.is-success {
-  background: rgba(41, 182, 246, 0.12);
+  background: rgba(2, 90, 224, 0.12);
 }
 
 .site-quote-status.is-error {

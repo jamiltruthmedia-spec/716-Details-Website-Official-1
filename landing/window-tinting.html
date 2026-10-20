@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.716detailing.com/landing/window-tinting.html">
 <meta name="geo.region" content="US-NY">
-<meta name="geo.placename" content="Lewiston, New York">
+<meta name="geo.placename" content="Buffalo, New York">
 <link rel="canonical" href="https://www.716detailing.com/landing/window-tinting.html">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
@@ -23,11 +23,12 @@
     --charcoal: #191919;
     --mid:    #222222;
     --border: #303030;
-    --blue:        #29b6f6;
-    --blue-bright: #56c8ff;
-    --blue-dim:    #0a6080;
-    --blue-glow:   rgba(41,182,246,0.15);
-    --blue-glow-s: rgba(41,182,246,0.30);
+    --blue:        #025ae0;
+    --blue-hover:  #0248b3;
+    --blue-bright: #5b94eb;
+    --blue-dim:    #013686;
+    --blue-glow:   rgba(2,90,224,0.15);
+    --blue-glow-s: rgba(2,90,224,0.30);
     --white:   #f7f2eb;
     --offwhite:#e9ddcc;
     --muted:   #c4b6a2;
@@ -69,9 +70,9 @@
     text-transform:uppercase;
     transition:color 0.2s;
   }
-  .nav-links a:hover { color:var(--blue); }
+  .nav-links a:hover { color:var(--blue-bright); }
   .nav-cta {
-    background:var(--blue); color:var(--black);
+    background:var(--blue); color:#fff;
     padding:0.65rem 1.6rem;
     font-size:0.75rem; font-weight:600;
     letter-spacing:0.1em; text-transform:uppercase;
@@ -80,7 +81,7 @@
     box-shadow:0 0 16px var(--blue-glow-s);
   }
   .nav-cta-mobile { display:none; }
-  .nav-cta:hover { background:var(--blue-bright); transform:translateY(-1px); }
+  .nav-cta:hover { background:var(--blue-hover); transform:translateY(-1px); }
 
   /* HERO */
   .hero {
@@ -95,7 +96,7 @@
   }
   .hero-tag {
     font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase;
-    color:var(--blue); margin-bottom:1.5rem;
+    color:var(--blue-bright); margin-bottom:1.5rem;
     display:flex; align-items:center; gap:0.8rem;
   }
   .hero-tag::before { content:''; display:block; width:2rem; height:1px; background:var(--blue); }
@@ -105,7 +106,7 @@
     line-height:0.98; font-weight:300; margin-bottom:1.25rem;
   }
   .hero-title-main { display:block; }
-  .hero-title em { font-style:italic; color:var(--blue); }
+  .hero-title em { font-style:italic; color:var(--blue-bright); }
   .hero-subtitle {
     font-size:0.98rem; color:var(--muted); line-height:1.7;
     max-width:420px; margin-bottom:1.75rem;
@@ -121,7 +122,7 @@
   }
   .hero-btns { display:flex; gap:1.2rem; flex-wrap:wrap; }
   .btn-primary {
-    background:var(--blue); color:var(--black);
+    background:var(--blue); color:#fff;
     padding:1rem 2.4rem;
     font-size:0.8rem; font-weight:600;
     letter-spacing:0.12em; text-transform:uppercase;
@@ -129,7 +130,7 @@
     border:none; cursor:pointer;
     box-shadow:0 0 20px var(--blue-glow-s);
   }
-  .btn-primary:hover { background:var(--blue-bright); transform:translateY(-2px); }
+  .btn-primary:hover { background:var(--blue-hover); transform:translateY(-2px); }
   .btn-outline {
     border:1px solid var(--border); color:var(--white);
     padding:1rem 2.4rem;
@@ -137,14 +138,14 @@
     letter-spacing:0.12em; text-transform:uppercase;
     text-decoration:none; transition:all 0.2s; background:transparent;
   }
-  .btn-outline:hover { border-color:var(--blue); color:var(--blue); }
+  .btn-outline:hover { border-color:var(--blue); color:var(--blue-bright); }
   .hero-stats {
     display:flex; gap:3rem; margin-top:clamp(2rem, 4vh, 3rem);
     padding-top:clamp(1.4rem, 2.4vh, 2rem); border-top:1px solid var(--border);
   }
   .stat-num {
     font-family:'Bebas Neue',cursive;
-    font-size:2.4rem; color:var(--blue); line-height:1;
+    font-size:2.4rem; color:var(--blue-bright); line-height:1;
   }
   .stat-label {
     font-size:0.72rem; letter-spacing:0.1em;
@@ -164,14 +165,14 @@
   section { padding:7rem 5rem; }
   .section-tag {
     font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase;
-    color:var(--blue); margin-bottom:1rem;
+    color:var(--blue-bright); margin-bottom:1rem;
   }
   .section-title {
     font-family:'Cormorant Garamond',serif;
     font-size:clamp(2.4rem,4vw,3.8rem);
     font-weight:300; line-height:1.1; margin-bottom:1.5rem;
   }
-  .section-title em { font-style:italic; color:var(--blue); }
+  .section-title em { font-style:italic; color:var(--blue-bright); }
   .section-body {
     font-size:0.95rem; color:var(--muted);
     line-height:1.9; max-width:540px;
@@ -221,7 +222,7 @@
   }
   .package-badge {
     position:absolute; top:-1px; left:50%; transform:translateX(-50%);
-    background:var(--blue); color:var(--black);
+    background:var(--blue); color:#fff;
     font-size:0.65rem; font-weight:600; letter-spacing:0.12em;
     text-transform:uppercase; padding:0.3rem 1rem; white-space:nowrap;
   }
@@ -234,7 +235,7 @@
     font-size:2rem; font-weight:300; margin-bottom:0.5rem;
   }
   .package-duration {
-    font-size:0.8rem; color:var(--blue); letter-spacing:0.05em; margin-bottom:2rem;
+    font-size:0.8rem; color:var(--blue-bright); letter-spacing:0.05em; margin-bottom:2rem;
   }
   .package-price {
     margin-bottom:2rem; padding-bottom:2rem; border-bottom:1px solid var(--border);
@@ -256,7 +257,7 @@
     font-size:0.85rem; color:var(--offwhite);
     display:flex; align-items:flex-start; gap:0.7rem;
   }
-  .package-features li::before { content:'-'; color:var(--blue); flex-shrink:0; }
+  .package-features li::before { content:'-'; color:var(--blue-bright); flex-shrink:0; }
   .package-btn {
     display:block; text-align:center; background:transparent;
     border:1px solid var(--border); color:var(--white);
@@ -264,11 +265,11 @@
     font-size:0.75rem; font-weight:500; letter-spacing:0.1em;
     text-transform:uppercase; text-decoration:none; transition:all 0.2s;
   }
-  .package-btn:hover { border-color:var(--blue); color:var(--blue); }
+  .package-btn:hover { border-color:var(--blue); color:var(--blue-bright); }
   .package-card.featured .package-btn {
-    background:var(--blue); border-color:var(--blue); color:var(--black);
+    background:var(--blue); border-color:var(--blue); color:#fff;
   }
-  .package-card.featured .package-btn:hover { background:var(--blue-bright); }
+  .package-card.featured .package-btn:hover { background:var(--blue-hover); }
 
   /* PRICING TABLE */
   .pricing-section { background:var(--black); padding:7rem 5rem; }
@@ -285,7 +286,7 @@
     border-bottom:1px solid var(--border); vertical-align:middle;
   }
   .pricing-table td:not(:first-child) {
-    text-align:center; color:var(--blue); font-weight:500;
+    text-align:center; color:var(--blue-bright); font-weight:500;
   }
   .pricing-table tbody tr { transition:background 0.15s; }
   .pricing-table tbody tr:hover { background:var(--charcoal); }
@@ -330,16 +331,16 @@
   }
   .review-score {
     font-family:'Bebas Neue',cursive;
-    font-size:5rem; color:var(--blue); line-height:1; margin-bottom:0.3rem;
+    font-size:5rem; color:var(--blue-bright); line-height:1; margin-bottom:0.3rem;
   }
-  .review-stars { color:var(--blue); font-size:1.2rem; letter-spacing:0.1em; }
+  .review-stars { color:var(--blue-bright); font-size:1.2rem; letter-spacing:0.1em; }
   .review-count { font-size:0.8rem; color:var(--muted); margin-top:0.5rem; }
   .reviews-grid {
     display:grid; grid-template-columns:repeat(3,1fr);
     gap:1px; background:var(--border); border:1px solid var(--border);
   }
   .review-card { background:var(--dark); padding:2.5rem; }
-  .review-stars-sm { color:var(--blue); font-size:0.9rem; margin-bottom:1.2rem; }
+  .review-stars-sm { color:var(--blue-bright); font-size:0.9rem; margin-bottom:1.2rem; }
   .review-text {
     font-family:'Cormorant Garamond',serif;
     font-size:1.1rem; font-style:italic;
@@ -402,7 +403,7 @@
     line-height:1.8;
   }
   .footer-right { flex:0 0 160px; min-width:160px; font-size:0.75rem; color:var(--muted); text-align:right; }
-  .footer-right a { color:var(--blue); text-decoration:none; }
+  .footer-right a { color:var(--blue-bright); text-decoration:none; }
 
   /* RESPONSIVE */
   @media (max-width:900px) {
@@ -506,7 +507,7 @@
   .form-group textarea:focus {
     border-color: var(--blue);
     background: rgba(255,255,255,0.14);
-    box-shadow: 0 0 0 1px rgba(41,182,246,0.32);
+    box-shadow: 0 0 0 1px rgba(2,90,224,0.32);
   }
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--blue) !important; }
   .form-group select option { background: var(--mid); }
@@ -514,7 +515,7 @@
   .form-submit {
     width: 100%;
     box-sizing:border-box;
-    background: var(--blue); color: var(--black);
+    background: var(--blue); color:#fff;
     border: none; cursor: pointer;
     padding: 1.1rem 1rem;
     font-family: 'DM Sans', sans-serif;
@@ -523,7 +524,7 @@
     transition: background 0.2s, transform 0.2s;
     box-shadow: 0 0 24px var(--blue-glow-s);
   }
-  .form-submit:hover { background: var(--blue-bright); transform: translateY(-1px); }
+  .form-submit:hover { background:var(--blue-hover); transform: translateY(-1px); }
   .form-note {
     font-size: 0.7rem; color: var(--muted);
     text-align: center; margin-top: 0.8rem;
@@ -537,9 +538,9 @@
     text-align:center;
   }
   .form-success-message {
-    background:rgba(41,182,246,0.1);
+    background:rgba(2,90,224,0.1);
     border:1px solid var(--blue);
-    color:var(--blue);
+    color:var(--blue-bright);
   }
   .form-error-message {
     background:rgba(255,107,107,0.08);
@@ -587,7 +588,7 @@
   }
   .faq-question::after {
     content: '+';
-    color: var(--blue); font-size: 1.4rem; line-height: 1;
+    color:var(--blue-bright); font-size: 1.4rem; line-height: 1;
     flex-shrink: 0; font-family: 'DM Sans', sans-serif; font-weight: 300;
     transition: transform 0.2s;
   }
@@ -700,7 +701,7 @@
     font-size:0.72rem;
     letter-spacing:0.16em;
     text-transform:uppercase;
-    color:var(--blue);
+    color:var(--blue-bright);
   }
   .hero-form-intro {
     font-size:0.86rem;
@@ -781,7 +782,7 @@
     font-size:0.68rem;
     letter-spacing:0.18em;
     text-transform:uppercase;
-    color:var(--blue);
+    color:var(--blue-bright);
     margin-bottom:0.8rem;
   }
   .lead-reassurance-visual h3 {
@@ -979,7 +980,7 @@
     }
     .mobile-sticky-cta a:first-child {
       background:var(--blue);
-      color:var(--black);
+      color:#fff;
     }
     .mobile-sticky-cta a:last-child {
       background:var(--charcoal);
@@ -1092,14 +1093,13 @@
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "4689 Model City Rd",
-    "addressLocality": "Lewiston",
+    "streetAddress": "103 Norris St",
+    "addressLocality": "Buffalo",
     "addressRegion": "NY",
-    "postalCode": "14092",
+    "postalCode": "14207",
     "addressCountry": "US"
   },
-  "geo": {"@type": "GeoCoordinates", "latitude": 43.1745, "longitude": -79.0445},
-  "openingHoursSpecification": [{"@type": "OpeningHoursSpecification","dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens": "08:00","closes": "21:00"}],
+  "openingHoursSpecification": [{"@type": "OpeningHoursSpecification","dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens": "09:00","closes": "18:00"}],
   "aggregateRating": {"@type": "AggregateRating","ratingValue": "4.9","reviewCount": "87","bestRating": "5"},
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -1122,13 +1122,12 @@
     {"@type": "City","name": "Wheatfield","addressRegion": "NY"},
     {"@type": "City","name": "Lewiston","addressRegion": "NY"},
     {"@type": "City","name": "Lockport","addressRegion": "NY"}
-  ],
-  "sameAs": ["https://maps.app.goo.gl/c3y9ckStgWDsfLHEA"]
+  ]
 }
 </script>
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iOCIgZmlsbD0iIzA4MDgwOCIvPgogIDx0ZXh0IHg9IjMyIiB5PSIyOCIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMyOWI2ZjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjcxNjwvdGV4dD4KICA8dGV4dCB4PSIzMiIgeT0iNDQiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIxIj5ERVRBSUxTPC90ZXh0Pgo8L3N2Zz4=">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iOCIgZmlsbD0iIzA4MDgwOCIvPgogIDx0ZXh0IHg9IjMyIiB5PSIyOCIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMyOWI2ZjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjcxNjwvdGV4dD4KICA8dGV4dCB4PSIzMiIgeT0iNDQiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIxIj5ERVRBSUxTPC90ZXh0Pgo8L3N2Zz4=">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iOCIgZmlsbD0iIzA4MDgwOCIvPgogIDx0ZXh0IHg9IjMyIiB5PSIyOCIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMwMjVhZTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjcxNjwvdGV4dD4KICA8dGV4dCB4PSIzMiIgeT0iNDQiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIxIj5ERVRBSUxTPC90ZXh0Pgo8L3N2Zz4=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iOCIgZmlsbD0iIzA4MDgwOCIvPgogIDx0ZXh0IHg9IjMyIiB5PSIyOCIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMwMjVhZTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjcxNjwvdGV4dD4KICA8dGV4dCB4PSIzMiIgeT0iNDQiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIxIj5ERVRBSUxTPC90ZXh0Pgo8L3N2Zz4=">
 
 <style>
   .nav-links { gap: 2rem; }
@@ -1265,8 +1264,8 @@
   }
   .mobile-sticky-cta a:first-child {
     background:var(--cyan, var(--blue));
-    color:#000;
-    box-shadow:0 0 20px rgba(0,191,255,0.18) inset;
+    color:#fff;
+    box-shadow:0 0 20px rgba(2,90,224,0.18) inset;
   }
   .mobile-sticky-cta a:last-child {
     background:rgba(255,255,255,0.04);
@@ -1310,7 +1309,7 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
 <!-- HERO -->
 <div class="hero">
   <div class="hero-left">
-    <div class="hero-tag">PREMIUM WINDOW TINT &bull; LEWISTON, NY</div>
+    <div class="hero-tag">PREMIUM WINDOW TINT &bull; BUFFALO, NY</div>
     <h1 class="hero-title">
       <span class="hero-title-main">Professional Window Tint</span>
       <em>Done Right</em>
@@ -1453,10 +1452,10 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
   <div class="reviews-inner">
     <div class="reviews-header">
       <div class="section-tag">What Customers Say</div>
-      <a href="https://maps.app.goo.gl/c3y9ckStgWDsfLHEA" target="_blank" rel="noopener" style="text-decoration:none;">
+      <a href="https://www.google.com/search?q=716+Details+Buffalo+NY+reviews" target="_blank" rel="noopener" style="text-decoration:none;">
         <div class="review-score">4.9</div>
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="review-count" style="color:var(--blue);">Google Reviews &mdash; Click to Verify &rarr;</div>
+        <div class="review-count" style="color:var(--blue-bright);">Google Reviews &mdash; Click to Verify &rarr;</div>
       </a>
     </div>
     <div class="reviews-grid">
@@ -1564,7 +1563,7 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
       </div>
       <div class="faq-item">
         <div class="faq-question">Where are you located?</div>
-        <div class="faq-answer">We&rsquo;re located at 4689 Model City Rd, Lewiston, NY 14092 &mdash; just outside of Niagara Falls. We serve the entire Western New York area including Buffalo, Amherst, Williamsville, Tonawanda, Grand Island, North Tonawanda, Lockport, Wheatfield, Clarence, and surrounding communities. Open Mon&ndash;Sun 8AM&ndash;9PM.</div>
+        <div class="faq-answer">We&rsquo;re located at 103 Norris St, Buffalo, NY 14207 &mdash; in North Buffalo. We serve the entire Western New York area including Buffalo, Amherst, Williamsville, Tonawanda, Grand Island, North Tonawanda, Lockport, Wheatfield, Clarence, and surrounding communities. Open Mon&ndash;Sat 9AM&ndash;6PM.</div>
       </div>
     </div>
   </div>
@@ -1593,8 +1592,8 @@ gtag('config', 'AW-16886615838/g9VfCL-z-pccEJ6elfQ-', {
       </a>
     </div>
     <div class="footer-info">
-      4689 Model City Rd, Lewiston, NY 14092<br>
-      <a href="tel:7164059988" style="color:var(--blue);text-decoration:none;">(716) 405-9988</a> &nbsp;&middot;&nbsp; <a href="mailto:716.detailsny@gmail.com" style="color:var(--blue);text-decoration:none;">716.detailsny@gmail.com</a> &nbsp;&middot;&nbsp; Mon&ndash;Sun 8AM&ndash;9PM<br>
+      103 Norris St, Buffalo, NY 14207<br>
+      <a href="tel:7164059988" style="color:var(--blue-bright);text-decoration:none;">(716) 405-9988</a> &nbsp;&middot;&nbsp; <a href="mailto:716.detailsny@gmail.com" style="color:var(--blue-bright);text-decoration:none;">716.detailsny@gmail.com</a> &nbsp;&middot;&nbsp; Mon&ndash;Sat 9AM&ndash;6PM<br>
       <span style="font-size:0.72rem;color:var(--muted);line-height:2;">Buffalo &middot; Amherst &middot; Williamsville &middot; Clarence &middot; Tonawanda &middot; North Tonawanda &middot; Grand Island &middot; Niagara Falls &middot; Wheatfield &middot; Lewiston &middot; Lockport</span>
     </div>
     <div class="footer-right">

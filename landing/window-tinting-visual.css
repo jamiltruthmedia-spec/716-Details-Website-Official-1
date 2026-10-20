@@ -1,6 +1,7 @@
 /* Tint-only presentation. Shared assets, form styles and submission code stay shared. */
 .tint-landing {
   --blue: #025ae0;
+  --blue-hover: #0248b3;
   --blue-bright: #5b94eb;
   --blue-dim: #013686;
   --blue-glow: rgba(2, 90, 224, 0.15);
@@ -169,7 +170,9 @@
 
 .tint-landing :is(.nav-cta, .btn-primary, .native-quote-submit):hover,
 .tint-landing .package-card.featured .package-btn:hover {
-  color: var(--black);
+  background: var(--blue-hover);
+  border-color: var(--blue-hover);
+  color: #fff;
 }
 
 .tint-landing .btn-outline:hover,
