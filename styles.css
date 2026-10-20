@@ -5477,6 +5477,10 @@ body.has-announcement section:first-of-type {
 }
 .areas-view-all-link:hover { background: #025AE0; color: #ffffff; }
 
+body.site-quote-modal-open chat-widget {
+    display: none !important;
+}
+
 .mobile-sticky-cta {
     display: none;
     position: fixed;
@@ -5515,6 +5519,12 @@ body.has-announcement section:first-of-type {
 @media (max-width: 768px) {
     .mobile-sticky-cta { display: flex; }
     body { padding-bottom: 70px; }
+    .mobile-sticky-cta {
+        padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    }
+    body.has-mobile-sticky-actions {
+        padding-bottom: var(--site-sticky-cta-height, 70px);
+    }
     .qa-grid { grid-template-columns: 1fr; }
 }
 
@@ -5612,13 +5622,6 @@ body.has-announcement section:first-of-type {
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-
-    /* Push chat widget above sticky CTA bar */
-    .lc_btn,
-    [class*="chat-widget"],
-    [class*="leadConnector"] {
-        bottom: 80px !important;
     }
 
     .mobile-sticky-cta {
