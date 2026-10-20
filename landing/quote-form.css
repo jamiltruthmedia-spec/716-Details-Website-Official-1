@@ -2,8 +2,9 @@
   display: grid;
   gap: 0.85rem;
   margin-top: 1rem;
-  --quote-accent: var(--blue, var(--cyan, #29b6f6));
-  --quote-accent-bright: var(--blue-bright, var(--cyan-dark, #56c8ff));
+  --quote-accent: var(--blue, var(--cyan, #025ae0));
+  --quote-accent-bright: var(--blue-bright, var(--detail-blue-text, #5b94eb));
+  --quote-accent-hover: var(--blue-hover, var(--cyan-dark, #0248b3));
   --quote-surface: rgba(0, 0, 0, 0.44);
   --quote-surface-focus: rgba(0, 0, 0, 0.58);
 }
@@ -22,7 +23,7 @@
 
 .quote-section .hero-form-kicker,
 .quote-section .form-tag {
-  color: var(--quote-accent);
+  color: var(--quote-accent-bright);
   display: block;
   font-size: 0.7rem;
   font-weight: 600;
@@ -94,8 +95,8 @@
 
 .native-quote-field input:focus,
 .native-quote-field textarea:focus {
-  border-color: var(--quote-accent);
-  box-shadow: 0 0 0 3px rgba(41, 182, 246, 0.18);
+  border-color: var(--quote-accent-bright);
+  box-shadow: 0 0 0 3px rgba(2, 90, 224, 0.18);
   background: var(--quote-surface-focus);
 }
 
@@ -104,7 +105,7 @@
   border: 0;
   border-radius: 0;
   background: var(--quote-accent);
-  color: var(--black, #050505);
+  color: #fff;
   cursor: pointer;
   font: inherit;
   font-size: 0.78rem;
@@ -117,7 +118,7 @@
 }
 
 .native-quote-submit:hover {
-  background: var(--quote-accent-bright);
+  background: var(--quote-accent-hover);
   transform: translateY(-1px);
 }
 
@@ -142,7 +143,7 @@
 
 .native-quote-status {
   display: none;
-  border: 1px solid rgba(41, 182, 246, 0.35);
+  border: 1px solid rgba(2, 90, 224, 0.35);
   color: #fff;
   font-size: 0.86rem;
   line-height: 1.5;
@@ -155,7 +156,7 @@
 }
 
 .native-quote-status.is-success {
-  background: rgba(41, 182, 246, 0.12);
+  background: rgba(2, 90, 224, 0.12);
 }
 
 .native-quote-status.is-error {
